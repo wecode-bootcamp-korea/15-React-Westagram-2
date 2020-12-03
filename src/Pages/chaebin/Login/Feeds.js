@@ -104,4 +104,4 @@ class Feeds extends React.Component {
   }
 }
 
-export default Feeds
+export default Feeds;
