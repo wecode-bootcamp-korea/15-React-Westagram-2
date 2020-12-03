@@ -1,0 +1,211 @@
+$font-size-supersmall: 12px;
+$font-size-extrasmall: 12.5px;
+$font-size-small: 14px;
+$font-size-regular: 15px;
+$font-size-medium: 16px;
+
+$font-weight-light: 200;
+$font-weight-regular: 300;
+$font-weight-medium: 400;
+$font-weight-bold: 600;
+
+$font-color-lightgray: #bdbdbd;
+$font-color-gray: #909090;
+$font-color-black: #191919;
+$font-color-lighterblack: #333;
+
+$font-color-lightblue: #bbd6ed;
+$font-color-blue: #1e93f2;
+
+$story-line-pink: #dc4166;
+$border-line-gray: #ddd;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin user-link {
+  font-size: $font-size-regular;
+  font-weight: $font-weight-bold;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  text-decoration: none;
+}
+
+@mixin list-style-reset {
+  list-style: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: $font-color-black;
+  font-family: proxima-nova, sans-serif;
+  object-fit: cover;
+}
+
+@mixin a-decoration-reset {
+  text-decoration: none;
+  color: $font-color-black;
+}
+
+/* ======================================================================== */
+
+/* main-right aside */
+.Aside {
+  width: 293px;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  .main-right-inner {
+    width: 100%;
+    max-width: 293px;
+    position: fixed;
+
+    .main-right__my-account-container {
+      width: 100%;
+      padding: 20px 0;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      div {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        border: 1px solid #ddd;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          width: 56px;
+          height: 56px;
+          background: #000;
+
+          border-radius: 50%;
+        }
+      }
+
+      .main-right__my-profile-info-box {
+        margin-right: 52px;
+
+        .main-right__my-id {
+          @include user-link;
+          margin-bottom: 3px;
+        }
+
+        .main-right__my-username {
+          font-size: $font-size-small;
+          font-weight: $font-weight-medium;
+          color: $font-color-gray;
+        }
+      }
+
+      .main-right__switch {
+        @include a-decoration-reset;
+        color: $font-color-blue;
+        font-size: $font-size-extrasmall;
+        font-weight: $font-weight-bold;
+      }
+    }
+
+    /* ========= */
+    .main-right__suggestions-container {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 24px;
+
+      .main-right__suggestions-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 4px 0 10px 0;
+
+        p {
+          color: $font-color-gray;
+          font-weight: $font-weight-bold;
+          font-size: $font-size-regular;
+        }
+
+        a {
+          @include a-decoration-reset;
+          font-weight: $font-weight-bold;
+          font-size: $font-size-extrasmall;
+        }
+      }
+
+      .main-right__suggestion-list {
+        @include list-style-reset;
+        display: flex;
+        flex-direction: column;
+
+        .suggestion-user {
+          @include list-style-reset;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin: 6px 0;
+
+          .suggestion-user-container {
+            @include flex-center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid #dc4166;
+
+            .suggestion-user-profile {
+              width: 32px;
+              height: 32px;
+              background: #000;
+              border-radius: 50%;
+              position: relative;
+            }
+          }
+
+          .suggestion-user-container.new-story-false {
+            border: 1px solid #ccc;
+          }
+
+          .suggestion-user-info {
+            position: absolute;
+            left: 50px;
+
+            .suggestion-user-id {
+              margin-bottom: 3px;
+            }
+
+            .suggestion-detail {
+              max-width: 200px;
+              font-size: $font-size-extrasmall;
+              color: $font-color-gray;
+              line-height: 14px;
+            }
+          }
+
+          .follow-btn {
+            color: $font-color-blue;
+            font-size: $font-size-extrasmall;
+            font-weight: $font-weight-bold;
+          }
+        }
+      }
+    }
+
+    /* footer */
+    .footer {
+      p {
+        color: $font-color-lightgray;
+        font-size: $font-size-supersmall;
+        line-height: 20px;
+        margin-bottom: 14px;
+      }
+    }
+  }
+}
