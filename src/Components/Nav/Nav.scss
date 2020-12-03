@@ -54,6 +54,10 @@ $border-line-gray: #ddd;
 }
 
 
+
+
+
+
 .Nav {
   @include flex-center;
   width: 100%;
@@ -261,6 +265,12 @@ $border-line-gray: #ddd;
     display: flex;
   }
 }
+
+
+
+
+
+
 
 @media (max-width: 1000px) {
   .nav {
