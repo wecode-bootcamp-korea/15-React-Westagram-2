@@ -13,9 +13,9 @@ import {
 // import LoginJongTaek from './pages/jongtaekoh/Login/Login';
 // import MainJongTaek from './pages/jongtaekoh/Main/Main';
 
-// // 미현's 컴포넌트
-// import LoginJongTaek from './pages/jongtaekoh/Login/Login';
-// import MainJongTaek from './pages/jongtaekoh/Main/Main';
+// 미현's 컴포넌트
+import LoginCecilia from './Pages/cecilia/Login/Login';
+import MainCecilia from './Pages/cecilia/Main/Main'
 
 // // 별이's 컴포넌트
 // import LoginJongTaek from './pages/jongtaekoh/Login/Login';
@@ -32,20 +32,20 @@ class Routes extends React.Component {
     return (
       <Router>
         <Switch>
-          <Route exact path='/login-eunjinlee' component={LoginEunjinlee} />
+          {/* <Route exact path='/login-eunjinlee' component={LoginEunjinlee} />
           <Route exact path='/main-eunjinlee' component={MainEunjinlee} />
 
           <Route exact path='/login-soyoun' component={LoginSoyoun} />
-          <Route exact path='/main-soyoun' component={MainSoyoun} />
+          <Route exact path='/main-soyoun' component={MainSoyoun} /> */}
 
           <Route exact path='/login-cecilia' component={LoginCecilia} />
           <Route exact path='/main-cecilia' component={MainCecilia} />
 
-          <Route exact path='/login-byulyi' component={LoginByulyi} />
+          {/* <Route exact path='/login-byulyi' component={LoginByulyi} />
           <Route exact path='/main-byulyi' component={MainByulyi} />
 
           <Route exact path='/login-chaebin' component={LoginChaebin} />
-          <Route exact path='/main-chaebin' component={MainChaebin} />
+          <Route exact path='/main-chaebin' component={MainChaebin} /> */}
         </Switch>
       </Router>
     )

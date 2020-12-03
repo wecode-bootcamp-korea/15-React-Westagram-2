@@ -1,0 +1,313 @@
+$theme-color: rgb(250, 250, 250);
+
+.Main {
+  padding-top: 40px;
+  background-color: $theme-color;
+
+  nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid $theme-color;
+    background-color: white;
+
+    .navContainer {
+      display: flex;
+      justify-content: space-between;
+      width: 914px;
+      height: 80px;
+      margin: 0 auto;
+
+      .instaLogo {
+        width: 103px;
+        height: 29px;
+        margin: auto 0;
+        background-size: contain;
+      }
+
+      .searchBarContainer {
+        position: relative;
+        top: 20px;
+        right: 60px;
+
+        .searchBar {
+          all: unset;
+          position: absolute;
+          width: 215px;
+          height: 28px;
+          border: 2px solid lightgrey;
+          border-radius: 3px;
+          background-color: $theme-color;
+        }
+
+        .searchBar::placeholder {
+          position: absolute;
+          color: lightgray;
+          text-align: center;
+        }
+
+        .findIcon {
+          position: absolute;
+          width: 15px;
+          height: 15px;
+          left: 70px;
+          top: 8px;
+        }
+      }
+      .iconContainer {
+        display: flex;
+        list-style: none;
+
+        li {
+          margin: 10px;
+
+          .exploreImg {
+            width: 22px;
+            height: 22px;
+            background-size: contain; /* 이미지 가로세로 비율 유지한 채로 사이즈 조절, */
+            cursor: pointer;
+          }
+
+          .heartImg {
+            width: 22px;
+            height: 22px;
+            background-size: contain;
+            cursor: pointer;
+          }
+
+          .profileImg {
+            display: block;
+            width: 22px;
+            height: 22px;
+            background-size: contain;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  main {
+    display: flex;
+    justify-content: space-between;
+    width: 914px;
+    height: 100%;
+    padding-top: 30px;
+    margin: 0 auto;
+
+    .mainColunm {
+      width: 614px;
+
+      .storyBar {
+        display: flex;
+        justify-content: space-evenly;
+        // width: 614px;
+        height: 120px;
+        margin-top: 40px;
+        border: 1px solid lightgray;
+        border-radius: 3px;
+        background-color: white;
+
+        .activeStory {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          margin-top: 10px;
+
+          .storyBorder {
+            width: 66px;
+            height: 66px;
+            border-radius: 70px;
+          }
+
+          .storyImg {
+            width: 56px;
+            height: 56px;
+            margin-top: -61px;
+            border-radius: 70px;
+            /* position: absolute; */
+          }
+        }
+      }
+
+      .articleContainer {
+        margin-top: 40px;
+        border: 1px solid $theme-color;
+        border-radius: 3px;
+        background-color: white;
+
+        article {
+          .articleHeader {
+            display: flex;
+            align-items: center;
+            width: 614px;
+            padding: 10px;
+            border-radius: 5px;
+
+            .miniProfile {
+              width: 32px;
+              height: 32px;
+              padding: 1px;
+              border-radius: 70px;
+              border: 1px solid $theme-color;
+            }
+
+            .mainId {
+              margin-left: 10px;
+              font-weight: bold;
+            }
+
+            .more {
+              margin-left: 460px;
+              font-weight: bold;
+            }
+          }
+
+          #feedImg {
+            width: 612px;
+            object-fit: contain;
+          }
+
+          .contentsBox {
+            .contentImgContainer {
+              display: flex;
+              justify-content: space-between;
+              margin: 10px 0 10px 10px;
+              margin-left: 10px;
+              width: 100px;
+
+              #contentHeart {
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+              }
+
+              #contentComment {
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+              }
+
+              #contentShare {
+                width: 24px;
+                height: 24px;
+                cursor: pointer;
+              }
+            }
+
+            .like {
+              margin: 10px;
+              font-weight: bold;
+            }
+
+            .contentId {
+              padding: 10px;
+              font-weight: bold;
+            }
+            .content {
+              margin: 10px;
+            }
+
+            .moreComents {
+              margin: 10px;
+              color: $theme-color;
+              cursor: pointer;
+            }
+
+            .uploadCommentContainer {
+              .uploadComment {
+                list-style: none;
+                margin: 0;
+                padding: 0;
+              }
+            }
+
+            .commentContainer {
+              position: relative;
+              display: flex;
+
+              .commentBox {
+                width: 612px;
+                height: 60px;
+                border: none;
+                border-top: 1px solid $theme-color;
+              }
+
+              .commentBtn {
+                display: inline;
+                position: absolute;
+                top: 10px;
+                right: 5px;
+                width: 60px;
+                height: 40px;
+                border: 0 none;
+                color: blue;
+                background-color: white;
+                font-weight: bold;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .mainRight {
+      position: fixed;
+      margin: 40px 0 0 680px;
+      width: 250px;
+      height: 614px;
+      border: 1px solid #fafafa;
+      background-color: #fafafa;
+
+      .sideMyProfile {
+        display: flex;
+        align-items: center;
+
+        .sideProfile {
+          width: 56px;
+          height: 56px;
+          border-radius: 70px;
+        }
+
+        .sideId {
+          margin-left: 10px;
+          font-weight: bold;
+        }
+      }
+
+      .sideRecommendContainer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .sideRecommend1,
+        .sideRecommend2,
+        .sideRecommend3,
+        .sideRecommend4,
+        .sideRecommend5,
+        .sideRecommend6 {
+          display: flex;
+          align-items: center;
+          margin-top: 10px;
+
+          .sideFollow {
+            width: 32px;
+            height: 32px;
+            border-radius: 70px;
+          }
+
+          .sideFollowId {
+            margin-left: 10px;
+          }
+        }
+        .followText {
+          color: #0095f6;
+          font-size: 12px;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+}

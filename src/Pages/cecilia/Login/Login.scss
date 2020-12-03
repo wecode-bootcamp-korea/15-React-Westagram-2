@@ -1,0 +1,54 @@
+.Login {
+  header {
+    margin-top: 10px;
+    font-family: "Lobster", cursive;
+    font-size: 50px;
+    text-align: center;
+  }
+
+  input {
+    all: unset;
+    display: block;
+    width: 268px;
+    height: 25px;
+    margin: 5px auto;
+    padding: 14px 0px 2px 8px;
+    border: 2px solid #efefef;
+    border-radius: 5px;
+    background-color: #fafafa;
+  }
+
+  input::placeholder {
+    color: #999999;
+    line-height: 18px;
+  }
+
+  .id {
+    margin-top: 50px;
+  }
+
+  button {
+    all: unset;
+    display: block;
+    position: relative;
+    width: 268px;
+    height: 30px;
+    padding: 5px;
+    margin: 20px auto;
+    border-radius: 5px;
+    background-color: #c4e0fc;
+    color: white;
+    font-weight: 600px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  a {
+    display: block;
+    margin-top: 90px;
+    color: navy;
+    text-decoration: none;
+    text-align: center;
+  }
+}
