@@ -29,7 +29,11 @@ class Feeds extends React.Component {
               className='feed__more-button'
             />
           </header>
-          <img alt='Feed' src='/images/eunjinlee/myfeed.JPG' className='feed__posts' />
+          <img
+            alt='Feed'
+            src='/images/eunjinlee/myfeed.JPG'
+            className='feed__posts'
+          />
           <section className='feed-content'>
             <div className='feed__icons-container'>
               <div className='feed__icon-box-left'>
@@ -96,7 +100,9 @@ class Feeds extends React.Component {
                 </p>
               </p>
             </article>
+
             <Comments />
+            
           </section>
         </article>
       </div>

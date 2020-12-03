@@ -8,10 +8,7 @@ class Aside extends React.Component {
         <div className='main-right-inner'>
           <div className='main-right__my-account-container'>
             <div className='main-right__my-profile-container'>
-              <img
-                alt='My profile'
-                src='images/eunjinlee/myprofile.JPG'
-              />
+              <img alt='My profile' src='images/eunjinlee/myprofile.JPG' />
             </div>
             <div className='main-right__my-profile-info-box'>
               <div className='main-right__my-id user-link'>workoutbutlazy</div>
