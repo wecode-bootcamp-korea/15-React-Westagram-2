@@ -1,0 +1,155 @@
+#Feeds{
+  width: 614px;
+  height: auto;
+
+  article {
+    background-color: #fefefe;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    margin-top: 20px;
+
+    .feed-user {
+      padding: 10px;
+      height: 50px;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+
+      .feed-pro {
+        display: flex;
+        justify-content: content;
+
+        img{ 
+          width: 30px;
+          height: auto;
+          border-radius: 50%;
+        }
+
+        p {
+          padding: 3px 0 0 10px;
+          font: 14px bold;
+        }
+      }
+
+      .feed-more {
+        width: 30px;
+        padding: 7px;
+        filter: invert(55%) sepia(1%) saturate(689%) hue-rotate(73deg) brightness(99%) contrast(91%);
+        cursor: pointer;
+
+        img {
+          width: 15px;
+        }
+      }
+    }
+
+    img{
+      width: 614px;
+      height: auto;
+    }
+
+    .feed-post {
+      padding: 10px 15px;
+
+      img {
+        width: 25px;
+        height: auto;
+        cursor: pointer;
+      }
+
+      .feed-post-mark {
+        display: flex;
+        justify-content: space-between;
+
+        .post-motion {
+          height: 30px;
+          display: flex;
+          width: 110px;
+          justify-content: space-between;
+
+          button{
+            border: none;
+            background-color: #fff;
+            outline: none;
+          }
+        }  
+      }
+
+      .board-message {
+        padding-top: 5px;
+
+        .add_comment {
+          margin-top: 10px;
+        }
+    
+        .add_comment a {
+          margin: 10px 10px 0 0;
+          font-weight: bold;
+        }
+    
+        .like-point {
+          font-size: 14px;
+          font-weight: bold;
+          letter-spacing: 0.2px;
+          padding-bottom: 10px;
+
+          span {
+            font-size: 13px;
+          }
+        }
+
+        .board-message-upload-user-name {
+          letter-spacing: -1px;
+          font-size: 14px;
+          vertical-align: baseline;
+
+          span {
+            font-size: 16px;
+            font-weight: bold;
+            padding-right: 5px;
+            letter-spacing: 0;
+          }
+        }
+    
+        .Date-time {
+          padding-top: 10px;
+          color: #888;
+          font-size: 12px;
+        }
+      }
+    }
+  
+    .feed-comment-input {
+      display: flex;
+      align-items: center;
+
+      input {
+        width: 100%;
+        height: 40px;
+        padding-left: 15px;
+        padding-bottom: 2px;
+        border-top: 1px solid #ddd;
+        font-size: 20px;
+        text-align: left;
+        color: #888;
+        outline: none;
+      }
+      
+      input::placeholder {
+        font-size: 14px;
+      }
+
+      button {
+        width: 50px;
+        position: absolute;
+        right: 0px;
+        border: none;
+        background-color: white;
+        font-size: 15px;
+        opacity: 0.4;
+        cursor: pointer;
+        outline: none;
+      }
+    }    
+  }
+}
