@@ -1,0 +1,179 @@
+@import '../Styles/reset.scss';
+@import '../Styles/common.scss';
+
+body {
+  background-color: $color-snow;
+
+  .login__main {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    article {
+      display: flex;
+      max-width: 935px;
+      margin-top: 110px;
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      width: 351px;
+      height: 618px;
+      padding: 10px 0px;
+    }
+
+    .login__top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      padding-top: 20px;
+      border: 1px solid $color-gainsoboro;
+      background-color: $color-white;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        margin: 30px 0px;
+
+        input {
+          width: 265px;
+          height: 25px;
+          padding: 15px 5px;
+          margin-bottom: 10px;
+          background-color: $color-snow;
+          border: 1px solid $color-gainsoboro;
+          border-radius: 3px;
+          font-size: $font-small;
+          color: $color-nobel;
+        }
+
+        .login__btn {
+          padding: 8px 0px;
+          border-radius: 5px;
+          font-weight: $weight-regular;
+          color: $color-white;
+          background-color: $color-blue;
+          cursor: pointer;
+        }
+
+        .login__btn:disabled {
+          opacity: 0.4;
+          cursor: default;
+        }
+      }
+
+      .login__bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 268px;
+        height: 15px;
+
+        .bar {
+          width: 100px;
+          height: 1px;
+          padding: 0;
+          margin: 0;
+          background-color: $color-nobel;
+        }
+
+        .bar__text {
+          margin: 0px 20px;
+          color: $color-nobel;
+          font-size: $font-small;
+          font-weight: $weight-bold;
+          top: 10px;
+        }
+      }
+
+      .login__findPw {
+        margin: 40px;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+
+        .find__facebook {
+          margin-bottom: 20px;
+          color: $color-cobalt;
+          font-weight: $weight-semi-bold;
+        }
+
+        .find__password {
+          color: $color-cobalt;
+          font-size: var(--font-small);
+        }
+
+        .login__error {
+          margin-top: 20px;
+          font-size: $font-small;
+          color: $color-blue;
+        }
+      }
+    }
+
+    .login__bottom {
+      margin-top: 10px;
+      background-color: $color-white;
+
+      .app__title {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px 0px;
+        border: 1px solid $color-gainsoboro;
+
+        .signup__btn {
+          color: $color-blue;
+          font-weight: $weight-bold;
+          margin-top: 10px;
+        }
+      }
+
+      .app__btn {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 15px;
+        background-color: $color-snow;
+
+        .btns {
+          margin-top: 20px;
+
+          .app__btn__img img {
+            width: 136px;
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  .login__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 70px;
+    color: $color-nobel;
+    font-size: $font-small;
+
+    .footer__list {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 10px;
+
+      li {
+        margin-right: 10px;
+      }
+    }
+
+    p {
+      margin: 15px 0px 10px 0px;
+    }
+  }
+}
