@@ -40,7 +40,30 @@ class LoginCecilia extends React.Component {
     this.setState({
       hiddenPw: !this.state.hiddenPw // !는 반대를 의미한다. 
     });
-  }
+  };
+
+  // 아이디 비번 유효성 검사 함수
+  checkValidation = (e) => {
+    e.preventDefault();  //로그인 클릭하고 잘못적었어도 내가 적은 값들이 사라지지 않게 해줌. 
+    const { id, pw } = this.state;
+    const checkId = id.includes('@');
+    const checkPw = pw.length >= 4;
+    if (checkId && checkPw === true) {
+      alert("미현이 최고! 로그인 성공!")
+      this.props.history.push('/main-cecilia')
+    }
+    if (!checkId) {
+      alert("@없으면 로그인못해요!");
+    }
+    if (!checkPw) {
+      alert("해킹당하지않으려면 4자리 이상으로 설정하시죠!")
+    }
+    // 1. event default
+    // 2. 구조분해 할당
+    // 3. 불리언으로 변수 설정 (id @포함, pw 4자리 이상)
+    // 4. 조건 맞으면 alert성공, main으로 이동
+    // 5. 조건 (!사용) 하나만 맞는 경우 alert
+  };
 
   // 로그인 버튼누르면 메인으로 이동 
   goToMain = () => {
@@ -88,6 +111,7 @@ class LoginCecilia extends React.Component {
         <button
           className={activeBtn ? "active" : ""}
           onClick={this.goToMain}
+          onClick={this.checkValidation}
         >로그인</button>
 
         <a href="https://www.instagram.com/accounts/password/reset/">아직 회원이 아니신가요?</a>
