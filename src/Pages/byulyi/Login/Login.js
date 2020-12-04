@@ -2,19 +2,15 @@ import React, { Component } from 'react'
 import './Login.scss'
 
 class Login extends Component {
+
   constructor() {
-    super()
+    super();
     this.state = {
-      id: '',
-      password: '',
-      hiddenPw: true,
-      productList: [],
+      id:'',
+      password:'',
     }
   }
 
-  goToMain = () => {
-    this.props.history.push('/main')
-  }
 
   handleIdChange = (e) => {
     this.setState({ id: e.target.value })
@@ -24,36 +20,60 @@ class Login extends Component {
     this.setState({ password: e.target.value })
   }
 
+  checkValidation = (e) => {
+    e.preventDefault();
+    const { id, password } = this.state;
+    const checkId = id.includes('@');
+    const checkPw = password.length >= 4;
+    if(checkId && checkPw){
+      alert('로그인 성공');
+      this.props.history.push('/main-byulyi');
+    }
+
+    if(!checkId){
+      alert('ID는 이메일 형식이여야합니다.');
+    }
+
+    if(!checkPw){
+      alert('비밀번호는 네자리 이상이여야합니다.');
+    }
+  }
+
+
   render() {
+    const { id, password } = this.state;
+    let activateBtn = (id.length && password.length) >= 1;
+
     return (
       <>
         <main className='login__main'>
           <article>
             <aside>
-              <img src='/images/phone.png' alt='phoneImage' />
+              <img src='/images/byulyi/phone.png' alt='phoneImage' />
             </aside>
             <section>
               <div className='login__top'>
-                <img src='/images/logo_text.png' alt='logoImage' />
+                <img src='/images/byulyi/logo_text.png' alt='logoImage' />
                 <form action=''>
                   <input
                     type='text'
                     placeholder='Phone number, username, or email'
                     id='id'
-                    // value={id}
+                    value={id}
                     onChange={this.handleIdChange}
                   />
                   <input
                     type='password'
                     placeholder='Password'
                     id='password'
-                    // value={password}
-                    onChage={this.handlePwChange}
+                    value={password}
+                    onChange={this.handlePwChange}
                   />
                   <button
-                    className='login__btn'
+                    onClick={this.checkValidation}
+                    onKeyUp={this.checkValidation}
+                    className={activateBtn? 'active' : ''}
                     type='button'
-                    onClick={this.goToMain}
                   >
                     Log In
                   </button>
@@ -84,10 +104,10 @@ class Login extends Component {
                   <p>Get the app.</p>
                   <div className='btns'>
                     <button className='app__btn__img'>
-                      <img src='/images/app1.png' alt='appstore-logo' />
+                      <img src='/images/byulyi/app1.png' alt='appstore-logo' />
                     </button>
                     <button className='app__btn__img'>
-                      <img src='/images/app2.png' alt='google-play-logo' />
+                      <img src='/images/byulyi/app2.png' alt='google-play-logo' />
                     </button>
                   </div>
                 </div>

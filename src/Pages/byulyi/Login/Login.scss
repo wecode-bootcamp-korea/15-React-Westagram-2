@@ -4,6 +4,12 @@
 body {
   background-color: $color-snow;
 
+  @media (max-width: 810px) {
+    aside {
+      display: none;
+    }
+  }
+
   .login__main {
     width: 100%;
     margin: 0 auto;
@@ -51,18 +57,19 @@ body {
           color: $color-nobel;
         }
 
-        .login__btn {
+        button {
           padding: 8px 0px;
           border-radius: 5px;
           font-weight: $weight-regular;
           color: $color-white;
           background-color: $color-blue;
-          cursor: pointer;
-        }
-
-        .login__btn:disabled {
           opacity: 0.4;
-          cursor: default;
+          cursor: unset;
+
+          &.active {
+            opacity: 1;
+            cursor: pointer;
+          }
         }
       }
 
@@ -159,7 +166,6 @@ body {
     align-items: center;
     flex-direction: column;
     margin-top: 70px;
-    color: $color-nobel;
     font-size: $font-small;
 
     .footer__list {
@@ -169,11 +175,19 @@ body {
 
       li {
         margin-right: 10px;
+        color: $color-nobel;
+      }
+
+      @media (max-width: 565px) {
+        li {
+          margin-right: 5px;
+        }
       }
     }
 
     p {
       margin: 15px 0px 10px 0px;
+      color: $color-nobel;
     }
   }
 }
