@@ -76,14 +76,15 @@
     font-size: 18px;
     text-align: center;
     cursor: pointer;
-  }
 
-  //  버튼 활성화 색
-  // &.active {
-  //   background-color: blue;
-  // }
-  .pwShow {
-    position: absolute;
+    //버튼 활성화 색 &의 의미는 새로운 클래스네임 부여?
+    &.active {
+      background-color: #0495f6;
+    }
+
+    .pwShow {
+      position: absolute;
+    }
   }
 
   a {

@@ -6,7 +6,7 @@ class LoginCecilia extends React.Component {
     super();
     this.state = {
       id: "",
-      password: "",
+      pw: "",
       hiddenPw: true
     };
   }
@@ -55,8 +55,9 @@ class LoginCecilia extends React.Component {
     //console로 setState가 잘되는지 확인 
     // console.log(this.state.id, this.state.pw);
 
-    // 비구조화 !  전역변수는 컴포넌트 밖에 쓰면됨!
+    // 비구조화 ! render안에 적어준 애들은 return 아래 애들에게 적용된다. 전역변수로 사용하고 싶다면 컴포넌트 밖에 쓰면됨!
     const { id, pw, hiddenPw } = this.state;
+    const activeBtn = (id.length && pw.length) > 0;
 
     return (
       <div className="Login">
@@ -84,11 +85,13 @@ class LoginCecilia extends React.Component {
             onClick={this.showPw}>{hiddenPw ? "show" : "hide"}
           </span>
         </div>
-        <button onClick={this.goToMain}
+        <button
+          className={activeBtn ? "active" : ""}
+          onClick={this.goToMain}
         >로그인</button>
 
         <a href="https://www.instagram.com/accounts/password/reset/">아직 회원이 아니신가요?</a>
-      </div>
+      </div >
 
     );
   }
