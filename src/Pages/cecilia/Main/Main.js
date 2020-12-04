@@ -8,7 +8,7 @@ class MainCecilia extends Component {
       <div className="Main">
         <nav>
           <div className="navContainer">
-            <img className="instaLogo" alt="instaLogo" src="images/cecilia/instaLogo.png" />
+            <img className="instaLogo" alt="instaLogo" src="/cecilia/instagramLogo.png" />
             <div className="searchBarContainer">
               <input className="searchBar" type="text" placeholder="검색" />
               <img className="findIcon" alt="find" src="img/find2.png" />
