@@ -2,7 +2,7 @@ import React from 'react'
 import Comments from '../Comments/Comments'
 import './Feeds.scss'
 
-class Feeds extends React.Component {
+class Login extends React.Component {
   render() {
     return (
       <div className='Feeds'>
