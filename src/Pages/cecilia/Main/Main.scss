@@ -164,7 +164,7 @@ $theme-color: rgb(250, 250, 250);
             }
           }
 
-          #feedImg {
+          .feedImg {
             width: 612px;
             object-fit: contain;
           }
@@ -179,21 +179,21 @@ $theme-color: rgb(250, 250, 250);
 
               .likeButton {
                 all: unset;
+                cursor: pointer;
 
-                #contentHeart {
+                .heartImg {
                   width: 24px;
                   height: 24px;
-                  cursor: pointer;
                 }
               }
 
-              #contentComment {
+              .contentComment {
                 width: 24px;
                 height: 24px;
                 cursor: pointer;
               }
 
-              #contentShare {
+              .contentShare {
                 width: 24px;
                 height: 24px;
                 cursor: pointer;

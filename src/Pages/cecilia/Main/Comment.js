@@ -11,21 +11,21 @@ import "./Comment.scss"
 //   { id: 1, comment: "안녕 나는 3번!" }
 // ]
 
-// class Comment extends React.Component {
-//   render() {
-//     // console.log(this.props.commentValue)
+class Comment extends React.Component {
+  render() {
+    // console.log(this.props.commentValue)
 
-//     return (
-//       <div className="uploadedCommentContainer" >
-//         <ul>
-//           {/* {this.state.comments.map((el) => {
-//               (<li>{el.text}</li>)
-//           })} */}
-//         </ul>
-//       </div >
-//     )
-//   }
-// }
+    return (
+      <div className="uploadedCommentContainer" >
+        <ul>
+          {/* {this.state.comments.map((el) => {
+              (<li>{el.text}</li>)
+          })} */}
+        </ul>
+      </div >
+    )
+  }
+}
 
 export default Comment;
 

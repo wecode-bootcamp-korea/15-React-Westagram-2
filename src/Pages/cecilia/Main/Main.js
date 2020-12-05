@@ -1,15 +1,16 @@
 import React, { Component } from "react";
-// import Comment from "./Comment"
+import Comment from "./Comment"
 // import { withRouter } from 'react-router-dom';
 import './Main.scss';
 
-class MainCecilia extends Component {
+class MainCecilia extends React.Component {
   constructor() {  //state 초기화 
     super();
     this.state = {
       newComment: "",
       btn: false,
       addLike: 0,
+      likeButton: true,
       comments: [
         { text: "" }
       ]
@@ -41,10 +42,23 @@ class MainCecilia extends Component {
   // }
 
   //좋아요 버튼함수 
+  // addLike = () => {
+  //   this.setState({
+  //     addLike: 1,
+  //     likeButton: !this.state.likeButton
+  //   })
+  // }
+
   addLike = () => {
     this.setState({
-      addLike: this.state.addLike + 1
+      addLike: 1,
+      likeButton: !this.state.likeButton
     })
+
+    if (this.state.likeButton === false)
+      this.setState({
+        addLike: 0
+      })
   }
 
   render() {
@@ -52,7 +66,7 @@ class MainCecilia extends Component {
     // console.log(this.state.newComment)
 
     return (
-      <div className="Main">
+      <div className="Main" >
         <nav>
           <div className="navContainer">
             <img className="instaLogo" alt="instaLogo" src="images/cecilia/instagramLogo.png" />
@@ -108,22 +122,25 @@ class MainCecilia extends Component {
                   <span className="mainId">devCecy</span>
                   <span className="more">...</span>
                 </div>
-                <img id="feedImg" alt="img1" src="images/cecilia/feedImg1.jpeg" />
+                <img className="feedImg" alt="img1" src="images/cecilia/feedImg1.jpeg" />
                 <div className="contentsBox">
                   <div className="contentImgContainer">
                     <button
                       className="likeButton"
                       onClick={this.addLike}>
-                      <img id="contentHeart" alt="contentHeart" src="images/cecilia/heart.png" />
+                      <img
+                        className="heartImg"
+                        alt="heartImg"
+                        src={this.state.likeButton ? "images/cecilia/heart.png" : "images/cecilia/fulledLike.png"} />
                     </button>
-                    <img id="contentComment" alt="contentComment" src="images/cecilia/commentIcon.png" />
-                    <img id="contentShare" alt="contetnShare" src="images/cecilia/send.png" />
+                    <img className="contentComment" alt="contentComment" src="images/cecilia/commentIcon.png" />
+                    <img className="contentShare" alt="contetnShare" src="images/cecilia/send.png" />
                   </div>
                   <p className="like">좋아요 {this.state.addLike}개</p>
                   <span className="contentId"> devCecy</span>
                   <span className="content"> 제주도 바다에서 사진찍기!👻</span>
                   <p className="moreComents">댓글 모두보기</p>
-                  {/* <Comment /> */}
+                  <Comment />
                   {/* <div className="uploadCommentContainer">
                     <ul className="uploadComment">
                       <li>

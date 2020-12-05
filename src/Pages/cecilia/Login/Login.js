@@ -99,7 +99,7 @@ class LoginCecilia extends React.Component {
         <div className="loginPwContainer">
           <input
             id="pw"
-            type={hiddenPw ? "password" : "text"}  // 삼항연산자 조건 ; {조건 ? true결과 : false결과}
+            type={hiddenPw ? "password" : "text"}  // 삼항연산자 조건  {조건 ? true결과 : false결과}
             placeholder="비밀번호"
             onChange={this.handleIdPwChange}
             value={pw} // 비구조화 데려온거임 원래는 this.state.pw
