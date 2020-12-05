@@ -7,46 +7,56 @@ class MainCecilia extends React.Component {
   constructor() {  //state 초기화 
     super();
     this.state = {
-      newComment: "",
       btn: false,
       addLike: 0,
       likeButton: true,
-      comments: [
-        { text: "" }
-      ]
+      comment: "",
+      newComments: [
+        { id: "", text: "" },
+      ],
+      id: ""
     };
+  }
+
+  //로그인페이지로 가기 
+  goToLogin = () => {
+    this.props.history.push('/login-cecilia')
   }
 
   // 댓글 벨류 값 가져오기 
   commmentChange = (e) => {
     this.setState({
-      newComment: e.target.value
+      comment: e.target.value
     });
   }
 
-  //추후 map을 돌리기 위해 댓글을 배열에 넣어주고 setState 해주는 함수 
-  Addcommment = () => {
-    const commentsArr = this.state.newComment;
-    commentsArr.push({
-      text: this.state.newComment
-    })
-
+  //댓글 배열에 추가 
+  addComments = () => {
+    const commentsArr = this.state.newComments;
+    commentsArr.push({ id: "devCecy", text: this.state.comment })
 
     this.setState({
-      comments: commentsArr
+      newComments: commentsArr,
+      comment: "",
     })
-  };
+  }
+
+
+  //추후 map을 돌리기 위해 댓글을 배열에 넣어주고 setState 해주는 함수 
+  // Addcommment = () => {
+  //   const commentsArr = this.state.newComment;
+  //   commentsArr.push({
+  //     text: this.state.newComment
+  //   })
+
+
+  //   this.setState({
+  //     comments: commentsArr
+  //   })
+  // };
 
   // commmentUpload = (e) => {
   //   Addcommment();
-  // }
-
-  //좋아요 버튼함수 
-  // addLike = () => {
-  //   this.setState({
-  //     addLike: 1,
-  //     likeButton: !this.state.likeButton
-  //   })
   // }
 
   addLike = () => {
@@ -63,13 +73,15 @@ class MainCecilia extends React.Component {
 
   render() {
 
-    // console.log(this.state.newComment)
-
     return (
       <div className="Main" >
         <nav>
           <div className="navContainer">
-            <img className="instaLogo" alt="instaLogo" src="images/cecilia/instagramLogo.png" />
+            <img
+              className="instaLogo"
+              alt="instaLogo"
+              src="images/cecilia/instagramLogo.png"
+              onClick={this.goToLogin} />
             <div className="searchBarContainer">
               <input className="searchBar" type="text" placeholder="검색" />
               <img className="findIcon" alt="find" src="images/cecilia/find2.png" />
@@ -140,7 +152,10 @@ class MainCecilia extends React.Component {
                   <span className="contentId"> devCecy</span>
                   <span className="content"> 제주도 바다에서 사진찍기!👻</span>
                   <p className="moreComents">댓글 모두보기</p>
-                  <Comment />
+                  <div>
+                    <Comment id={this.state.id} newComment={this.state.newComments} />
+                  </div>
+
                   {/* <div className="uploadCommentContainer">
                     <ul className="uploadComment">
                       <li>
@@ -153,12 +168,12 @@ class MainCecilia extends React.Component {
                       id="commentBox"
                       className="commentBox"
                       placeholder="댓글달기..."
-                      // value={this.state.newComment}
+                      value={this.state.comment}
                       onChange={this.commmentChange}
                       style={{ onKeyDown: "onKeyDown()" }} />
                     <button
                       className="commentBtn"
-                      onClick={this.commmentUpload}
+                      onClick={this.addComments}
                     >게시</button>
                   </div>
                 </div>

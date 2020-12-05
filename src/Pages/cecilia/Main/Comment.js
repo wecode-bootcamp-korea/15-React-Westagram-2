@@ -13,14 +13,15 @@ import "./Comment.scss"
 
 class Comment extends React.Component {
   render() {
-    // console.log(this.props.commentValue)
+    const { newComment, id } = this.props
 
     return (
       <div className="uploadedCommentContainer" >
         <ul>
-          {/* {this.state.comments.map((el) => {
-              (<li>{el.text}</li>)
-          })} */}
+          {newComment.map((el) => {
+            return (<li>{el.id}  {el.text}</li>)
+          })
+          }
         </ul>
       </div >
     )
@@ -33,3 +34,9 @@ export default Comment;
 // {COMMENTLIST.map((el) => {
 //   return (<li>{el.comment}</li>)
 // })}
+
+{/* <li>{this.props.comment}</li> */ }
+
+{/* {this.state.comments.map((el) => {
+              (<li>{el.text}</li>)
+          })} */}
