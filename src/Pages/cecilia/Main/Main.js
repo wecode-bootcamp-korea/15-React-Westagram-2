@@ -1,9 +1,56 @@
 import React, { Component } from "react";
+// import Comment from "./Comment"
 // import { withRouter } from 'react-router-dom';
 import './Main.scss';
 
 class MainCecilia extends Component {
+  constructor() {  //state 초기화 
+    super();
+    this.state = {
+      newComment: "",
+      btn: false,
+      addLike: 0,
+      comments: [
+        { text: "" }
+      ]
+    };
+  }
+
+  // 댓글 벨류 값 가져오기 
+  commmentChange = (e) => {
+    this.setState({
+      newComment: e.target.value
+    });
+  }
+
+  //추후 map을 돌리기 위해 댓글을 배열에 넣어주고 setState 해주는 함수 
+  Addcommment = () => {
+    const commentsArr = this.state.newComment;
+    commentsArr.push({
+      text: this.state.newComment
+    })
+
+
+    this.setState({
+      comments: commentsArr
+    })
+  };
+
+  // commmentUpload = (e) => {
+  //   Addcommment();
+  // }
+
+  //좋아요 버튼함수 
+  addLike = () => {
+    this.setState({
+      addLike: this.state.addLike + 1
+    })
+  }
+
   render() {
+
+    // console.log(this.state.newComment)
+
     return (
       <div className="Main">
         <nav>
@@ -64,21 +111,38 @@ class MainCecilia extends Component {
                 <img id="feedImg" alt="img1" src="images/cecilia/feedImg1.jpeg" />
                 <div className="contentsBox">
                   <div className="contentImgContainer">
-                    <img id="contentHeart" alt="contentHeart" src="images/cecilia/heart.png" />
+                    <button
+                      className="likeButton"
+                      onClick={this.addLike}>
+                      <img id="contentHeart" alt="contentHeart" src="images/cecilia/heart.png" />
+                    </button>
                     <img id="contentComment" alt="contentComment" src="images/cecilia/commentIcon.png" />
                     <img id="contentShare" alt="contetnShare" src="images/cecilia/send.png" />
                   </div>
-                  <p className="like">좋아요 200개</p>
+                  <p className="like">좋아요 {this.state.addLike}개</p>
                   <span className="contentId"> devCecy</span>
                   <span className="content"> 제주도 바다에서 사진찍기!👻</span>
                   <p className="moreComents">댓글 모두보기</p>
-                  <div className="uploadCommentContainer">
+                  {/* <Comment /> */}
+                  {/* <div className="uploadCommentContainer">
                     <ul className="uploadComment">
+                      <li>
+
+                      </li>
                     </ul>
-                  </div>
+                  </div> */}
                   <div className="commentContainer">
-                    <input className="commentBox" placeholder="댓글달기..." style={{ onKeyDown: "onKeyDown()" }} />
-                    <button className="commentBtn">게시</button>
+                    <input
+                      id="commentBox"
+                      className="commentBox"
+                      placeholder="댓글달기..."
+                      // value={this.state.newComment}
+                      onChange={this.commmentChange}
+                      style={{ onKeyDown: "onKeyDown()" }} />
+                    <button
+                      className="commentBtn"
+                      onClick={this.commmentUpload}
+                    >게시</button>
                   </div>
                 </div>
               </article>

@@ -66,14 +66,14 @@ class LoginCecilia extends React.Component {
   };
 
   // 로그인 버튼누르면 메인으로 이동 
-  goToMain = () => {
-    this.props.history.push('/main-cecilia');
-    // if (response.message === "valid user") {
-    //   this.props.history.push('/Main');
-    // } else {
-    //   alert("등록되지않은 회원입니다. 회원가입을 해주세요."")
-    // }
-  }
+  // goToMain = () => {
+  //   this.props.history.push('/main-cecilia');
+  //   // if (response.message === "valid user") {
+  //   //   this.props.history.push('/Main');
+  //   // } else {
+  //   //   alert("등록되지않은 회원입니다. 회원가입을 해주세요."")
+  //   // }
+  // }
   render() {
     //console로 setState가 잘되는지 확인 
     // console.log(this.state.id, this.state.pw);
