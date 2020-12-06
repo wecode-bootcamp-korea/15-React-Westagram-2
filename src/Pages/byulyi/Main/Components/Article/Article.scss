@@ -85,46 +85,6 @@
     }
   }
 
-  .comments {
-    padding: 5px 10px 0px 10px;
-
-    li {
-      display: flex;
-      align-items: center;
-      position: relative;
-      margin-bottom: 10px;
-
-      a {
-        margin-right: 5px;
-        font-weight: $weight-bold;
-        color: $color-black;
-      }
-
-      .comment__text {
-        width: 500px;
-        text-overflow: ellipsis;
-      }
-
-      .comment__like {
-        position: absolute;
-        right: 25px;
-      }
-
-      .comment__like img:hover {
-        cursor: pointer;
-      }
-
-      .comment__delete {
-        position: absolute;
-        right: 5px;
-      }
-
-      .comment__delete img:hover {
-        cursor: pointer;
-      }
-    }
-  }
-
   .feeds__update {
     margin: 10px 10px;
     font-size: $font-small-x2;
@@ -154,6 +114,23 @@
       width: 10%;
       color: #b4def7;
       background-color: var(--color-white);
+    }
+  }
+}
+
+@media (max-width: 665px) {
+  .feeds {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+
+    .feedImg {
+      width: 450px;
+    }
+
+    .feeds__comments__form {
+      border: 1px solid $color-gainsoboro;
     }
   }
 }

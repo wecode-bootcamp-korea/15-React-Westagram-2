@@ -11,7 +11,6 @@ class Login extends Component {
     }
   }
 
-
   handleIdChange = (e) => {
     this.setState({ id: e.target.value })
   }
@@ -23,27 +22,14 @@ class Login extends Component {
   checkValidation = (e) => {
     e.preventDefault();
     const { id, password } = this.state;
-    const checkId = id.includes('@');
-    const checkPw = password.length >= 4;
-    if(checkId && checkPw){
-      alert('로그인 성공');
-      this.props.history.push('/main-byulyi');
-    }
-
-    if(!checkId){
-      alert('ID는 이메일 형식이여야합니다.');
-    }
-
-    if(!checkPw){
-      alert('비밀번호는 네자리 이상이여야합니다.');
-    }
+    console.log(id, password);
+    this.props.history.push('/main-byulyi');
   }
 
 
   render() {
     const { id, password } = this.state;
-    let activateBtn = (id.length && password.length) >= 1;
-
+    let activateBtn = ((id.includes("@")) && (password.length>=5))
     return (
       <>
         <main className='login__main'>

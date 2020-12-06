@@ -4,7 +4,7 @@
 .main {
   display: flex;
   justify-content: center;
-  margin-top: 70px;
+  margin-top: 100px;
 
   .main-wrap {
     display: flex;
@@ -206,30 +206,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
 
-  .feeds {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 450px;
-  }
-
-  .main__article {
-    width: 450px;
-  }
-
-  .feeds .feedImg {
-    width: 450px;
-  }
-
-  .feeds .feeds__comments__form {
-    border: 1px solid var(--color-gainsoboro);
-  }
-}
-
-@media (max-width: 500px) {
-  .wrapInput {
-    display: none;
+    article {
+      width: 450px;
+    }
   }
 }

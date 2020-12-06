@@ -1,7 +1,7 @@
 import React from 'react'
 import Nav from '../../../Components/Nav/Nav'
-import './Main.scss'
 import Article from './Components/Article/Article'
+import './Main.scss'
 
 const STORY = [
   { id:1, profileImg: "images/byulyi/profile_2.jpg", userName:'happydog_b', time:'1분전'},
@@ -16,14 +16,50 @@ const RECOMMEND_USER = [
   { id:3, profileImg: "images/byulyi/profile_8.jpg", userName:"happydog_g", ment:"happydog_c님 외 2명이 ..."},
 ];
 
+
 class Main extends React.Component {
+  state = {
+    comments: [
+      {id:1, userId:'taterandcollette', userCmt:'Adorable 💙💙💙', cmtLike:false},
+      {id:2, userId:'bassetpoppy', userCmt:'Your curtains are sooo pretty!! 😍', cmtLike:false },
+    ],
+  }
+
+  handleEnter = (userCmt) => {
+      this.handleAddCmt(userCmt);
+  }
+
+  handleAddCmt = (userCmt) => {
+    const comments = [...this.state.comments, {id: Date.now(), userId: 'Boris', userCmt, cmtLike:false}];
+    this.setState({comments});
+  }
+
+  handleDeleteCmt = (comment) => {
+    const comments = this.state.comments.filter((element) => element.id !== comment.id)
+    this.setState({comments});
+  }
+
+  handleLikeCmt = (comment) => {
+   const comments = this.state.comments.map((item) => {
+     if(item.id === comment.id){
+       if(!item.cmtLike){
+         return {...comment, cmtLike : true}
+       } else {
+         return {...comment, cmtLike : false}
+       }
+     }
+     return item;
+   })
+   this.setState({comments})
+  }
+
   render() {
     return (
       <>
         <Nav />
         <main className='main'>
           <div className='main-wrap'>
-            <Article />
+            <Article comments={this.state.comments} onAddCmt={this.handleAddCmt} onDeleteCmt={this.handleDeleteCmt} onEnter={this.handleEnter} onLikeCmt={this.handleLikeCmt}/>
             <aside>
               <div className='header'>
                 <div className='header__img-wrap'>

@@ -1,0 +1,42 @@
+@import '../../../Styles/common.scss';
+@import '../../../Styles/reset.scss';
+
+.comments {
+  padding: 5px 10px 0px 10px;
+
+  li {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 10px;
+
+    a {
+      margin-right: 5px;
+      font-weight: $weight-bold;
+      color: $color-black;
+    }
+
+    .comment__text {
+      width: 500px;
+      text-overflow: ellipsis;
+    }
+
+    .comment__like {
+      position: absolute;
+      right: 25px;
+    }
+
+    .comment__like img:hover {
+      cursor: pointer;
+    }
+
+    .comment__delete {
+      position: absolute;
+      right: 5px;
+    }
+
+    .comment__delete img:hover {
+      cursor: pointer;
+    }
+  }
+}

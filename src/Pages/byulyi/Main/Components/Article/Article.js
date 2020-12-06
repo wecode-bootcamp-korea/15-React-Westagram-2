@@ -1,8 +1,26 @@
 import React, { Component } from 'react'
+import Comments from "../Comments/Comments"
 import './Article.scss'
 
 class Article extends Component {
+  formRef = React.createRef();
+  inputRef = React.createRef();
+  onSubmit = (e) => {
+    e.preventDefault()
+    const userCmt = this.inputRef.current.value
+    userCmt && this.props.onAddCmt(userCmt);
+    this.formRef.current.reset();
+  }
+  handleEnter = (e) => {
+    if(e.key === "Enter"){
+    const userCmt = this.inputRef.current.value
+    userCmt && this.props.onEnter(userCmt);
+    this.formRef.current.reset();
+    }
+  }
+
   render() {
+    const { comments } = this.props;
     return (
       <div className='main-left'>
         <section className='feeds'>
@@ -48,50 +66,17 @@ class Article extends Component {
               </p>
             </div>
             <div className='feeds__comments'>
-              <ul className='comments'>
-                <li>
-                  <a href='#!'> taterandcollette</a>
-                  <span className='comment__text'>Adorable 💙💙💙</span>
-                  <span className='comment__like'>
-                    <img
-                      src='/images/byulyi/heart.png'
-                      alt='like icon'
-                      className='like__img'
-                    />
-                  </span>
-                  <span className='comment__delete'>
-                    <img
-                      src='/images/byulyi/remove.png'
-                      alt='remove icon'
-                      className='delete'
-                    />
-                  </span>
-                </li>
-                <li>
-                  <a href='#!'> bassetpoppy </a>
-                  <span className='comment__text'>
-                    Your curtains are sooo pretty!! 😍
-                  </span>
-                  <span className='comment__like'>
-                    <img
-                      src='/images/byulyi/heart.png'
-                      alt='like icon'
-                      className='like__img'
-                    />
-                  </span>
-                  <span className='comment__delete'>
-                    <img src='/images/byulyi/remove.png' alt='remove icon' />
-                  </span>
-                </li>
-              </ul>
+              <Comments comments={comments} onDeleteCmt={this.props.onDeleteCmt} onLikeCmt={this.props.onLikeCmt}/>
             </div>
             <div className='feeds__update'>
               <span>2 HOURS AGO</span>
             </div>
-            <form className='feeds__comments__form'>
+            <form className='feeds__comments__form' onSubmit={this.onSubmit} ref={this.formRef}>
               <textarea
+                ref={this.inputRef}
                 className='comment__input'
                 placeholder='Add a comment...'
+                onKeyPress={this.handleEnter}
               ></textarea>
               <button className='comment__btn'>Post</button>
             </form>
