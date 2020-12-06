@@ -40,17 +40,14 @@ class Feeds extends React.Component {
                 <img
                   alt='Heart'
                   src='/images/eunjinlee/heart.png'
-                  className='feed__icon-heart'
                 />
                 <img
                   alt='Reply'
                   src='/images/eunjinlee/bubble.png'
-                  className='feed__icon-reply'
                 />
                 <img
                   alt='Message'
                   src='/images/eunjinlee/message.png'
-                  className='feed__icon-message'
                 />
               </div>
               <div className='feed__icon-box-right'>
@@ -65,16 +62,15 @@ class Feeds extends React.Component {
               <img
                 alt='Profile'
                 src='https://images.unsplash.com/photo-1605553042899-7334093d937d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'
-                className='feed__like-profile-image'
               />
-              <div className='feed__like-explain'>
+              <div>
                 <p>
                   Liked by{' '}
                   <a href='#' className='user-link'>
                     workoutbutlazy
                   </a>{' '}
                   and{' '}
-                  <a href='#' class='user-link'>
+                  <a href='#' className='user-link'>
                     26 others
                   </a>{' '}
                 </p>
@@ -92,12 +88,12 @@ class Feeds extends React.Component {
                 현재 46kg 찍고 수분조절 중이다. 맛있는 거 다같이 먹으러 가서
                 편의점 닭가슴살 주섬주섬 뜯고 있는 나를 옆에서 응원해주신 부모님
                 그리고 친구들 너무 고맙다링,, 내일 촬영 끝나고 치킨 조진다!!!!
-                <p
+                <span
                   className='feed__article-more-button'
                   id='more-article-button'
                 >
                   more
-                </p>
+                </span>
               </p>
             </article>
 

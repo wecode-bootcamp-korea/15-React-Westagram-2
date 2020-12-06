@@ -1,0 +1,122 @@
+@import './Styles/Common.scss';
+
+.Login {
+  width: 100vw;
+  height: 100vh;
+  background: #f7f8f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .login-container {
+    width: 360px;
+    height: 420px;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 4px;
+    border: 1px solid $border-line-gray;
+    padding: 26px 40px;
+
+    img {
+      width: 180px;
+      margin-top: 20px;
+    }
+
+    form {
+      @include flex-column-start;
+      width: 100%;
+      margin-bottom: 36px;
+
+      div {
+        @include flex-column-start;
+        width: 100%;
+        margin-bottom: 10px;
+        position: relative;
+
+        // &.success input {
+        //   border: 2px solid $success-color;
+        // }
+
+        &.error input {
+          border: 2px solid $error-color;
+        }
+
+        &.error > .err-message {
+          visibility: visible;
+        }
+
+        input {
+          width: 100%;
+          height: 42px;
+          background: #fafafa;
+          border: none;
+          border-radius: 3px;
+          border: 1px solid #f1f1f1;
+          font-size: $font-size-extrasmall;
+          font-weight: $font-weight-medium;
+          color: $font-color-gray;
+          padding: 0 10px;
+          margin-bottom: 6px;
+        }
+
+        input:focus {
+          outline: none;
+        }
+
+        span {
+          font-size: $font-size-extrasmall;
+          font-weight: $font-weight-bold;
+          text-align: end;
+          position: absolute;
+          top: 0;
+          right: 0;
+          transform: translate(-14px, 90%);
+          cursor: pointer;
+        }
+
+        .err-message {
+          visibility: hidden;
+          font-size: $font-size-extrasmall;
+          font-weight: $font-weight-medium;
+          color: $error-color;
+          letter-spacing: -0.3px;
+        }
+      }
+    }
+
+
+  }
+
+  button {
+    width: 100%;
+    height: 42px;
+    background: #d0e9fe;
+    color: white;
+    font-size: 15px;
+    font-weight: 500;
+    border: none;
+    border-radius: 6px;
+
+    &.active {
+      background: #1e93f2;
+      cursor: pointer;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: $font-weight-medium;
+    }
+  }
+
+  .forgot {
+    color: #064a81;
+    font-size: $font-size-extrasmall;
+    font-weight: $font-weight-medium;
+    letter-spacing: 0.3px;
+    cursor: pointer;
+  }
+}

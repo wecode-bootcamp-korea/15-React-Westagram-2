@@ -1,58 +1,4 @@
-$font-size-supersmall: 12px;
-$font-size-extrasmall: 12.5px;
-$font-size-small: 14px;
-$font-size-regular: 15px;
-$font-size-medium: 16px;
-
-$font-weight-light: 200;
-$font-weight-regular: 300;
-$font-weight-medium: 400;
-$font-weight-bold: 600;
-
-$font-color-lightgray: #bdbdbd;
-$font-color-gray: #909090;
-$font-color-black: #191919;
-$font-color-lighterblack: #333;
-
-$font-color-lightblue: #bbd6ed;
-$font-color-blue: #1e93f2;
-
-$story-line-pink: #dc4166;
-$border-line-gray: #ddd;
-
-@mixin flex-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin user-link {
-  font-size: $font-size-regular;
-  font-weight: $font-weight-bold;
-  cursor: pointer;
-  letter-spacing: 0.2px;
-  text-decoration: none;
-}
-
-@mixin list-style-reset {
-  list-style: none;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  color: $font-color-black;
-  font-family: proxima-nova, sans-serif;
-  object-fit: cover;
-}
-
-@mixin a-decoration-reset {
-  text-decoration: none;
-  color: $font-color-black;
-}
-
-/* ======================================================================== */
+@import '../Styles/Common.scss';
 
 /* main-right aside */
 .Aside {
@@ -96,12 +42,12 @@ $border-line-gray: #ddd;
       .main-right__my-profile-info-box {
         margin-right: 52px;
 
-        .main-right__my-id {
+        a {
           @include user-link;
           margin-bottom: 3px;
         }
 
-        .main-right__my-username {
+        p{
           font-size: $font-size-small;
           font-weight: $font-weight-medium;
           color: $font-color-gray;
@@ -160,7 +106,11 @@ $border-line-gray: #ddd;
             border-radius: 50%;
             border: 2px solid #dc4166;
 
-            .suggestion-user-profile {
+            &.new-story-false {
+              border: 1px solid #ccc;
+            }
+
+            img {
               width: 32px;
               height: 32px;
               background: #000;
@@ -169,19 +119,16 @@ $border-line-gray: #ddd;
             }
           }
 
-          .suggestion-user-container.new-story-false {
-            border: 1px solid #ccc;
-          }
-
           .suggestion-user-info {
             position: absolute;
             left: 50px;
 
-            .suggestion-user-id {
+            a {
+              @include user-link;
               margin-bottom: 3px;
             }
 
-            .suggestion-detail {
+            p {
               max-width: 200px;
               font-size: $font-size-extrasmall;
               color: $font-color-gray;
@@ -190,6 +137,7 @@ $border-line-gray: #ddd;
           }
 
           .follow-btn {
+            @include a-decoration-reset;
             color: $font-color-blue;
             font-size: $font-size-extrasmall;
             font-weight: $font-weight-bold;
@@ -199,7 +147,7 @@ $border-line-gray: #ddd;
     }
 
     /* footer */
-    .footer {
+    footer {
       p {
         color: $font-color-lightgray;
         font-size: $font-size-supersmall;
@@ -207,5 +155,11 @@ $border-line-gray: #ddd;
         margin-bottom: 14px;
       }
     }
+  }
+}
+
+@media (max-width: 1000px) {
+  .Aside {
+    display: none;
   }
 }
