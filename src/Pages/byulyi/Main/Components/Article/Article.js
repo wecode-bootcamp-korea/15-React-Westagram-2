@@ -5,17 +5,23 @@ import './Article.scss'
 class Article extends Component {
   formRef = React.createRef();
   inputRef = React.createRef();
+
   onSubmit = (e) => {
-    e.preventDefault()
-    const userCmt = this.inputRef.current.value
+    e.preventDefault();
+    const userCmt = this.inputRef.current.value;
     userCmt && this.props.onAddCmt(userCmt);
     this.formRef.current.reset();
   }
+  
   handleEnter = (e) => {
-    if(e.key === "Enter"){
-    const userCmt = this.inputRef.current.value
-    userCmt && this.props.onEnter(userCmt);
-    this.formRef.current.reset();
+    const userCmt = this.inputRef.current.value;
+    if(e.key === "Enter" && userCmt.trim() !== ''){
+      userCmt && this.props.onEnter(userCmt);
+      e.preventDefault();
+      this.formRef.current.reset();
+    }else if (e.key === "Enter" && userCmt.trim() === ''){
+      this.formRef.current.reset();
+      e.preventDefault();
     }
   }
 

@@ -2,34 +2,34 @@ import React, { Component } from 'react'
 import './Login.scss'
 
 class Login extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      id:'',
-      password:'',
+    state = {
+      user : {
+        id: '',
+        password: ''
+      }
     }
-  }
 
   handleIdChange = (e) => {
-    this.setState({ id: e.target.value })
+    const user = {...this.state.user, id:e.target.value};
+    this.setState({user});
   }
 
   handlePwChange = (e) => {
-    this.setState({ password: e.target.value })
+    const user = {...this.state.user, password:e.target.value};
+    this.setState({user});
   }
 
-  checkValidation = (e) => {
-    e.preventDefault();
-    const { id, password } = this.state;
-    console.log(id, password);
-    this.props.history.push('/main-byulyi');
+  handleSubmitBtn = (e) => {
+    const { id, password } = this.state.user;
+    if(id&&password){
+      this.props.history.push('/main-byulyi');
+    }
   }
 
 
   render() {
-    const { id, password } = this.state;
-    let activateBtn = ((id.includes("@")) && (password.length>=5))
+    const { id, password } = this.state.user;
+    let activateBtn = ((id.includes("@")) && (password.length>=5));
     return (
       <>
         <main className='login__main'>
@@ -40,7 +40,7 @@ class Login extends Component {
             <section>
               <div className='login__top'>
                 <img src='/images/byulyi/logo_text.png' alt='logoImage' />
-                <form action=''>
+                <form>
                   <input
                     type='text'
                     placeholder='Phone number, username, or email'
@@ -56,10 +56,10 @@ class Login extends Component {
                     onChange={this.handlePwChange}
                   />
                   <button
-                    onClick={this.checkValidation}
-                    onKeyUp={this.checkValidation}
+                    type="button"
+                    onClick={this.handleSubmitBtn}
                     className={activateBtn? 'active' : ''}
-                    type='button'
+                    disabled={!activateBtn}
                   >
                     Log In
                   </button>
