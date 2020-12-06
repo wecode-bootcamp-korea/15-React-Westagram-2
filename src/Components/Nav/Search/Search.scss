@@ -1,4 +1,4 @@
-@import '../Styles/Common.scss';
+@import '../Common.scss';
 
 .Search {
   width: 230px;
@@ -117,5 +117,11 @@
         }
       }
     }
+  }
+}
+
+@media (max-width: 1000px) {
+  .Search {
+    display: none;
   }
 }
