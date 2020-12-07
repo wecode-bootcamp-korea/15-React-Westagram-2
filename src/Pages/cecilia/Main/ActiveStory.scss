@@ -1,0 +1,24 @@
+.activeStory {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+
+  .storyBorder {
+    width: 66px;
+    height: 66px;
+    border-radius: 70px;
+  }
+
+  .storyImg {
+    width: 56px;
+    height: 56px;
+    margin-top: -61px;
+    margin-bottom: 10px;
+    border-radius: 70px;
+  }
+
+  .activeId {
+    margin-top: 10px;
+  }
+}

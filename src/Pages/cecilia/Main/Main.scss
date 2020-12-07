@@ -4,89 +4,89 @@ $theme-color: rgb(250, 250, 250);
   padding-top: 40px;
   background-color: $theme-color;
 
-  nav {
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    border-bottom: 1px solid $theme-color;
-    background-color: white;
+  // nav {
+  //   position: fixed;
+  //   width: 100%;
+  //   top: 0;
+  //   left: 0;
+  //   border-bottom: 1px solid $theme-color;
+  //   background-color: white;
 
-    .navContainer {
-      display: flex;
-      justify-content: space-between;
-      width: 914px;
-      height: 80px;
-      margin: 0 auto;
+  //   .navContainer {
+  //     display: flex;
+  //     justify-content: space-between;
+  //     width: 914px;
+  //     height: 80px;
+  //     margin: 0 auto;
 
-      .instaLogo {
-        width: 103px;
-        height: 29px;
-        margin: auto 0;
-        background-size: contain;
-      }
+  //     .instaLogo {
+  //       width: 103px;
+  //       height: 29px;
+  //       margin: auto 0;
+  //       background-size: contain;
+  //     }
 
-      .searchBarContainer {
-        position: relative;
-        top: 20px;
-        right: 60px;
+  //     .searchBarContainer {
+  //       position: relative;
+  //       top: 20px;
+  //       right: 60px;
 
-        .searchBar {
-          all: unset;
-          position: absolute;
-          width: 215px;
-          height: 28px;
-          border: 2px solid lightgrey;
-          border-radius: 3px;
-          background-color: $theme-color;
-        }
+  //       .searchBar {
+  //         all: unset;
+  //         position: absolute;
+  //         width: 215px;
+  //         height: 28px;
+  //         border: 2px solid lightgrey;
+  //         border-radius: 3px;
+  //         background-color: $theme-color;
+  //       }
 
-        .searchBar::placeholder {
-          position: absolute;
-          color: lightgray;
-          text-align: center;
-        }
+  //       .searchBar::placeholder {
+  //         position: absolute;
+  //         color: lightgray;
+  //         text-align: center;
+  //       }
 
-        .findIcon {
-          position: absolute;
-          width: 15px;
-          height: 15px;
-          left: 70px;
-          top: 8px;
-        }
-      }
-      .iconContainer {
-        display: flex;
-        list-style: none;
+  //       .findIcon {
+  //         position: absolute;
+  //         width: 15px;
+  //         height: 15px;
+  //         left: 70px;
+  //         top: 8px;
+  //       }
+  //     }
+  //     .iconContainer {
+  //       display: flex;
+  //       list-style: none;
 
-        li {
-          margin: 10px;
+  //       li {
+  //         margin: 10px;
 
-          .exploreImg {
-            width: 22px;
-            height: 22px;
-            background-size: contain; /* 이미지 가로세로 비율 유지한 채로 사이즈 조절, */
-            cursor: pointer;
-          }
+  //         .exploreImg {
+  //           width: 22px;
+  //           height: 22px;
+  //           background-size: contain; /* 이미지 가로세로 비율 유지한 채로 사이즈 조절, */
+  //           cursor: pointer;
+  //         }
 
-          .heartImg {
-            width: 22px;
-            height: 22px;
-            background-size: contain;
-            cursor: pointer;
-          }
+  //         .heartImg {
+  //           width: 22px;
+  //           height: 22px;
+  //           background-size: contain;
+  //           cursor: pointer;
+  //         }
 
-          .profileImg {
-            display: block;
-            width: 22px;
-            height: 22px;
-            background-size: contain;
-            cursor: pointer;
-          }
-        }
-      }
-    }
-  }
+  //         .profileImg {
+  //           display: block;
+  //           width: 22px;
+  //           height: 22px;
+  //           background-size: contain;
+  //           cursor: pointer;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 
   main {
     display: flex;
@@ -102,7 +102,6 @@ $theme-color: rgb(250, 250, 250);
       .storyBar {
         display: flex;
         justify-content: space-evenly;
-        // width: 614px;
         height: 120px;
         margin-top: 40px;
         border: 1px solid lightgray;
@@ -125,8 +124,8 @@ $theme-color: rgb(250, 250, 250);
             width: 56px;
             height: 56px;
             margin-top: -61px;
+            margin-bottom: 10px;
             border-radius: 70px;
-            /* position: absolute; */
           }
         }
       }

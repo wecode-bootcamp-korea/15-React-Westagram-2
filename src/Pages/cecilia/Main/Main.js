@@ -1,7 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import Comment from "./Comment"
-// import { withRouter } from 'react-router-dom';
+import Nav from "../../../Components/Nav/Nav"
+import ActiveStory from "./ActiveStory"
 import './Main.scss';
+
 
 class MainCecilia extends React.Component {
   constructor() {  //state 초기화 
@@ -42,23 +44,6 @@ class MainCecilia extends React.Component {
   }
 
 
-  //추후 map을 돌리기 위해 댓글을 배열에 넣어주고 setState 해주는 함수 
-  // Addcommment = () => {
-  //   const commentsArr = this.state.newComment;
-  //   commentsArr.push({
-  //     text: this.state.newComment
-  //   })
-
-
-  //   this.setState({
-  //     comments: commentsArr
-  //   })
-  // };
-
-  // commmentUpload = (e) => {
-  //   Addcommment();
-  // }
-
   addLike = () => {
     this.setState({
       addLike: 1,
@@ -75,7 +60,8 @@ class MainCecilia extends React.Component {
 
     return (
       <div className="Main" >
-        <nav>
+        <Nav />
+        {/* <nav>
           <div className="navContainer">
             <img
               className="instaLogo"
@@ -92,23 +78,24 @@ class MainCecilia extends React.Component {
               <li><img className="profileImg" src="images/cecilia/profile.png" /></li>
             </ul>
           </div>
-        </nav>
+        </nav> */}
         <main>
           <div className="mainColunm">
             <div className="storyBar">
-              <div className="activeStory">
+              <ActiveStory />
+              {/* <div className="activeStory">
                 <img alt="storyBorder" className="storyBorder" src="images/cecilia/story.png" />
                 <img alt="storyImg" className="storyImg" src="images/cecilia/wecode.png" />
                 <p>wecode</p>
-              </div>
-              <div className="activeStory">
-                <img className="storyBorder" src="images/cecilia/story.png" />
-                <img className="storyImg" src="images/cecilia/mina.jpg" />
+              </div> */}
+              {/* <div className="activeStory">
+                <img className="storyBorder" alt="storyBorder" src="images/cecilia/story.png" />
+                <img className="storyImg" alt="storyImg" src="images/cecilia/mina.jpg" />
                 <p>mina_.___._</p>
               </div>
               <div className="activeStory">
-                <img className="storyBorder" src="images/cecilia/story.png" />
-                <img className="storyImg" src="images/cecilia/daeho.jpg" />
+                <img className="storyBorder" alt="storyBorder" src="images/cecilia/story.png" />
+                <img className="storyImg" alt="storyImg" src="images/cecilia/daeho.jpg" />
                 <p>daehoieem</p>
               </div>
               <div className="activeStory">
@@ -125,7 +112,7 @@ class MainCecilia extends React.Component {
                 <img className="storyBorder" src="images/cecilia/story.png" />
                 <img className="storyImg" src="images/cecilia/byunggon.png" />
                 <p>soral215</p>
-              </div>
+              </div> */}
             </div>
             <div className="articleContainer">
               <article>
