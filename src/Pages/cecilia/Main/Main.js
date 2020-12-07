@@ -2,6 +2,7 @@ import React from "react";
 import Comment from "./Comment"
 import Nav from "../../../Components/Nav/Nav"
 import ActiveStory from "./ActiveStory"
+import SideRecommendContainer from "./SideRecommendContainer"
 import './Main.scss';
 
 
@@ -173,7 +174,8 @@ class MainCecilia extends React.Component {
               <span className="sideId"> devCecy</span>
             </div>
             <p style={{ color: "gray" }}>회원님을 위한 추천</p>
-            <div className="sideRecommendContainer">
+            <SideRecommendContainer />
+            {/* <div className="sideRecommendContainer">
               <div className="sideRecommend1">
                 <img className="sideFollow" alt="sideProfile" src="images/cecilia/wecode.png" />
                 <span className="sideFollowId"> wecode</span>
@@ -208,16 +210,16 @@ class MainCecilia extends React.Component {
               </div>
               <span className="followText"> 팔로우</span>
             </div>
-            <div className="sideRecommendContainer">
-              <div className="sideRecommend6" >
-                <img className="sideFollow" alt="sideProfile" src="images/cecilia/jacob.jpg" />
-                <span className="sideFollowId">jacob.lee19</span>
-              </div>
-              <span className="followText"> 팔로우</span>
+            <div className="sideRecommendContainer"> */}
+            {/* <div className="sideRecommend6" >
+              <img className="sideFollow" alt="sideProfile" src="images/cecilia/jacob.jpg" />
+              <span className="sideFollowId">jacob.lee19</span>
             </div>
+            <span className="followText"> 팔로우</span>
+          </div> */}
           </div>
         </main>
-      </div>
+      </div >
     );
   }
 }
