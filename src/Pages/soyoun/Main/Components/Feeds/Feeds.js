@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import './Feeds.scss';
 
 class Feeds extends Component {
+    constructor() {
+        super();
+        this.state = {
+            comment: "",
+            comments: [],
+        };
+    }
     render() {
         return (
             <div id="Feeds">
@@ -31,20 +38,19 @@ class Feeds extends Component {
                             <div className="like-point">
                                 좋아요 <span>777</span>개
                             </div>
-                            <div className="board-message-upload-user-name">
-                                <span>cat_m_mama</span>
-                                몇 개월된 아가인가요~ 너무 귀여워요!
-                            </div>
+                            <ul className="board-message-upload-user-name">
+                                <li>
+                                    <span className="userId">cat_m_mama</span>
+                                    <span className="userComment ">몇 개월된 아가인가요~ 너무 귀여워요!</span>
+                                </li>
+                            </ul>
                             <div className="Date-time">
                                 42분 전
                             </div>
-                            <ul className="uploadComment">
-                                <li></li>
-                            </ul>
                         </div>
                     </div>
                     <form className="feed-comment-input">
-                        <input placeholder="댓글 달기..."/>
+                        <input type="text" placeholder="댓글 달기..."/>
                         <button type="submit">게시</button>
                     </form>
                 </article>
