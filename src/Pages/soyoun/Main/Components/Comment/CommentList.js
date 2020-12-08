@@ -2,13 +2,13 @@ import React from "react";
 import "./Comments.scss";
 
 class CommentList extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      heart: false,
-    };
-  }
-    render() {
+constructor() {
+  super();
+  this.state = {
+    heart: false,
+  };
+}
+  render() {
     const { comm } = this.props;
     return (
       <li className="feedCommentLists">
