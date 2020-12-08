@@ -64,7 +64,7 @@ class Nav extends React.Component {
             </div>
           </div>
         </div>
-        <ul className='search-list__container' id='search-list-container'></ul>
+        {/*<ul className='search-list__container' id='search-list-container'></ul>*/}
       </header>
     )
   }

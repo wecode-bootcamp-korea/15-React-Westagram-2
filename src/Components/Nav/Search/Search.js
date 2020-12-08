@@ -21,8 +21,6 @@ class Search extends React.Component {
 
 
   render() {
-
-    console.log(this.state.value)
     const isOpenContainer = this.state.value
     const isActiveInput = this.state.value
     const searchText = this.state.value
@@ -32,8 +30,6 @@ class Search extends React.Component {
         return userInfo
       }
     })
-
-    console.log(filteredList.length)
 
     return(
       <div className='Search'>
