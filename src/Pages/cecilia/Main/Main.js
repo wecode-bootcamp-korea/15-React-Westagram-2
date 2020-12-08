@@ -13,11 +13,10 @@ class MainCecilia extends React.Component {
       btn: false,
       addLike: 0,
       likeButton: true,
+      id: "",
       comment: "",
       newComments: [
-        { id: "", text: "" },
-      ],
-      id: ""
+        { userName: "", content: "" }]
     };
   }
 
@@ -25,6 +24,7 @@ class MainCecilia extends React.Component {
   goToLogin = () => {
     this.props.history.push('/login-cecilia')
   }
+
 
   // 댓글 벨류 값 가져오기 
   commmentChange = (e) => {
@@ -36,7 +36,7 @@ class MainCecilia extends React.Component {
   //댓글 배열에 추가 
   addComments = () => {
     const commentsArr = this.state.newComments;
-    commentsArr.push({ id: "devCecy", text: this.state.comment })
+    commentsArr.push({ userName: "devCecy", content: this.state.comment })
 
     this.setState({
       newComments: commentsArr,
@@ -66,6 +66,8 @@ class MainCecilia extends React.Component {
 
   render() {
 
+    const { addLike, newComments, comment, id } = this.state
+
     return (
       <div className="Main" >
         <Nav />
@@ -93,21 +95,20 @@ class MainCecilia extends React.Component {
                     <img className="contentComment" alt="contentComment" src="images/cecilia/commentIcon.png" />
                     <img className="contentShare" alt="contetnShare" src="images/cecilia/send.png" />
                   </div>
-                  <p className="like">좋아요 {this.state.addLike}개</p>
+                  <p className="like">좋아요 {addLike}개</p>
                   <span className="contentId"> devCecy</span>
                   <span className="content"> 제주도 바다에서 사진찍기!👻</span>
                   <p className="moreComents">댓글 모두보기</p>
-                  <Comment id={this.state.id} newComment={this.state.newComments} />
-                  <div className="commentContainer">
+                  <Comment id={id} newComment={newComments} />
+                  <div className="commentInput">
                     <input
                       id="commentBox"
                       className="commentBox"
                       placeholder="댓글달기..."
-                      value={this.state.comment}
+                      value={comment}
                       onChange={this.commmentChange}
                       onKeyPress={this.onKeyPress}
                     />
-                    {/* style={{ onKeyDown: "onKeyDown()" }}  */}
                     <button
                       className="commentBtn"
                       onClick={this.addComments}
