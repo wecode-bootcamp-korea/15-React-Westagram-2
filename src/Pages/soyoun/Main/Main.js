@@ -6,6 +6,8 @@ import Nav from '../../../Components/Nav/Nav';
 import Feeds from './Components/Feeds/Feeds';
 import Aside from './Components/Aside/Aside';
 
+
+
 class Main extends Component {
     render() {
         return (
