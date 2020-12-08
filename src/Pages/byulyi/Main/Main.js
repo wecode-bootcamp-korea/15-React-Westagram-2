@@ -1,6 +1,7 @@
 import React from 'react'
 import Nav from '../../../Components/Nav/Nav'
 import Article from './Components/Article/Article'
+import COMMENTS from "./data/data"
 import './Main.scss'
 
 const STORY = [
@@ -19,10 +20,13 @@ const RECOMMEND_USER = [
 
 class Main extends React.Component {
   state = {
-    comments: [
-      {id:1, userId:'taterandcollette', userCmt:'Adorable 💙💙💙', cmtLike:false},
-      {id:2, userId:'bassetpoppy', userCmt:'Your curtains are sooo pretty!! 😍', cmtLike:false },
-    ],
+    comments: []
+  }
+
+  componentDidMount() {
+    this.setState({
+      comments: COMMENTS
+    })
   }
 
   handleEnter = (userCmt) => {

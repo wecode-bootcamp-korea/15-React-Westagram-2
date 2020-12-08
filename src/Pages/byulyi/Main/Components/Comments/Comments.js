@@ -4,7 +4,6 @@ import "./Comments.scss"
 
 
 class Comments extends Component {
-
   render() {
     const { comments } = this.props;
     return (
