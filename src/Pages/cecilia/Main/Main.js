@@ -62,24 +62,7 @@ class MainCecilia extends React.Component {
     return (
       <div className="Main" >
         <Nav />
-        {/* <nav>
-          <div className="navContainer">
-            <img
-              className="instaLogo"
-              alt="instaLogo"
-              src="images/cecilia/instagramLogo.png"
-              onClick={this.goToLogin} />
-            <div className="searchBarContainer">
-              <input className="searchBar" type="text" placeholder="검색" />
-              <img className="findIcon" alt="find" src="images/cecilia/find2.png" />
-            </div>
-            <ul className="iconContainer">
-              <li><img alt="exploreImg" className="exploreImg" src="images/cecilia/explore.png" /></li>
-              <li><img className="heartImg" src="images/cecilia/heart.png" /></li>
-              <li><img className="profileImg" src="images/cecilia/profile.png" /></li>
-            </ul>
-          </div>
-        </nav> */}
+
         <main>
           <div className="mainColunm">
             <div className="storyBar">
@@ -175,48 +158,6 @@ class MainCecilia extends React.Component {
             </div>
             <p style={{ color: "gray" }}>회원님을 위한 추천</p>
             <SideRecommendContainer />
-            {/* <div className="sideRecommendContainer">
-              <div className="sideRecommend1">
-                <img className="sideFollow" alt="sideProfile" src="images/cecilia/wecode.png" />
-                <span className="sideFollowId"> wecode</span>
-              </div>
-              <span className="followText"> 팔로우</span>
-            </div>
-            <div className="sideRecommendContainer">
-              <div className="sideRecommend2">
-                <img className="sideFollow" alt="sideProfile" src="images/cecilia/aram.jpg" />
-                <span className="sideFollowId">alioolive0206</span>
-              </div>
-              <span className="followText"> 팔로우</span>
-            </div>
-            <div className="sideRecommendContainer">
-              <div className="sideRecommend3">
-                <img className="sideFollow" alt="sideProfile" src="images/cecilia/doory.jpg" />
-                <span className="sideFollowId">dooreplay</span>
-              </div>
-              <span className="followText"> 팔로우</span>
-            </div>
-            <div className="sideRecommendContainer">
-              <div className="sideRecommend4">
-                <img className="sideFollow" alt="sideProfile" src="images/cecilia/eunjin.jpg" />
-                <span className="sideFollowId">workoutbutlazy</span>
-              </div>
-              <span className="followText"> 팔로우</span>
-            </div>
-            <div className="sideRecommendContainer">
-              <div className="sideRecommend5">
-                <img className="sideFollow" alt="sideProfile" src="images/cecilia/haram.jpg" />
-                <span className="sideFollowId">kkram95</span>
-              </div>
-              <span className="followText"> 팔로우</span>
-            </div>
-            <div className="sideRecommendContainer"> */}
-            {/* <div className="sideRecommend6" >
-              <img className="sideFollow" alt="sideProfile" src="images/cecilia/jacob.jpg" />
-              <span className="sideFollowId">jacob.lee19</span>
-            </div>
-            <span className="followText"> 팔로우</span>
-          </div> */}
           </div>
         </main>
       </div >

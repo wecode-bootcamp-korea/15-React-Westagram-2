@@ -11,21 +11,6 @@ class LoginCecilia extends React.Component {
     };
   }
 
-  //로그인 함수 
-  // //id
-  // handleIdChange = (e) => {
-  //   this.setState({
-  //     id: e.target.value // 이벤트가 일어나는곳(e)에서 value값을 가져와 state를 변경 시킨다. 
-  //   })
-  // }
-
-  // //pw
-  // handlePwChange = (e) => {
-  //   this.setState({
-  //     pw: e.target.value
-  //   })
-  // }
-
   // id & pw 함수 합치기 
   handleIdPwChange = (e) => {
     //비구조화 (구조분해할당)
@@ -65,15 +50,6 @@ class LoginCecilia extends React.Component {
     // 5. 조건 (!사용) 하나만 맞는 경우 alert
   };
 
-  // 로그인 버튼누르면 메인으로 이동 
-  // goToMain = () => {
-  //   this.props.history.push('/main-cecilia');
-  //   // if (response.message === "valid user") {
-  //   //   this.props.history.push('/Main');
-  //   // } else {
-  //   //   alert("등록되지않은 회원입니다. 회원가입을 해주세요."")
-  //   // }
-  // }
   render() {
     //console로 setState가 잘되는지 확인 
     // console.log(this.state.id, this.state.pw);
