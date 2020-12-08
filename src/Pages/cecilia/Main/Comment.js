@@ -3,7 +3,7 @@ import "./Comment.scss"
 
 class Comment extends React.Component {
   render() {
-    const { newComment, id } = this.props
+    const { newComment } = this.props
 
     return (
       <div className="uploadedCommentContainer" >

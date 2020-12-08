@@ -44,6 +44,13 @@ class MainCecilia extends React.Component {
     })
   }
 
+  //엔터로 댓글 추가
+  onKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.addComments();
+    }
+  }
+
 
   addLike = () => {
     this.setState({
@@ -62,42 +69,9 @@ class MainCecilia extends React.Component {
     return (
       <div className="Main" >
         <Nav />
-
         <main>
           <div className="mainColunm">
-            <div className="storyBar">
-              <ActiveStory />
-              {/* <div className="activeStory">
-                <img alt="storyBorder" className="storyBorder" src="images/cecilia/story.png" />
-                <img alt="storyImg" className="storyImg" src="images/cecilia/wecode.png" />
-                <p>wecode</p>
-              </div> */}
-              {/* <div className="activeStory">
-                <img className="storyBorder" alt="storyBorder" src="images/cecilia/story.png" />
-                <img className="storyImg" alt="storyImg" src="images/cecilia/mina.jpg" />
-                <p>mina_.___._</p>
-              </div>
-              <div className="activeStory">
-                <img className="storyBorder" alt="storyBorder" src="images/cecilia/story.png" />
-                <img className="storyImg" alt="storyImg" src="images/cecilia/daeho.jpg" />
-                <p>daehoieem</p>
-              </div>
-              <div className="activeStory">
-                <img className="storyBorder" src="images/cecilia/story.png" />
-                <img className="storyImg" src="images/cecilia/taehyun.jpg" />
-                <p>kingth_man</p>
-              </div>
-              <div className="activeStory">
-                <img className="storyBorder" src="images/cecilia/story.png" />
-                <img className="storyImg" src="images/cecilia/eunwoo.jpg" />
-                <p>wecode_founder </p>
-              </div>
-              <div className="activeStory">
-                <img className="storyBorder" src="images/cecilia/story.png" />
-                <img className="storyImg" src="images/cecilia/byunggon.png" />
-                <p>soral215</p>
-              </div> */}
-            </div>
+            <ActiveStory />
             <div className="articleContainer">
               <article>
                 <div className="articleHeader">
@@ -123,17 +97,7 @@ class MainCecilia extends React.Component {
                   <span className="contentId"> devCecy</span>
                   <span className="content"> 제주도 바다에서 사진찍기!👻</span>
                   <p className="moreComents">댓글 모두보기</p>
-                  <div>
-                    <Comment id={this.state.id} newComment={this.state.newComments} />
-                  </div>
-
-                  {/* <div className="uploadCommentContainer">
-                    <ul className="uploadComment">
-                      <li>
-
-                      </li>
-                    </ul>
-                  </div> */}
+                  <Comment id={this.state.id} newComment={this.state.newComments} />
                   <div className="commentContainer">
                     <input
                       id="commentBox"
@@ -141,7 +105,9 @@ class MainCecilia extends React.Component {
                       placeholder="댓글달기..."
                       value={this.state.comment}
                       onChange={this.commmentChange}
-                      style={{ onKeyDown: "onKeyDown()" }} />
+                      onKeyPress={this.onKeyPress}
+                    />
+                    {/* style={{ onKeyDown: "onKeyDown()" }}  */}
                     <button
                       className="commentBtn"
                       onClick={this.addComments}
@@ -156,7 +122,7 @@ class MainCecilia extends React.Component {
               <img className="sideProfile" alt="sideProfile" src="images/cecilia/feedImg1.jpeg" />
               <span className="sideId"> devCecy</span>
             </div>
-            <p style={{ color: "gray" }}>회원님을 위한 추천</p>
+            <p className="recommendText">회원님을 위한 추천</p>
             <SideRecommendContainer />
           </div>
         </main>

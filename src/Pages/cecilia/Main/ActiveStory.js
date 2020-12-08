@@ -15,7 +15,7 @@ const ACTIVESTORY = [
 class ActiveStory extends React.Component {
   render() {
     return (
-      <>
+      <div className="storyBar">
         {
           ACTIVESTORY.map((el) => {
             return (
@@ -27,7 +27,7 @@ class ActiveStory extends React.Component {
             );
           })
         }
-      </>
+      </div>
     )
   }
 }
