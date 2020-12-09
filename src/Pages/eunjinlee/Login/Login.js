@@ -8,7 +8,7 @@ const API = "http://3.35.19.3:8000"
 class LoginEunjinlee extends React.Component {
 
   constructor() {
-    super();
+    super(); 
     this.state = {
       id: "",
       password: "",
@@ -93,37 +93,62 @@ class LoginEunjinlee extends React.Component {
 
     return (
       <div className="Login">
+        <div className="visual-container">
+          <img alt="phone" src="/images/eunjinlee/phone.png" />
+        </div>
         <div className="login-container">
-          <img alt="Instagram" src="images/eunjinlee/instagram-logo.png" />
-          <form id="form">
-            <div className={idError ? 'error' : ''}>
-              <input
-                className="id"
-                type="text" 
-                placeholder="Phone number, username, or email" 
-                onChange={this.updateInputValue}
-              />
-              <p className="err-message">이메일 형식을 다시 확인해주세요.</p>
+          <div className="login-form">
+            <img alt="Instagram" src="images/eunjinlee/instagram-logo.png" />
+            <form id="form">
+              <div className={idError ? 'error' : ''}>
+                <input
+                  className="id"
+                  type="text" 
+                  placeholder="Phone number, username, or email" 
+                  onChange={this.updateInputValue}
+                />
+              </div>
+              <div className={passwordError ? 'error' : ''}>
+                <input 
+                  className="password"
+                  type={hiddenPassword ? 'password' : 'text'}
+                  placeholder="Password"
+                  onChange={this.updateInputValue}
+                />
+                <span onClick={this.togglePassword}>
+                {hiddenPassword ? "show" : "hide"}
+                </span>
+              </div>
+              <button 
+                className={isValidBtn ? "active" : ""}
+                type="submit" 
+                onClick={this.handleClick}
+              ><Link>Log In</Link></button>
+            </form>
+            <div className="facebook-signup">
+              <div className="border">
+                <span></span>
+                <p>OR</p>
+                <span></span>
+              </div>
+              <div className="social-login">
+                <img alt="facebook" src="/images/eunjinlee/facebook-logo.png"/>
+                <p>Log in with Facebook</p>
+              </div>
             </div>
-            <div className={passwordError ? 'error' : ''}>
-              <input 
-                className="password"
-                type={hiddenPassword ? 'password' : 'text'}
-                placeholder="Password"
-                onChange={this.updateInputValue}
-              />
-              <span onClick={this.togglePassword}>
-              {hiddenPassword ? "show" : "hide"}
-              </span>
-              <p className="err-message">비밀번호는 4자리 이상이어야 합니다.</p>
+            <p className="forgot">Forgot Password?</p>
+          </div>
+          <div className="signup-container">
+            <span>Don't have an account?</span>
+            <span>Sign up</span>
+          </div>
+          <div className="app-download-container">
+            <p>Get the app.</p>
+            <div>
+              <img alt="" src="/images/eunjinlee/app-store.png"/>
+              <img alt="" src="/images/eunjinlee/google-play-store.png"/>
             </div>
-            <button 
-              className={isValidBtn ? "active" : ""}
-              type="submit" 
-              onClick={this.handleClick}
-            ><Link>로그인</Link></button>
-          </form>
-          <p className="forgot">Forgot Password?</p>
+          </div>
         </div>
       </div>
     )
