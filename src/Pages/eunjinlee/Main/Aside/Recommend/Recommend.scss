@@ -50,6 +50,7 @@
     color: $font-color-blue;
     font-size: $font-size-extrasmall;
     font-weight: $font-weight-bold;
+    cursor: pointer;
 
     &.following {
       color: $font-color-gray;

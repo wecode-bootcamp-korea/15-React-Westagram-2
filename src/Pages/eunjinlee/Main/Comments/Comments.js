@@ -81,7 +81,6 @@ class Comments extends React.Component {
             className='comment__view-all'
             onClick={this.viewComments}>
             {openComments ? "Hide comments" : `View ${commentList.length === 1 ? '' : 'all'} ${commentList.length} comment${commentList.length === 1 ? '' : 's'}`}
-
           </p>
           <ul className={!openComments ? 'comment__list' : 'comment__list view'}>
             {commentList.map((comment, index) => {
