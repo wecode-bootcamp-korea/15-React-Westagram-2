@@ -12,8 +12,7 @@ class Recommend extends React.Component {
             !newStory
               ? 'suggestion-user-container new-story-false'
               : 'suggestion-user-container'
-          }
-        >
+          }>
           <img alt='User profile' src={profile} />
         </div>
         <div className='suggestion-user-info'>
@@ -21,9 +20,8 @@ class Recommend extends React.Component {
           <p>{status}</p>
         </div>
         <p
-          className='follow-btn'
-          onClick={() => followUser(id)}
-        >
+          className={isFollowing ? 'follow-btn following' : 'follow-btn'}
+          onClick={() => followUser(id)}>
           {isFollowing ? 'Following' : 'Follow'}
         </p>
       </li>

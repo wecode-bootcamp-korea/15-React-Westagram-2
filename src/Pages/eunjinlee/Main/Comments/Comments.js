@@ -80,7 +80,8 @@ class Comments extends React.Component {
           <p 
             className='comment__view-all'
             onClick={this.viewComments}>
-            View {commentList.length === 1 ? '' : 'all'} {commentList.length} comment{commentList.length === 1 ? '' : 's'}
+            {openComments ? "Hide comments" : `View ${commentList.length === 1 ? '' : 'all'} ${commentList.length} comment${commentList.length === 1 ? '' : 's'}`}
+
           </p>
           <ul className={!openComments ? 'comment__list' : 'comment__list view'}>
             {commentList.map((comment, index) => {
@@ -92,7 +93,6 @@ class Comments extends React.Component {
                   text={comment.text}
                   like={comment.like}
                   removeComment={this.removeComment}
-                  // getHeartIndex={this.getHeartIndex}
                   likeComment={this.likeComment}/>              
               )
             })}

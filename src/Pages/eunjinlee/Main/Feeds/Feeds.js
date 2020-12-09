@@ -18,9 +18,7 @@ class Feeds extends React.Component {
   }
 
   render() {
-
     const isArticleOpen = this.state.articleOpen
-
     return (
       <div className='Feeds'>
         <article className='feed-container'>
@@ -29,28 +27,21 @@ class Feeds extends React.Component {
               <img
                 src='https://images.unsplash.com/photo-1516876711927-904e13c2a8d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80'
                 alt='Account'
-                className='feed__user-profile'
-              />
+                className='feed__user-profile'/>
               <div className='feed__user-status-box'>
-                <a>
-                  eunjinlog
-                </a>
-                <p>
-                  Seoul, Korea
-                </p>
+                <a>eunjinlog</a>
+                <p>Seoul, Korea</p>
               </div>
             </div>
             <img
               alt='more-menu'
               src='/images/eunjinlee/more.png'
-              className='feed__more-button'
-            />
+              className='feed__more-button'/>
           </header>
           <img
             alt='Feed'
             src='/images/eunjinlee/myfeed.JPG'
-            className='feed__posts'
-          />
+            className='feed__posts'/>
           <section className='feed-content'>
             <div className='feed__icons-container'>
               <div className='feed__icon-box-left'>
@@ -83,13 +74,13 @@ class Feeds extends React.Component {
               </div>
             </div>
             <article className='feed__article-container'>
-              <span className={'feed__article' + (isArticleOpen ? 'open' : '')} id='article'>
-                <a>
-                  eunjinlog
-                </a>
-                내일은 바로바로 바디프로필 찍는 날..!! 70일간의 고생이 빛을 발하는 날이다. 요 며칠 촬영 의상이랑 화장 어떻게 할지 엄청 고민하고 엎다가 이제 결정했다 후후.. 생애 처음으로 다이어트를 해 봤는데, 생각보다 그렇게 힘들지는 않았던 것 같다! 최대 56kg에서 현재 46kg 찍고 수분조절 중이다. 맛있는 거 다같이 먹으러 가서 편의점 닭가슴살 주섬주섬 뜯고 있는 나를 옆에서 응원해주신 부모님 그리고 친구들 너무 고맙다링,, 내일 촬영 끝나고 치킨 조진다!!!!
+              <span>
+                <a className={isArticleOpen ? 'open' : ''}> eunjinlog </a>
+                <p className={isArticleOpen ? 'feed__article open' : 'feed__article'}>
+                  내일은 바로바로 바디프로필 찍는 날..!! 70일간의 고생이 빛을 발하는 날이다. 요 며칠 촬영 의상이랑 화장 어떻게 할지 엄청 고민하고 엎다가 이제 결정했다 후후.. 생애 처음으로 다이어트를 해 봤는데, 생각보다 그렇게 힘들지는 않았던 것 같다! 최대 56kg에서 현재 46kg 찍고 수분조절 중이다. 맛있는 거 다같이 먹으러 가서 편의점 닭가슴살 주섬주섬 뜯고 있는 나를 옆에서 응원해주신 부모님 그리고 친구들 너무 고맙다링,, 내일 촬영 끝나고 치킨 조진다!!!!
+                </p>
                 <span
-                  className={isArticleOpen ? 'feed__article-more-button open' : 'feed__article-more-button'}
+                  className={isArticleOpen ? 'show-article open' : 'show-article'}
                   onClick={this.openArticle}>
                   {isArticleOpen ? 'hide' : 'more'}
                 </span>
