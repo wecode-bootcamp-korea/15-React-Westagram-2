@@ -1,45 +1,50 @@
 import React from 'react'
 import './Aside.scss'
-import UserInfos from '../UserInfos'
+import Recommend from './Recommend/Recommend'
+import USERINFOS from '../UserInfos'
 
 class Aside extends React.Component {
   constructor() {
     super()
     this.state = {
-      users: {
-        user1: {
-          userId: 'seulaaa_',
-          profile:
-            'https://images.unsplash.com/photo-1607166977372-ad7de6359476?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1234&q=80',
-          status: 'Follows you',
-          newStory: false,
-        },
-      },
+      users: [],
     }
   }
 
-  followUser = () => {
+  componentDidMount = () => {
+    const selectIndex = (totalIndex, selectingNumber) => {
+      let randomIndexArray = []
+      for (let i = 0; i < selectingNumber; i++) {
+        //check if there is any duplicate index
+        let randomNum = Math.floor(Math.random() * totalIndex)
+        if (randomIndexArray.indexOf(randomNum) === -1) {
+          randomIndexArray.push(randomNum)
+        } else {
+          //if the randomNum is already in the array retry
+          i--
+        }
+      }
+      return randomIndexArray
+    }
     this.setState({
-      following: !this.state.following,
+      users: selectIndex(24,5).map((item) => USERINFOS[item])
     })
   }
 
-  selectIndex = (totalIndex, selectingNumber) => {
-    let randomIndexArray = []
-    for (let i = 0; i < selectingNumber; i++) {
-      //check if there is any duplicate index
-      let randomNum = Math.floor(Math.random() * totalIndex)
-      if (randomIndexArray.indexOf(randomNum) === -1) {
-        randomIndexArray.push(randomNum)
-      } else {
-        //if the randomNum is already in the array retry
-        i--
+  followUser = (id) => {
+    const newFollowingList = this.state.users.map((user) => {
+      if (user.id === id) {
+        user.isFollowing = !user.isFollowing
       }
-    }
-    return randomIndexArray
+      return user
+    })
+    this.setState({users: newFollowingList})
   }
 
   render() {
+
+    console.log(this.state.users)
+
     return (
       <div className='Aside'>
         <div className='main-right-inner'>
@@ -64,30 +69,17 @@ class Aside extends React.Component {
               className='main-right__suggestion-list'
               id='suggestionContainer'
             >
-              {this.selectIndex(24, 5).map((index) => {
+              {this.state.users.map((user) => {
                 return (
-                  <li className='suggestion-user' key={UserInfos[index].userId}>
-                    <div
-                      className={
-                        !UserInfos[index].newStory
-                          ? 'suggestion-user-container new-story-false'
-                          : 'suggestion-user-container'
-                      }
-                    >
-                      <img alt='User profile' src={UserInfos[index].profile} />
-                    </div>
-                    <div className='suggestion-user-info'>
-                      <a>{UserInfos[index].userId}</a>
-                      <p>{UserInfos[index].status}</p>
-                    </div>
-                    <p
-                      id={UserInfos[index].id}
-                      className='follow-btn'
-                      onClick={() => this.followUser(UserInfos[index].userId)}
-                    >
-                      {this.state.following ? 'Following' : 'Follow'}
-                    </p>
-                  </li>
+                  <Recommend 
+                    key={user.userId}
+                    id={user.userId}
+                    userId={user.userId}
+                    newStory={user.newStory}
+                    profile={user.profile}
+                    status={user.status}
+                    isFollowing={user.isFollowing}
+                    followUser={this.followUser}/>
                 )
               })}
             </ul>

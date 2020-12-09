@@ -21,7 +21,7 @@ class Comments extends React.Component {
   // }
 
   componentDidMount = () => {
-    fetch('http://localhost:3000/data/data.json', {
+    fetch('http://localhost:3000/data/data-eunjinlee.json', {
       method: 'GET'
     }).then(response => response.json())
       .then(response => {
@@ -39,7 +39,7 @@ class Comments extends React.Component {
 
   getInputValue = (e) => {
     this.setState({
-      value: e.target.value,
+      value: e.target.value.trim(),
     })
   }
 
@@ -48,6 +48,7 @@ class Comments extends React.Component {
     this.setState({
       commentList: this.state.commentList.concat([
         {
+          // id: Math.floor(Math.random() * 9000000) + 1000000,
           id: this.state.commentList.length + 1,
           userId: 'workoutbutlazy', 
           text: this.state.value, 
@@ -71,11 +72,12 @@ class Comments extends React.Component {
         }
       return comment
     })
+    console.log(id)
     this.setState({commentList: newComment})
   }
 
   render() {
-    const { commentList, openComments} = this.state
+    const { commentList, openComments } = this.state
     const isActiveBtn = this.state.value
 
     return (
@@ -91,13 +93,12 @@ class Comments extends React.Component {
               return (  
                 <Comment 
                   key={index}
-                  index={index}
                   id={comment.id}
                   userId={comment.userId}
                   text={comment.text}
                   like={comment.like}
                   removeComment={this.removeComment}
-                  getHeartIndex={this.getHeartIndex}
+                  // getHeartIndex={this.getHeartIndex}
                   likeComment={this.likeComment}/>              
               )
             })}
