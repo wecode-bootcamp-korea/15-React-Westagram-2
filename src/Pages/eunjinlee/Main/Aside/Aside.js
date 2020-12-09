@@ -1,7 +1,6 @@
 import React from 'react'
 import './Aside.scss'
 import Recommend from './Recommend/Recommend'
-import USERINFOS from '../UserInfos'
 
 class Aside extends React.Component {
   constructor() {
@@ -39,7 +38,7 @@ class Aside extends React.Component {
 
   followUser = (id) => {
     const newFollowingList = this.state.users.map((user) => {
-      if (user.id === id) {
+      if (user.userId === id) {
         user.isFollowing = !user.isFollowing
       }
       return user

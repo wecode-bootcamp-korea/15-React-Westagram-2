@@ -23,7 +23,6 @@ class Recommend extends React.Component {
         <p
           className='follow-btn'
           onClick={() => followUser(id)}
-          // onClick={() => console.log(isFollowing)}
         >
           {isFollowing ? 'Following' : 'Follow'}
         </p>
