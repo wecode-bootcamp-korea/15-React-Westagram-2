@@ -1,7 +1,6 @@
 import React from 'react'
 import './Comments.scss'
 import Comment from './Comment/Comment'
-// import COMMENT from './data'
 
 class Comments extends React.Component {
 
@@ -13,13 +12,7 @@ class Comments extends React.Component {
       openComments: false,
     }
   }
-
-  // componentDidMount() {
-  //   this.setState({
-  //     commentList: COMMENT,
-  //   })
-  // }
-
+  
   componentDidMount = () => {
     fetch('http://localhost:3000/data/data-eunjinlee.json', {
       method: 'GET'
@@ -62,7 +55,9 @@ class Comments extends React.Component {
 
   removeComment = (id) => {
     const filteredComments = this.state.commentList.filter((comment) => comment.id !== id)
-    this.setState({commentList: filteredComments})
+    this.setState({
+      commentList: filteredComments
+    })
   }
 
   likeComment = (id) => {
@@ -72,7 +67,6 @@ class Comments extends React.Component {
         }
       return comment
     })
-    console.log(id)
     this.setState({commentList: newComment})
   }
 

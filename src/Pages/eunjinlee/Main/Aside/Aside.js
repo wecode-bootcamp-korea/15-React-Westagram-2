@@ -26,9 +26,15 @@ class Aside extends React.Component {
       }
       return randomIndexArray
     }
-    this.setState({
-      users: selectIndex(24,5).map((item) => USERINFOS[item])
-    })
+
+    fetch('http://localhost:3000/data/userInfos-eunjinlee.json', {
+      method: 'GET'
+    }).then(response => response.json())
+      .then(data => {
+        this.setState({
+          users: selectIndex(24,5).map((item) => data.userInfos[item])
+        })
+      })
   }
 
   followUser = (id) => {
@@ -42,9 +48,6 @@ class Aside extends React.Component {
   }
 
   render() {
-
-    console.log(this.state.users)
-
     return (
       <div className='Aside'>
         <div className='main-right-inner'>
@@ -53,8 +56,8 @@ class Aside extends React.Component {
               <img alt='My profile' src='images/eunjinlee/myprofile.JPG' />
             </div>
             <div className='main-right__my-profile-info-box'>
-              <a className='main-right__my-id user-link'>workoutbutlazy</a>
-              <p className='main-right__my-username'>이은진 Eunjin Lee</p>
+              <a>workoutbutlazy</a>
+              <p>이은진 Eunjin Lee</p>
             </div>
             <a href='#' className='main-right__switch'>
               Switch

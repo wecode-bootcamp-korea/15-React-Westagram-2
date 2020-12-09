@@ -40,7 +40,7 @@
       }
 
       .main-right__my-profile-info-box {
-        margin-right: 52px;
+        margin-right: 56px;
 
         a {
           @include user-link;
@@ -91,58 +91,6 @@
         @include list-style-reset;
         display: flex;
         flex-direction: column;
-
-        .suggestion-user {
-          @include list-style-reset;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin: 6px 0;
-
-          .suggestion-user-container {
-            @include flex-center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            border: 2px solid #dc4166;
-
-            &.new-story-false {
-              border: 1px solid #ccc;
-            }
-
-            img {
-              width: 32px;
-              height: 32px;
-              background: #000;
-              border-radius: 50%;
-              position: relative;
-            }
-          }
-
-          .suggestion-user-info {
-            position: absolute;
-            left: 50px;
-
-            a {
-              @include user-link;
-              margin-bottom: 3px;
-            }
-
-            p {
-              max-width: 200px;
-              font-size: $font-size-extrasmall;
-              color: $font-color-gray;
-              line-height: 14px;
-            }
-          }
-
-          .follow-btn {
-            @include a-decoration-reset;
-            color: $font-color-blue;
-            font-size: $font-size-extrasmall;
-            font-weight: $font-weight-bold;
-          }
-        }
       }
     }
 

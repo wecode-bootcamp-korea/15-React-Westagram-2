@@ -8,9 +8,7 @@ class Comment extends React.Component {
     const {id, userId, text, like, removeComment, likeComment} = this.props
 
     return (
-      <li 
-        className="comment__content-list" 
-        id={id}>
+      <li className="comment__content-list">
         <div>
           <span>
             <a>{userId}</a>{text}

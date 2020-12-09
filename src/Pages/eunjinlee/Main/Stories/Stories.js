@@ -1,35 +1,49 @@
 import React from 'react'
 import './Stories.scss'
-import UserInfos from '../UserInfos'
+import Story from './Story/Story'
+// import USERINFOS from '../UserInfos'
 
 class Stories extends React.Component {
-
-  selectIndex = (totalIndex, selectingNumber) => {
-    let randomIndexArray = []
-    for (let i=0; i<selectingNumber; i++) {   //check if there is any duplicate index
-      let randomNum = Math.floor(Math.random() * totalIndex)
-      if (randomIndexArray.indexOf(randomNum) === -1) {
-        randomIndexArray.push(randomNum)
-      } else { //if the randomNum is already in the array retry
-        i--
-      }
+  constructor() {
+    super()
+    this.state = {
+      users: [],
     }
-    return randomIndexArray
+  }
+
+  componentDidMount = () => {
+    const selectIndex = (totalIndex, selectingNumber) => {
+      let randomIndexArray = []
+      for (let i=0; i<selectingNumber; i++) {   //check if there is any duplicate index
+        let randomNum = Math.floor(Math.random() * totalIndex)
+        if (randomIndexArray.indexOf(randomNum) === -1) {
+          randomIndexArray.push(randomNum)
+        } else { //if the randomNum is already in the array retry
+          i--
+        }
+      }
+      return randomIndexArray
+    }
+    
+    fetch('http://localhost:3000/data/userInfos-eunjinlee.json', {
+      method: 'GET'
+    }).then(response => response.json())
+      .then(data => {
+        this.setState({
+          users: selectIndex(24,15).map((item) => data.userInfos[item])
+        })
+      })
   }
 
   render() {
     return (
       <div className='Stories' id='stories-container'>
-        {this.selectIndex(24,15).map((index) => {
+        {this.state.users.map((user) => {
           return (
-            <div className="story" key={index}>
-              <div className="story__view-button">
-                <img alt="User Profile" src={UserInfos[index].profile} />
-              </div>
-              <div className="story__user-id">
-                {UserInfos[index].userId}
-              </div>
-            </div>
+            <Story 
+              key={user.userId}
+              profile={user.profile}
+              userId={user.userId}/>
           )
         })}
       </div>  

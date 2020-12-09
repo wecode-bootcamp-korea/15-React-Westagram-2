@@ -3,6 +3,8 @@ import './Styles/Common.scss'
 import './Login.scss'
 import { Link } from 'react-router-dom'
 
+const API = "http://3.35.19.3:8000"
+
 class LoginEunjinlee extends React.Component {
 
   constructor() {
@@ -16,25 +18,11 @@ class LoginEunjinlee extends React.Component {
     }
   }
 
-  // //update id value
-  // updateIdInputValue = (e) => {
-  //   this.setState({
-  //     id: e.target.value,
-  //   })
-  // }
-
-  // //update password value
-  // updatePasswordValue = (e) => {
-  //   this.setState({
-  //     password: e.target.value,
-  //   })
-  // }
-
   //update id and password value 
   updateInputValue = (e) => {
     const {id, value} = e.target
     this.setState({
-      [id]: value
+      [id]: value //계산된속성명 
     })
   }
 
@@ -63,60 +51,63 @@ class LoginEunjinlee extends React.Component {
     }
   }
 
-  //check valid id and password
-  checkValidation = (e) => {
-    e.preventDefault()
-    const { id, password } = this.state
-    const checkId = id.includes('@')
-    const checkPassword = password.length >= 4
+  //check valid id and password 다시살릴거니까 안지울것
+  // checkValidation = (e) => {
+  //   e.preventDefault()
+  //   const { id, password } = this.state
+  //   const checkId = id.includes('@')
+  //   const checkPassword = password.length >= 4
 
-    console.log(checkId, checkPassword)
-    if ([id] !== '' && [password] !== '') {
+  //   console.log(checkId, checkPassword)
+  //   if ([id] !== '' && [password] !== '') {
+  //     if (checkId && checkPassword) {
+  //       this.props.history.push("/main-eunjinlee")
+  //     }
+  //     this.checkValidId()
+  //     this.checkValidPassword()
+  //   } else {
+  //     return
+  //   }
+  // }
 
-      if (checkId && checkPassword) {
-        this.props.history.push("/main-eunjinlee")
-      }
-      this.checkValidId()
-      this.checkValidPassword()
-    } else {
-      return
-    }
-
+  handleClick = () => {
+    fetch(`${API}/account/signin`, {
+      method: "POST",
+      body: JSON.stringify({
+        email: this.state.id,
+        password: this.state.password,
+      }),
+    }).then((response) => response.json())
+      .then((result) => {
+        console.log(result)
+        if (result.message === "SUCCESS") {
+          localStorage.setItem("token", result.Authorization)
+          this.props.history.push("/main-eunjinlee")
+        }
+      })
   }
 
   render() {
-    console.log(this.state.id, this.state.password)
     const { id, password, hiddenPassword, idError, passwordError } = this.state
     const isValidBtn = id.includes('@') && password.length >= 4
-    console.log(this.state)
 
     return (
       <div className="Login">
         <div className="login-container">
           <img alt="Instagram" src="images/eunjinlee/instagram-logo.png" />
           <form id="form">
-            <div
-              class={idError ? 'error' : ''} 
-              id="form-control"
-            >
+            <div className={idError ? 'error' : ''}>
               <input
-                id="id" 
+                className="id"
                 type="text" 
                 placeholder="Phone number, username, or email" 
                 onChange={this.updateInputValue}
               />
-              <p 
-                className="err-message" 
-                id="err-message">
-                이메일 형식을 다시 확인해주세요.
-              </p>
+              <p className="err-message">이메일 형식을 다시 확인해주세요.</p>
             </div>
-            <div 
-              class={passwordError ? 'error' : ''} 
-              id="form-control"
-            >
+            <div className={passwordError ? 'error' : ''}>
               <input 
-                id="password" 
+                className="password"
                 type={hiddenPassword ? 'password' : 'text'}
                 placeholder="Password"
                 onChange={this.updateInputValue}
@@ -124,17 +115,13 @@ class LoginEunjinlee extends React.Component {
               <span onClick={this.togglePassword}>
               {hiddenPassword ? "show" : "hide"}
               </span>
-              <p 
-                className="err-message" 
-                id="err-message"
-              >비밀번호는 4자리 이상이어야 합니다.</p>
+              <p className="err-message">비밀번호는 4자리 이상이어야 합니다.</p>
             </div>
             <button 
               className={isValidBtn ? "active" : ""}
               type="submit" 
-              id="login-btn"
-              onClick={this.checkValidation}
-            ><Link to="/main-eunjinlee">로그인</Link></button>
+              onClick={this.handleClick}
+            ><Link>로그인</Link></button>
           </form>
           <p className="forgot">Forgot Password?</p>
         </div>

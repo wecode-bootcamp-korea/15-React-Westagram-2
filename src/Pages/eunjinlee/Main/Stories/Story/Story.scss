@@ -1,0 +1,36 @@
+@import '../../Styles/Common.scss';
+
+.Story {
+  @include flex-center;
+  width: 66px;
+  height: 100px;
+  margin: 0 7px;
+  flex-direction: column;
+
+  .story__view-button {
+    @include flex-center;
+    width: 64px;
+    height: 64px;
+    border: 2px solid #dc4166;
+    border-radius: 50%;
+    margin-bottom: 4px;
+
+    img {
+      width: 56px;
+      height: 56px;
+      background: #aaa;
+      border-radius: 50%;
+    }
+  }
+
+  .story__user-id {
+    max-width: 66px;
+    font-size: $font-size-extrasmall;
+    font-weight: $font-weight-medium;
+    letter-spacing: 0.3px;
+    display: inline-block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
