@@ -28,3 +28,10 @@
     }
   }
 }
+
+@media (max-width: 1000px) {
+  .main-left-right-container {
+    @include flex-center
+    width: 614px;
+  }
+}
