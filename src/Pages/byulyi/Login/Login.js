@@ -19,7 +19,7 @@ class Login extends Component {
     this.setState({user});
   }
 
-  handleSubmitBtn = (e) => {
+  handleSubmitBtn = () => {
     const { id, password } = this.state.user;
     if(id&&password){
       this.props.history.push('/main-byulyi');
