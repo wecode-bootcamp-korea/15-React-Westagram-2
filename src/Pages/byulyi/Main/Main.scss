@@ -8,8 +8,6 @@
 
   .main-wrap {
     display: flex;
-    max-width: 935px;
-    width: 100%;
 
     aside {
       position: sticky;
@@ -161,7 +159,7 @@
         display: flex;
         flex-direction: column;
 
-        .guidline {
+        ul {
           display: flex;
           margin-bottom: 5px;
 

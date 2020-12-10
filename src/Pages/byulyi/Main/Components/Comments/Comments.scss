@@ -16,26 +16,26 @@
       color: $color-black;
     }
 
-    .comment__text {
+    .text {
       width: 500px;
       text-overflow: ellipsis;
     }
 
-    .comment__like {
+    .like {
       position: absolute;
       right: 25px;
     }
 
-    .comment__like img:hover {
+    .img:hover {
       cursor: pointer;
     }
 
-    .comment__delete {
+    .delete {
       position: absolute;
       right: 5px;
     }
 
-    .comment__delete img:hover {
+    .delImg:hover {
       cursor: pointer;
     }
   }

@@ -13,26 +13,26 @@ class Comment extends Component {
   render() {
     const { comment } = this.props;
     return (
-    <li>
-    <a href="#!">{comment.userId}</a>
-    <span className='comment__text'>{comment.userCmt}</span>
-    <span className='comment__like' >
-      <img
-        src={comment.cmtLike === false ? '/images/byulyi/heart.png' : '/images/byulyi/heart_fill.png'}
-        alt='like icon'
-        className='like__img'
-        onClick={this.handleLikeCmt}
-      />
-    </span>
-    <span className='comment__delete'>
-    <img
-      src='/images/byulyi/remove.png'
-      alt='remove icon'
-      className='delete'
-      onClick={this.handleDeleteCmt}
-    />
-    </span>
-  </li>
+      <li>
+        <a href="#!">{comment.userId}</a>
+        <span className='text'>{comment.userCmt}</span>
+        <span className='like' >
+          <img
+            src={!comment.cmtLike ? '/images/byulyi/heart.png' : '/images/byulyi/heart_fill.png'}
+            alt='like icon'
+            className='img'
+            onClick={this.handleLikeCmt}
+          />
+        </span>
+        <span className='delete'>
+        <img
+          src='/images/byulyi/remove.png'
+          alt='remove icon'
+          className='delImg'
+          onClick={this.handleDeleteCmt}
+        />
+        </span>
+      </li>
     );
   }
 }

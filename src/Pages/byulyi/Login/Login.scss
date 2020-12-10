@@ -2,20 +2,16 @@
 @import '../Styles/common.scss';
 
 body {
-  background-color: $color-snow;
-
   @media (max-width: 810px) {
     aside {
       display: none;
     }
   }
 
-  .login__main {
+  .login {
     width: 100%;
     margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex-center;
 
     article {
       display: flex;
@@ -31,10 +27,8 @@ body {
       padding: 10px 0px;
     }
 
-    .login__top {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .top {
+      @include flex-center;
       flex-direction: column;
       padding-top: 20px;
       border: 1px solid $color-gainsoboro;
@@ -73,10 +67,8 @@ body {
         }
       }
 
-      .login__bar {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      .loginBar {
+        @include flex-center;
         width: 268px;
         height: 15px;
 
@@ -88,7 +80,7 @@ body {
           background-color: $color-nobel;
         }
 
-        .bar__text {
+        .barText {
           margin: 0px 20px;
           color: $color-nobel;
           font-size: $font-small;
@@ -97,24 +89,22 @@ body {
         }
       }
 
-      .login__findPw {
+      .loginFindPw {
+        @include flex-center-column;
         margin: 40px;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
 
-        .find__facebook {
+        a:nth-child(1) {
           margin-bottom: 20px;
           color: $color-cobalt;
           font-weight: $weight-semi-bold;
         }
 
-        .find__password {
+        a:nth-child(2) {
           color: $color-cobalt;
           font-size: var(--font-small);
         }
 
-        .login__error {
+        .loginError {
           margin-top: 20px;
           font-size: $font-small;
           color: $color-blue;
@@ -122,28 +112,24 @@ body {
       }
     }
 
-    .login__bottom {
+    .loginBottom {
       margin-top: 10px;
       background-color: $color-white;
 
-      .app__title {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
+      .appTitle {
+        @include flex-center-column;
         padding: 20px 0px;
         border: 1px solid $color-gainsoboro;
 
-        .signup__btn {
+        .signupBtn {
           color: $color-blue;
           font-weight: $weight-bold;
           margin-top: 10px;
         }
       }
 
-      .app__btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      .appBtn {
+        @include flex-center;
         flex-direction: column;
         margin-top: 15px;
         background-color: $color-snow;
@@ -151,7 +137,7 @@ body {
         .btns {
           margin-top: 20px;
 
-          .app__btn__img img {
+          img {
             width: 136px;
             height: 40px;
           }
@@ -160,15 +146,13 @@ body {
     }
   }
 
-  .login__footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .footer {
+    @include flex-center;
     flex-direction: column;
     margin-top: 70px;
     font-size: $font-small;
 
-    .footer__list {
+    .footerList {
       display: flex;
       flex-direction: row;
       margin-bottom: 10px;

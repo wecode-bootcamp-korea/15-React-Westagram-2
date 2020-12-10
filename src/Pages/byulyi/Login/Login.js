@@ -1,5 +1,9 @@
 import React, { Component } from 'react'
+import { data } from "../Main/data/data"
+// import { API } from "../config"
 import './Login.scss'
+
+const API = "http://3.34.133.239:8000/account/signup";
 
 class Login extends Component {
     state = {
@@ -9,21 +13,33 @@ class Login extends Component {
       }
     }
 
-  handleIdChange = (e) => {
-    const user = {...this.state.user, id:e.target.value};
-    this.setState({user});
-  }
-
-  handlePwChange = (e) => {
-    const user = {...this.state.user, password:e.target.value};
-    this.setState({user});
-  }
+    handleIdPwChange = (e) => {
+      const user = {...this.state.user};
+      const value = e.target.value;
+      if(e.target.type === 'text') user.id = value; 
+      if(e.target.type === 'password') user.password = value;
+      this.setState({user});
+    }
 
   handleSubmitBtn = (e) => {
     const { id, password } = this.state.user;
     if(id&&password){
-      this.props.history.push('/main-byulyi');
-    }
+      fetch(API, {
+        method: 'POST',
+        body: JSON.stringify({
+          email: this.state.id,
+          password: this.state.password
+        }),
+      })
+      .then(response => response.json())
+      .then(result => {
+        if(result.message === "SUCCESS"){
+          this.props.history.push('/main-byulyi');
+        }else {
+          alert('로그인 실패입니다!!')
+        }
+      });
+    };
   }
 
 
@@ -32,28 +48,26 @@ class Login extends Component {
     let activateBtn = ((id.includes("@")) && (password.length>=5));
     return (
       <>
-        <main className='login__main'>
+        <main className='login'>
           <article>
             <aside>
               <img src='/images/byulyi/phone.png' alt='phoneImage' />
             </aside>
             <section>
-              <div className='login__top'>
+              <div className='top'>
                 <img src='/images/byulyi/logo_text.png' alt='logoImage' />
                 <form>
                   <input
                     type='text'
                     placeholder='Phone number, username, or email'
-                    id='id'
                     value={id}
-                    onChange={this.handleIdChange}
+                    onChange={this.handleIdPwChange}
                   />
                   <input
                     type='password'
                     placeholder='Password'
-                    id='password'
                     value={password}
-                    onChange={this.handlePwChange}
+                    onChange={this.handleIdPwChange}
                   />
                   <button
                     type="button"
@@ -64,35 +78,35 @@ class Login extends Component {
                     Log In
                   </button>
                 </form>
-                <div className='login__bar'>
+                <div className='loginBar'>
                   <span className='bar'></span>
-                  <span className='bar__text'>OR</span>
+                  <span className='barText'>OR</span>
                   <span className='bar'></span>
                 </div>
-                <div className='login__findPw'>
-                  <a href='#!' className='find__facebook'>
+                <div className='loginFindPw'>
+                  <a>
                     Log in with Facebook
                   </a>
-                  <a href='#!' className='find__password'>
+                  <a>
                     Forgot Password?
                   </a>
-                  <p className='login__error'></p>
+                  <p className='loginError'></p>
                 </div>
               </div>
-              <div className='login__bottom'>
-                <p className='app__title'>
+              <div className='loginBottom'>
+                <p className='appTitle'>
                   Don't have an account?
-                  <a href='#!' className='signup__btn'>
+                  <a href='#!' className='signupBtn'>
                     Sign up
                   </a>
                 </p>
-                <div className='app__btn'>
+                <div className='appBtn'>
                   <p>Get the app.</p>
                   <div className='btns'>
-                    <button className='app__btn__img'>
+                    <button className='imgContainer'>
                       <img src='/images/byulyi/app1.png' alt='appstore-logo' />
                     </button>
-                    <button className='app__btn__img'>
+                    <button className='imgContainer'>
                       <img src='/images/byulyi/app2.png' alt='google-play-logo' />
                     </button>
                   </div>
@@ -101,27 +115,24 @@ class Login extends Component {
             </section>
           </article>
         </main>
-        <footer className='login__footer'>
-          <ul className='footer__list'>
-            <li>About</li>
-            <li>Blog</li>
-            <li>Jobs</li>
-            <li>Help</li>
-            <li>Api</li>
-            <li>Privacy</li>
-            <li>Terms</li>
-            <li>Top Accounts</li>
-            <li>Hashtags</li>
-            <li>Locations</li>
+        <footer className='footer'>
+          <ul className='footerList'>
+            {
+              data.FOOTERLIST_FIRST.map((el) => {
+                return (
+                  <li>{el}</li>
+                )
+              })
+            }
           </ul>
-          <ul className='footer__list'>
-            <li>Beauty</li>
-            <li>Dance & Performance</li>
-            <li>Fitness</li>
-            <li>Food & Drink</li>
-            <li>Home & Garden</li>
-            <li>Music</li>
-            <li>Visual Arts</li>
+          <ul className='footerList'>
+            {
+              data.FOOTERLIST_SECOND.map((el) => {
+                return (
+                  <li>{el}</li>
+                )
+              })
+            }
           </ul>
           <p>© 2020 Instagram from Facebook</p>
         </footer>
