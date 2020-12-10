@@ -1,0 +1,136 @@
+@import '../../../Styles/common.scss';
+@import '../../../Styles/reset.scss';
+
+.feeds {
+  width: 615px;
+  margin-bottom: 50px;
+  border: 1px solid $color-gainsoboro;
+  background-color: $color-white;
+
+  .feeds__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .profile {
+      display: flex;
+      align-items: center;
+      margin: 5px 5px;
+
+      img {
+        width: 40px;
+        height: 40px;
+        margin: 7px 10px;
+        border-radius: 70%;
+      }
+
+      a {
+        @extend %profile-name-a;
+      }
+
+      p {
+        margin-top: 5px;
+        font-size: $font-small;
+      }
+    }
+
+    .more {
+      margin-right: 20px;
+      transform: rotate(90deg);
+      opacity: 0.5;
+    }
+  }
+
+  .feedImg {
+    width: 613px;
+  }
+
+  .feeds__action {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 10px;
+
+    .action__left {
+      img {
+        margin-right: 5px;
+      }
+    }
+  }
+
+  .feeds__like {
+    padding: 3px 10px;
+
+    a {
+      color: $color-black;
+      font-size: $weight-semi-bold;
+      font-weight: $weight-bold;
+    }
+  }
+
+  .feeds__action img:hover {
+    cursor: pointer;
+  }
+
+  .feeds__description {
+    padding: 5px 10px 0px 10px;
+
+    p {
+      margin-bottom: 8px;
+
+      a {
+        margin-right: 5px;
+        font-weight: $weight-bold;
+        color: $color-black;
+      }
+    }
+  }
+
+  .feeds__update {
+    margin: 10px 10px;
+    font-size: $font-small-x2;
+    color: $color-grey;
+  }
+
+  .feeds__comments__form {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid $color-gainsoboro;
+
+    .comment__input {
+      width: 90%;
+      height: 20px;
+      border: 0;
+      padding: 0 12px;
+      margin: 18px 0px;
+      resize: none;
+      overflow: hidden;
+    }
+
+    .comment__input:focus {
+      outline: none;
+    }
+
+    .comment__btn {
+      width: 10%;
+      color: #b4def7;
+      background-color: $color-white;
+    }
+  }
+}
+
+@media (max-width: 665px) {
+  .feeds {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 450px;
+
+    .feedImg {
+      width: 450px;
+    }
+
+    .feeds__comments__form {
+      border: 1px solid $color-gainsoboro;
+    }
+  }
+}

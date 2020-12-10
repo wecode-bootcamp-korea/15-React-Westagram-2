@@ -1,0 +1,177 @@
+@import '../Styles/reset.scss';
+@import '../Styles/common.scss';
+
+body {
+  @media (max-width: 810px) {
+    aside {
+      display: none;
+    }
+  }
+
+  .login {
+    width: 100%;
+    margin: 0 auto;
+    @include flex-center;
+
+    article {
+      display: flex;
+      max-width: 935px;
+      margin-top: 110px;
+    }
+
+    section {
+      display: flex;
+      flex-direction: column;
+      width: 351px;
+      height: 618px;
+      padding: 10px 0px;
+    }
+
+    .top {
+      @include flex-center;
+      flex-direction: column;
+      padding-top: 20px;
+      border: 1px solid $color-gainsoboro;
+      background-color: $color-white;
+
+      form {
+        display: flex;
+        flex-direction: column;
+        margin: 30px 0px;
+
+        input {
+          width: 265px;
+          height: 25px;
+          padding: 15px 5px;
+          margin-bottom: 10px;
+          background-color: $color-snow;
+          border: 1px solid $color-gainsoboro;
+          border-radius: 3px;
+          font-size: $font-small;
+          color: $color-nobel;
+        }
+
+        button {
+          padding: 8px 0px;
+          border-radius: 5px;
+          font-weight: $weight-regular;
+          color: $color-white;
+          background-color: $color-blue;
+          opacity: 0.4;
+          cursor: unset;
+
+          &.active {
+            opacity: 1;
+            cursor: pointer;
+          }
+        }
+      }
+
+      .loginBar {
+        @include flex-center;
+        width: 268px;
+        height: 15px;
+
+        .bar {
+          width: 100px;
+          height: 1px;
+          padding: 0;
+          margin: 0;
+          background-color: $color-nobel;
+        }
+
+        .barText {
+          margin: 0px 20px;
+          color: $color-nobel;
+          font-size: $font-small;
+          font-weight: $weight-bold;
+          top: 10px;
+        }
+      }
+
+      .loginFindPw {
+        @include flex-center-column;
+        margin: 40px;
+
+        a:nth-child(1) {
+          margin-bottom: 20px;
+          color: $color-cobalt;
+          font-weight: $weight-semi-bold;
+        }
+
+        a:nth-child(2) {
+          color: $color-cobalt;
+          font-size: var(--font-small);
+        }
+
+        .loginError {
+          margin-top: 20px;
+          font-size: $font-small;
+          color: $color-blue;
+        }
+      }
+    }
+
+    .loginBottom {
+      margin-top: 10px;
+      background-color: $color-white;
+
+      .appTitle {
+        @include flex-center-column;
+        padding: 20px 0px;
+        border: 1px solid $color-gainsoboro;
+
+        .signupBtn {
+          color: $color-blue;
+          font-weight: $weight-bold;
+          margin-top: 10px;
+        }
+      }
+
+      .appBtn {
+        @include flex-center;
+        flex-direction: column;
+        margin-top: 15px;
+        background-color: $color-snow;
+
+        .btns {
+          margin-top: 20px;
+
+          img {
+            width: 136px;
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  .footer {
+    @include flex-center;
+    flex-direction: column;
+    margin-top: 70px;
+    font-size: $font-small;
+
+    .footerList {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 10px;
+
+      li {
+        margin-right: 10px;
+        color: $color-nobel;
+      }
+
+      @media (max-width: 565px) {
+        li {
+          margin-right: 5px;
+        }
+      }
+    }
+
+    p {
+      margin: 15px 0px 10px 0px;
+      color: $color-nobel;
+    }
+  }
+}

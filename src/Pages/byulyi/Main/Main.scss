@@ -1,0 +1,212 @@
+@import '../Styles/common.scss';
+@import '../Styles/reset.scss';
+
+.main {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+
+  .main-wrap {
+    display: flex;
+
+    aside {
+      position: sticky;
+      max-width: 293px;
+      width: 100%;
+      height: 10vw;
+      margin-left: 30px;
+      top: 0;
+
+      .header {
+        display: flex;
+        align-items: center;
+        height: 56px;
+
+        .header__img-wrap {
+          width: 56px;
+          height: 56px;
+          margin-right: 20px;
+
+          img {
+            width: 100%;
+            height: 100%;
+            border-radius: 70%;
+          }
+        }
+
+        .header__name a {
+          color: $color-black;
+          font-weight: $weight-bold;
+        }
+
+        .header__name p {
+          @extend %profile-name-p;
+          font-size: $font-small;
+        }
+      }
+
+      .aside__story {
+        height: 220px;
+        margin-top: 20px;
+        border: 1px solid $color-gainsoboro;
+        overflow: hidden;
+
+        .story__header {
+          display: flex;
+          justify-content: space-between;
+          padding: 15px;
+
+          span {
+            color: $color-grey;
+            font-weight: $weight-bold;
+          }
+
+          a {
+            color: $color-black;
+            font-weight: $weight-bold;
+          }
+        }
+
+        .story__recommend {
+          display: flex;
+          align-items: center;
+          height: 48px;
+          padding: 15px;
+
+          .story__img-wrap {
+            width: 42px;
+            height: 42px;
+            margin-right: 10px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 70%;
+            }
+          }
+          .profile__name {
+            a {
+              @extend %profile-name-a;
+            }
+            p {
+              @extend %profile-name-p;
+            }
+          }
+        }
+      }
+
+      .aside__users {
+        height: 200px;
+        border: 1px solid $color-gainsoboro;
+        margin-top: 20px;
+        overflow: hidden;
+        padding: 15px;
+
+        .users__header {
+          display: flex;
+          justify-content: space-between;
+
+          span {
+            color: $color-grey;
+            font-weight: $weight-bold;
+          }
+
+          a {
+            color: $color-black;
+            font-weight: $weight-bold;
+          }
+        }
+
+        .user__recommend {
+          display: flex;
+          align-items: center;
+          margin-top: 15px;
+
+          .user__img-wrap {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+
+            img {
+              width: 100%;
+              height: 100%;
+              border-radius: 70%;
+            }
+          }
+
+          .profile__name {
+            margin-right: 30px;
+
+            a {
+              @extend %profile-name-a;
+            }
+            p {
+              @extend %profile-name-p;
+            }
+          }
+
+          .follow-btn {
+            a {
+              color: $color-right-blue;
+              font-size: $font-semi-small;
+            }
+          }
+        }
+      }
+
+      .aside__footer {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+
+        ul {
+          display: flex;
+          margin-bottom: 5px;
+
+          li {
+            margin-left: 5px;
+            color: $color-gainsoboro;
+            font-size: $font-small;
+          }
+        }
+
+        .copyright {
+          margin-left: 5px;
+          color: $color-gainsoboro;
+          font-size: $font-small;
+        }
+      }
+    }
+  }
+
+  .aside__left .aside__footer .copyright {
+    margin-top: 5px;
+  }
+}
+
+@media (max-width: 1034px) {
+  .navbar {
+    max-width: 90%;
+  }
+}
+@media (max-width: 955px) {
+  .aside__left {
+    display: none;
+  }
+
+  .main-left {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 665px) {
+  .main-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    article {
+      width: 450px;
+    }
+  }
+}
