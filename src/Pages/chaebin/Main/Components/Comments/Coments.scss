@@ -1,0 +1,23 @@
+.reple {
+  position: relative;
+  width: 100%;
+  height: 18px;
+  padding-left: 16px;
+  padding-right: 16px;
+  background-color: #fff;
+  display: flex;
+  justify-self: flex-start;
+  margin-bottom: 7px;
+
+  .like_icon {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    width: 7%;
+    right: 16px;
+  }
+
+  .reple_time {
+    font-size: 10px;
+  }
+}

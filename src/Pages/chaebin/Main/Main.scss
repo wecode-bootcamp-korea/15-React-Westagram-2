@@ -1,0 +1,388 @@
+* {
+  box-sizing: border-box;
+
+  .navTopFix {
+    position: fixed;
+    width: 100%;
+
+    nav {
+      display: flex;
+      justify-content: space-around;
+      background: #fff;
+      height: 54px;
+      align-items: center;
+    }
+
+    .nav_main {
+      border-bottom: 1px solid #dbdbdb;
+
+      .main_logo_name {
+        font-family: 'Lobster', cursive;
+        font-size: 25px;
+      }
+
+      .search_box {
+        position: relative;
+
+        .search {
+          width: 215px;
+          height: 28px;
+          padding: 7px;
+          font-size: 12px;
+          border-radius: 3px;
+          color: rgb(153, 153, 153);
+          border: 1px solid #e6e6e6;
+          background-color: #fafafa;
+          text-align: center;
+        }
+
+        .searchIcon {
+          position: absolute;
+          left: 38%;
+          color: #a5a7aa;
+          font-size: 14px;
+          padding-top: 7px;
+        }
+      }
+
+      .icon_box {
+        font-size: 22px;
+        display: flex;
+        justify-content: space-between;
+        width: 208px;
+        align-items: center;
+
+        .nav_miniImg {
+          border-radius: 70%;
+          height: 22px;
+          width: 22px;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+
+  /*메인페이지*/
+
+  .main_container {
+    display: flex;
+    justify-content: center;
+    background-color: #fafafa;
+    width: 100%;
+    height: 1954px;
+    padding-top: 85px;
+
+    .Feeds {
+      flex-direction: row;
+      margin-right: 28px;
+
+      .user_info_box {
+        width: 614;
+        height: 118px;
+        background: #fff;
+        margin-bottom: 24px;
+        border: 1px solid #dbdbdb;
+        display: flex;
+        justify-content: center;
+        padding: 0;
+        margin-top: 0;
+
+        .story_img {
+          width: 82px;
+          height: 122px;
+          display: flex;
+          align-items: center;
+
+          .story_miniImg {
+            border-radius: 70%;
+            height: 66px;
+            width: 66px;
+            overflow: hidden;
+            border: solid 2px #da2d7a;
+            padding: 2px;
+          }
+
+          .story_id {
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+          }
+        }
+      }
+
+      .feed_container {
+        width: 614px;
+        border-width: 10px;
+        border: 1px solid #dbdbdb;
+        background-color: #fff;
+
+        .user_info {
+          width: 100%;
+          height: 60px;
+          background-color: #fff;
+          display: flex;
+          justify-content: flex-start;
+
+          .user_info_img {
+            background-color: #fff;
+            height: 60px;
+            width: 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .miniImg {
+              border-radius: 70%;
+              height: 32px;
+              width: 32px;
+              overflow: hidden;
+            }
+          }
+
+          .user_info_text {
+            background-color: #fff;
+            height: 60px;
+            width: 85%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            font-size: 14px;
+          }
+
+          .dot {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 13px;
+          }
+        }
+
+        .user_img {
+          width: 614px;
+          height: 614px;
+          background-color: tomato;
+
+          .feedImg {
+            width: 100%;
+            height: 100%;
+          }
+        }
+
+        .reple_section {
+          /*좋아요,말풍선라인*/
+          .user_img_icon {
+            width: 100%;
+            height: 40px;
+            padding-left: 16px;
+            padding-right: 16px;
+            background-color: #fff;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-size: 23px;
+            margin-bottom: 7px;
+
+            .heart_icon {
+              width: 7%;
+              color: rgb(237, 73, 86);
+            }
+
+            .speech_icon {
+              width: 7%;
+            }
+
+            .paper_plane_icon {
+              width: 36%;
+            }
+
+            .dots_icon {
+              width: 47%;
+            }
+          }
+
+          /*님이 좋아합니다*/
+          .good_count {
+            width: 100%;
+            height: 24px;
+            padding-left: 16px;
+            padding-right: 16px;
+            background-color: #fff;
+            display: flex;
+            justify-self: flex-start;
+            margin-bottom: 7px;
+
+            .good_count_img {
+              width: 5%;
+
+              .good_count_miniImg {
+                border-radius: 70%;
+                height: 20px;
+                width: 20px;
+                overflow: hidden;
+              }
+            }
+
+            .good_count_name {
+              font-size: 14px;
+            }
+          }
+
+          /*댓글창*/
+          .follower_reple_section {
+            width: 100%;
+            background-color: #fff;
+            font-size: 14px;
+          }
+
+          .wirte_reple {
+            width: 100%;
+            height: 55px;
+            padding-left: 16px;
+            padding-right: 16px;
+            background-color: #fff;
+            display: flex;
+            align-items: center;
+            border-top: 1px solid#dbdbdb;
+
+            .reple_input {
+              width: 554px;
+              height: 18px;
+              border: none;
+            }
+
+            .repleWrite_button {
+              width: 50px;
+              height: 20px;
+              font-size: 14px;
+              color: #b7e1fd;
+              border: none;
+              background-color: #fff;
+            }
+          }
+        }
+      }
+    }
+
+    .main_right {
+      width: 293px;
+      height: 950px;
+      background: #fafafa;
+      padding-top: 30px;
+
+      .aside_right {
+        width: 293px;
+        height: 200px;
+
+        .my_info {
+          /*오른쪽 박스*/
+          width: 293px;
+          height: 56px;
+          display: flex;
+          justify-content: flex-start;
+          align-items: center;
+
+          .my_info_imgBox {
+            height: 56px;
+            width: 56px;
+            background-color: #fafafa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .my_info_img {
+              border-radius: 70%;
+              height: 56px;
+              width: 56px;
+              overflow: hidden;
+            }
+          }
+
+          .my_info_id_name {
+            display: flex;
+            flex-direction: column;
+            margin-left: 12px;
+            width: 199px;
+            /* height: 30px; */
+            background-color: #fafafa;
+            font-size: 14px;
+          }
+
+          .id_change {
+            color: #1da0f6;
+            font-size: 13px;
+          }
+        }
+
+        .aside_header {
+          width: 293px;
+          height: 50px;
+          background: #fafafa;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .aside_header_right1 {
+            font-size: 15px;
+            color: #a5a7aa;
+          }
+
+          .aside_header_right2 {
+            font-size: 13px;
+          }
+        }
+
+        .right_info_box {
+          .right_info {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 321px;
+            height: 58px;
+
+            .recommend_info_imgBox {
+              border-radius: 70%;
+              height: 32px;
+              width: 32px;
+              overflow: hidden;
+
+              .recommend_info_img {
+                border-radius: 70%;
+                height: 36px;
+                width: 36px;
+                overflow: hidden;
+              }
+            }
+
+            /*오른쪽 동그라미 이미지*/
+            .follwer_id_name {
+              margin-left: 12px;
+              width: 199px;
+              /* height: 30px; */
+              background-color: #fafafa;
+              font-size: 14px;
+              display: flex;
+              flex-direction: column;
+
+              .follow {
+                font-size: 12px;
+                color: #a2a2a2;
+              }
+            }
+
+            .id_follow {
+              color: #1da0f6;
+              font-size: 13px;
+              margin-left: 10px;
+            }
+          }
+        }
+
+        .right_box_footer {
+          margin-top: 20px;
+          color: #d1d1d1;
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}
