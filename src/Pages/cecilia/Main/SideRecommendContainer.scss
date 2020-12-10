@@ -1,0 +1,26 @@
+.sideRecommendContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .sideRecommend {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+
+    .sideFollow {
+      width: 32px;
+      height: 32px;
+      border-radius: 70px;
+    }
+
+    .sideFollowId {
+      margin-left: 10px;
+    }
+  }
+  .followText {
+    color: #0095f6;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,98 @@
+.Login {
+  border: 1px solid black;
+  width: 350px;
+  height: 500px;
+  margin: 0 auto;
+
+  header {
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    font-family: 'Lobster', cursive;
+    font-size: 50px;
+    text-align: center;
+  }
+
+  .loginIdContainer {
+    input {
+      all: unset;
+      display: block;
+      width: 268px;
+      height: 25px;
+      margin: 5px auto;
+      padding: 14px 0px 2px 8px;
+      border: 2px solid #efefef;
+      border-radius: 5px;
+      background-color: #fafafa;
+    }
+
+    input::placeholder {
+      color: #999999;
+      line-height: 18px;
+    }
+  }
+
+  .loginPwContainer {
+    position: relative;
+
+    input {
+      all: unset;
+      display: block;
+      width: 268px;
+      height: 25px;
+      margin: 5px auto;
+      padding: 14px 0px 2px 8px;
+      border: 2px solid #efefef;
+      border-radius: 5px;
+      background-color: #fafafa;
+    }
+
+    input::placeholder {
+      color: #999999;
+      line-height: 18px;
+    }
+
+    .showPw {
+      position: absolute;
+      right: 50px;
+      top: 15px;
+      color: #0495f6;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  }
+
+  button {
+    all: unset;
+    display: block;
+    position: relative;
+    width: 268px;
+    height: 30px;
+    padding: 5px;
+    margin: 20px auto;
+    border-radius: 5px;
+    background-color: #c4e0fc;
+    color: white;
+    font-weight: 600px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+
+    //버튼 활성화 색 &의 의미는 새로운 클래스네임 부여?
+    &.active {
+      background-color: #0495f6;
+    }
+
+    .pwShow {
+      position: absolute;
+    }
+  }
+
+  a {
+    display: block;
+    margin-top: 90px;
+    color: navy;
+    text-decoration: none;
+    text-align: center;
+  }
+}
