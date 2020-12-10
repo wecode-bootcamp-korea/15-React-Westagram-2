@@ -1,0 +1,51 @@
+#Feeds{
+  width: 614px;
+  height: auto;
+
+  article {
+    background-color: #fefefe;
+    border: 1px solid #ddd;
+    border-radius: 2px;
+    margin-top: 20px;
+
+    .feed-user {
+      padding: 10px;
+      height: 50px;
+      overflow: hidden;
+      display: flex;
+      justify-content: space-between;
+
+      .feed-pro {
+        display: flex;
+        justify-content: content;
+
+        img{ 
+          width: 30px;
+          height: auto;
+          border-radius: 50%;
+        }
+
+        p {
+          padding: 3px 0 0 10px;
+          font: 14px bold;
+        }
+      }
+
+      .feed-more {
+        width: 30px;
+        padding: 7px;
+        filter: invert(55%) sepia(1%) saturate(689%) hue-rotate(73deg) brightness(99%) contrast(91%);
+        cursor: pointer;
+
+        img {
+          width: 15px;
+        }
+      }
+    }
+
+    img{
+      width: 614px;
+      height: auto;
+    }
+  }
+}

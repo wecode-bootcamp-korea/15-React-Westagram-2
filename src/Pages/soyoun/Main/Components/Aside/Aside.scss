@@ -1,0 +1,25 @@
+#Aside {
+  width: 293px;
+  margin: 20px 0 0 10px;
+
+  footer {
+      width: 300px;
+      margin: 20px 0 15px 15px;
+      font-size: 10px;
+      color: rgb(187, 187, 187);
+      overflow: hidden;
+      letter-spacing: 1px;
+      line-height: 1.5em;
+
+      li{
+          float: left;
+          margin-right: 2px;
+      }
+      
+      p {
+          margin-top: 50px;
+          clear: both;
+      }
+  }    
+}
+

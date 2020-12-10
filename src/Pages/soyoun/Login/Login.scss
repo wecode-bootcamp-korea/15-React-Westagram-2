@@ -1,0 +1,71 @@
+@charset "UTF-8";
+#Login {
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+
+  #baImg {
+    width: 454px;
+    height: 618px;
+  }
+  
+  #login {
+    margin-top: 40px;
+    width: 350px;
+    height: 550px;
+    border: 1px solid #ddd;
+
+    .hearderLog {
+      text-align: center;
+      padding: 25px 0 20px;
+      font: 2.7em 'Lobster', cursive;
+    }
+    
+    form {
+      width: 300px;
+      margin: 0 auto;
+
+      * {
+        display: block;
+        outline: none;
+      }
+
+      input {
+        margin: 5px 0;
+        width: 100%;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        padding: 10px 0 10px 10px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #444;
+      }
+      
+      button {
+        width: 100%;
+        height: 35px;
+        margin-top: 15px;
+        text-align: center;
+        background-color: #c5e0fc;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: bold;
+        font-size: 1em;
+
+          &.activeBtn {
+            background-color: #055cb1;
+        }
+      }
+    }
+
+    .caption {
+      margin-top: 250px;
+      text-align: center;
+      color: #273f6d;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+}
+
