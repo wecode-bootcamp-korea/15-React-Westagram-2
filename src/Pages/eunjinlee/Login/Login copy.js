@@ -8,37 +8,67 @@ const API = "http://3.35.19.3:8000"
 class LoginEunjinlee extends React.Component {
 
   constructor() {
-    super()
+    super(); 
     this.state = {
-      user : {
-        id : '',
-        password : '',
-      },
-      isPwHidden : true,
+      id: "",
+      password: "",
+      hiddenPassword: true,
+      idError: false,
+      passwordError: false,
+      isFocused: false,
     }
   }
 
-  handleIdChange = (e) => {
-    const user = {...this.state.user, id: e.target.value}
-    this.setState({user})
+  //update id and password value 
+  updateInputValue = (e) => {
+    const {id, value} = e.target
+    this.setState({
+      [id]: value //계산된속성명 
+    })
   }
 
-  handlePasswordChange = (e) => {
-    const user = {...this.state.user, password: e.target.value}
-    this.setState({user})
-  }
-
-  handleSubmitBtn = () => {
-    const { id, password } = this.state.user
-    if (id && password) {
-      this.props.history.push('/main-eunjinlee')
-    }
-  }
-
+  //show and hide password value
   togglePassword = () => {
     this.setState({
-      isPwHidden: !this.state.isPwHidden
+      hiddenPassword: !this.state.hiddenPassword
     })
+  }
+
+  //check if id is valid
+  checkValidId = () => {
+    if (!this.state.id.includes('@')) {
+      this.setState({
+        idError: !this.state.idError
+      })
+    }
+  }
+
+  //check if pw is valid
+  checkValidPassword = () => {
+    if (this.state.password.length >= 4) {
+      this.setState({
+        passwordError: !this.state.passwordError
+      })
+    }
+  }
+
+  //check valid id and password 다시살릴거니까 안지울것
+  checkValidation = (e) => {
+    e.preventDefault()
+    const { id, password } = this.state
+    const checkId = id.includes('@')
+    const checkPassword = password.length >= 4
+
+    console.log(checkId, checkPassword)
+    if ([id] !== '' && [password] !== '') {
+      if (checkId && checkPassword) {
+        this.props.history.push("/main-eunjinlee")
+      }
+      this.checkValidId()
+      this.checkValidPassword()
+    } else {
+      return
+    }
   }
 
   handleClick = () => {
@@ -59,10 +89,9 @@ class LoginEunjinlee extends React.Component {
   }
 
   render() {
-    const {id, password, isPwHidden} = this.state.user
-    let activateBtn = ( id.includes("@") && password.length >= 5)
-    const idError = !id.includes("@")
-    const passwordError = password.length<5
+    console.log(this.state.id)
+    const { id, password, hiddenPassword, idError, passwordError } = this.state
+    const isValidBtn = id.includes('@') && password.length >= 4
 
     return (
       <div className="Login">
@@ -74,34 +103,34 @@ class LoginEunjinlee extends React.Component {
             <div className="login-form">
               <img alt="Instagram" src="images/eunjinlee/instagram-logo.png" />
               <form>
-                <div className={idError ? '' : 'error'}>
+                <div className={idError ? 'error' : ''}>
                   <input
                     className="id"
                     type="text" 
                     placeholder="Phone number, username, or email"
-                    onChange={this.handleIdChange}
+                    onChange={this.updateInputValue}
                   />
                   {/*<span className={id ? "floating-label focus" : "floating-label"}
     >Phone number, username, or email</span>*/}
                 </div>
-                <div className={passwordError ? '' : 'error'}>
+                <div className={passwordError ? 'error' : ''}>
                   <input 
                     className="password"
-                    type={isPwHidden ? 'password' : 'text'}
+                    type={hiddenPassword ? 'password' : 'text'}
                     placeholder="Password"
-                    onChange={this.handlePasswordChange}
+                    onChange={this.updateInputValue}
                   />
                   {/*<span 
                   className={password ? "floating-label focus" : "floating-label"}
                   >Password</span>*/}
                   <span onClick={this.togglePassword}>
-                  {isPwHidden ? "show" : "hide"}
+                  {hiddenPassword ? "show" : "hide"}
                   </span>
                 </div>
                 <button 
-                  className={activateBtn ? "active" : ""}
+                  className={isValidBtn ? "active" : ""}
                   type="submit" 
-                  onClick={this.handleSubmitBtn}
+                  onClick={this.handleClick}
                 >Log In</button>
               </form>
               <div className="facebook-signup">

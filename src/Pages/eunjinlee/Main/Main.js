@@ -3,7 +3,7 @@ import Nav from '../../../Components/Nav/Nav'
 import Stories from './Stories/Stories'
 import Feeds from './Feeds/Feeds'
 import Aside from './Aside/Aside'
-import './Main.scss'
+import './Main.scss' 
 
 class MainEunjinlee extends React.Component {
   render() {

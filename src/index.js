@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Routes from './Routes'
-// import MainEunjinlee from './Pages/eunjinlee/Main/Main'
-// import LoginEunjinlee from './Pages/eunjinlee/Login/Login'
-
+import './styles/Reset.scss'
 
 ReactDOM.render(
     <Routes />,

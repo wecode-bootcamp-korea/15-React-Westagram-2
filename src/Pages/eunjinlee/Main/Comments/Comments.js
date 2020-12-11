@@ -8,18 +8,17 @@ class Comments extends React.Component {
     super()
     this.state = {
       commentList: [],
-      value: '',
+      commentValue: '',
       openComments: false,
     }
   }
   
   componentDidMount = () => {
-    fetch('http://localhost:3000/data/data-eunjinlee.json', {
-      method: 'GET'
-    }).then(response => response.json())
-      .then(response => {
+    fetch('http://localhost:3000/data/data-eunjinlee.json')
+      .then(response => response.json())
+      .then(data => {
         this.setState({
-          commentList: response.data
+          commentList: data.commentsData
         })
       })
   }
@@ -32,22 +31,21 @@ class Comments extends React.Component {
 
   getInputValue = (e) => {
     this.setState({
-      value: e.target.value.trim(),
+      commentValue: e.target.value.trim(),
     })
   }
 
   addComment = (e) => {
     e.preventDefault()
+    const { commentList } = this.state
+    const newComment = {
+      id: commentList.length + 1,
+      userId: 'workoutbutlazy', 
+      text: this.state.commentValue, 
+      like: false,
+    }
     this.setState({
-      commentList: this.state.commentList.concat([
-        {
-          // id: Math.floor(Math.random() * 9000000) + 1000000,
-          id: this.state.commentList.length + 1,
-          userId: 'workoutbutlazy', 
-          text: this.state.value, 
-          like: false,
-        }
-      ]),
+      commentList: [...commentList, newComment],
       value: '',
     })
     e.target.reset()
@@ -55,9 +53,7 @@ class Comments extends React.Component {
 
   removeComment = (id) => {
     const filteredComments = this.state.commentList.filter((comment) => comment.id !== id)
-    this.setState({
-      commentList: filteredComments
-    })
+    this.setState({commentList: filteredComments})
   }
 
   likeComment = (id) => {
@@ -82,7 +78,7 @@ class Comments extends React.Component {
             onClick={this.viewComments}>
             {openComments ? "Hide comments" : `View ${commentList.length === 1 ? '' : 'all'} ${commentList.length} comment${commentList.length === 1 ? '' : 's'}`}
           </p>
-          <ul className={!openComments ? 'comment__list' : 'comment__list view'}>
+          <ul className={openComments ? 'comment__list view' : 'comment__list'}>
             {commentList.map((comment, index) => {
               return (  
                 <Comment 

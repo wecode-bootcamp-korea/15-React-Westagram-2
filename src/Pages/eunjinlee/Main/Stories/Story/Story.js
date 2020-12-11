@@ -12,9 +12,7 @@ class Story extends React.Component {
         <div className="story__view-button">
           <img alt="User Profile" src={profile} />
         </div>
-        <div className="story__user-id">
-          {userId}
-        </div>
+        <div className="story__user-id">{userId}</div>
       </li>
     )
   }

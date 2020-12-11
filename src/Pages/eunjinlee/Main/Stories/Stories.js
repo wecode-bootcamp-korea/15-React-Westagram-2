@@ -1,7 +1,6 @@
 import React from 'react'
 import './Stories.scss'
 import Story from './Story/Story'
-// import USERINFOS from '../UserInfos'
 
 class Stories extends React.Component {
   constructor() {
@@ -25,9 +24,8 @@ class Stories extends React.Component {
       return randomIndexArray
     }
     
-    fetch('http://localhost:3000/data/userInfos-eunjinlee.json', {
-      method: 'GET'
-    }).then(response => response.json())
+    fetch('http://localhost:3000/data/userInfos-eunjinlee.json')
+      .then(response => response.json())
       .then(data => {
         this.setState({
           users: selectIndex(24,15).map((item) => data.userInfos[item])

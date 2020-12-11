@@ -1,7 +1,6 @@
-@import '../../Styles/Common.scss';
+@import '../../../../../styles/Common.scss';
 
-
-.suggestion-user {
+.Suggestion {
   @include list-style-reset;
   display: flex;
   justify-content: space-between;
@@ -13,11 +12,9 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid #dc4166;
+    border: 2px solid #dc4166; 
 
-    &.new-story-false {
-      border: 1px solid #ccc;
-    }
+    &.new-story-false {border: 1px solid #ccc;}
 
     img {
       width: 32px;
@@ -32,9 +29,9 @@
     position: absolute;
     left: 50px;
 
-    a {
+    span {
       @include user-link;
-      margin-bottom: 3px;
+      margin-bottom: 4px;
     }
 
     p {
@@ -45,15 +42,13 @@
     }
   }
 
-  .follow-btn {
+  button {
     @include a-decoration-reset;
     color: $font-color-blue;
     font-size: $font-size-extrasmall;
     font-weight: $font-weight-bold;
     cursor: pointer;
 
-    &.following {
-      color: $font-color-gray;
-    }
+    &.following {color: $font-color-gray;}
   }
 }

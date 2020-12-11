@@ -1,4 +1,4 @@
-@import './Styles/Common.scss';
+@import '../../../styles/Common.scss';
 
 .Main {
   @include flex-center;
@@ -31,7 +31,7 @@
 
 @media (max-width: 1000px) {
   .main-left-right-container {
-    @include flex-center
+    @include flex-center;
     width: 614px;
   }
 }

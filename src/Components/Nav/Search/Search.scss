@@ -68,9 +68,8 @@
       display: flex;
     }
 
-    .search-list__result {
+    li {
       @include list-style-reset;
-
       width: 100%;
       min-height: 70px;
       background: white;
@@ -85,7 +84,7 @@
         background: #f7f7f9;
       }
 
-      .search-list__user-image-container {
+      .image-container {
         @include flex-center;
         width: 40px;
         height: 40px;
@@ -101,10 +100,10 @@
         }
       }
 
-      .search-list__user-info-container {
+      .info-container {
         max-width: 160px;
 
-        a {
+        span {
           @include user-link;
           margin-bottom: 3px;
         }
@@ -121,7 +120,5 @@
 }
 
 @media (max-width: 1000px) {
-  .Search {
-    display: none;
-  }
+  .Search {display: none;}
 }

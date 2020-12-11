@@ -1,4 +1,4 @@
-@import '../Styles/Common.scss';
+@import '../../../../styles/Common.scss';
 
 /* main-right aside */
 .Aside {
@@ -7,42 +7,37 @@
   top: 0;
   right: 0;
 
-  .main-right-inner {
+  .aside-inner {
     width: 100%;
     max-width: 293px;
     position: fixed;
 
-    .main-right__my-account-container {
+    .my-account-container {
       width: 100%;
       padding: 20px 0;
-
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      .main-right__my-profile-container {
+      .my-profile-container {
+        @include flex-center;
         width: 64px;
         height: 64px;
         border-radius: 50%;
         border: 1px solid #ddd;
 
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
         img {
           width: 56px;
           height: 56px;
           background: #000;
-
           border-radius: 50%;
         }
       }
 
-      .main-right__my-profile-info-box {
+      .my-profile-info-box {
         margin-right: 56px;
 
-        a {
+        span {
           @include user-link;
           margin-bottom: 3px;
         }
@@ -54,21 +49,22 @@
         }
       }
 
-      .main-right__switch {
+      button {
         @include a-decoration-reset;
         color: $font-color-blue;
         font-size: $font-size-extrasmall;
         font-weight: $font-weight-bold;
+        cursor: pointer;
       }
     }
 
     /* ========= */
-    .main-right__suggestions-container {
+    .suggestions-container {
       display: flex;
       flex-direction: column;
       margin-bottom: 24px;
 
-      .main-right__suggestions-title {
+      .suggestions-title {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -80,14 +76,14 @@
           font-size: $font-size-regular;
         }
 
-        a {
+        button {
           @include a-decoration-reset;
           font-weight: $font-weight-bold;
           font-size: $font-size-extrasmall;
         }
       }
 
-      .main-right__suggestion-list {
+      ul {
         @include list-style-reset;
         display: flex;
         flex-direction: column;
@@ -96,12 +92,10 @@
 
     /* footer */
     footer {
-      p {
-        color: $font-color-lightgray;
-        font-size: $font-size-supersmall;
-        line-height: 20px;
-        margin-bottom: 14px;
-      }
+      color: $font-color-lightgray;
+      font-size: $font-size-extrasmall;
+      line-height: 20px;
+      margin-bottom: 14px;
     }
   }
 }

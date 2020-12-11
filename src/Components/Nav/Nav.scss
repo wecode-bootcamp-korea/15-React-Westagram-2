@@ -22,7 +22,6 @@
     }
 
     .nav__menu-container {
-
       img {
         width: 22px;
         height: 22px;
@@ -33,7 +32,7 @@
         border-radius: 50%;
       }
 
-      .nav__profile-menu-container {
+      .profile-menu-container {
         width: 100vw;
         height: 100vh;
         display: none;
@@ -83,7 +82,7 @@
         }
       }
 
-      .nav__profile-menu-container.open {
+      .profile-menu-container.open {
         display: block;
       }
     }

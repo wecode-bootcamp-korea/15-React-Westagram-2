@@ -19,7 +19,6 @@ class Search extends React.Component {
     })
   }
 
-
   render() {
     const isOpenContainer = this.state.value
     const isActiveInput = this.state.value
@@ -38,21 +37,20 @@ class Search extends React.Component {
           className={isActiveInput ? 'active' : ''}
           placeholder='Search'
           onChange={this.getInputValue}/>
-        <i className='fas fa-search'></i>
+        <i className='fas fa-search'/>
         <ul
-          className={!isOpenContainer || filteredList.length === 0 ? 'search-list-container' : 'search-list-container open' }
-          id='search-list-container'>
+          className={!isOpenContainer || filteredList.length === 0 ? 'search-list-container' : 'search-list-container open' }>
           {
             filteredList.map((userInfo, index) => {
               return (
-                <li className="search-list__result" key={index}>
-                  <div className="search-list__user-image-container">
+                <li key={index}>
+                  <div className="image-container">
                     <img
                       alt="User profile"
-                      src={userInfo.profile} />
+                      src={userInfo.profile}/>
                   </div>
-                  <div className="search-list__user-info-container">
-                    <a>{userInfo.userId}</a>
+                  <div className="info-container">
+                    <span>{userInfo.userId}</span>
                     <p>{userInfo.name}</p>
                   </div>
                 </li>

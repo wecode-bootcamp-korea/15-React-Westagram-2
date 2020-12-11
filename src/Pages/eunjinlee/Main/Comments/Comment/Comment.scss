@@ -1,7 +1,6 @@
-@import '../../Styles/Common.scss';
+@import '../../../../../styles/Common.scss';
 
-
-.comment__content-list {
+.Comment {
   @include list-style-reset;
   display: none;
   justify-content: space-between;
@@ -13,9 +12,7 @@
     display: flex;
     align-items: flex-start;
 
-    &:hover > i {
-      visibility: visible;
-    }
+    &:hover > i {visibility: visible;}
 
     span {
       max-width: 540px;
@@ -24,7 +21,7 @@
       color: $font-color-lighterblack;
       line-height: 17px;
 
-      a {
+      span {
         @include user-link;
         margin-right: 4px;
       }
