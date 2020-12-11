@@ -10,38 +10,47 @@ class LoginEunjinlee extends React.Component {
   constructor() {
     super()
     this.state = {
-      user : {
-        id : '',
-        password : '',
-      },
-      isPwHidden : true,
+      id: "",
+      password: "",
+      isPasswordHidden : true,
+      isIdValid: true,
+      isPasswordValid: true,
     }
   }
 
-  handleIdChange = (e) => {
-    const user = {...this.state.user, id: e.target.value}
-    this.setState({user})
+  handleSubmitChange = (e) => {
+    const {name, value} = e.target
+    this.setState({
+      [name]: value,
+    })
   }
-
-  handlePasswordChange = (e) => {
-    const user = {...this.state.user, password: e.target.value}
-    this.setState({user})
-  }
-
-  handleSubmitBtn = () => {
-    const { id, password } = this.state.user
-    if (id && password) {
-      this.props.history.push('/main-eunjinlee')
-    }
-  }
-
+  
   togglePassword = () => {
     this.setState({
-      isPwHidden: !this.state.isPwHidden
+      isPasswordHidden: !this.state.isPasswordHidden
     })
   }
 
-  handleClick = () => {
+  //근데 
+  isValidId = () => {
+    const {id} = this.state
+    if (id.includes("@")) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  isValidPassword = () => {
+    const {password} = this.state
+    if (password.length >= 5) {
+      return true
+    } else {
+      return false
+    }
+  }
+  
+  handleFormSubmit = () => {
     fetch(`${API}/account/signin`, {
       method: "POST",
       body: JSON.stringify({
@@ -50,7 +59,6 @@ class LoginEunjinlee extends React.Component {
       }),
     }).then((response) => response.json())
       .then((result) => {
-        console.log(result)
         if (result.message === "SUCCESS") {
           localStorage.setItem("token", result.Authorization)
           this.props.history.push("/main-eunjinlee")
@@ -59,10 +67,9 @@ class LoginEunjinlee extends React.Component {
   }
 
   render() {
-    const {id, password, isPwHidden} = this.state.user
-    let activateBtn = ( id.includes("@") && password.length >= 5)
-    const idError = !id.includes("@")
-    const passwordError = password.length<5
+    const {isPasswordHidden} = this.state
+    console.log(this.state.id, this.state.password)
+    console.log(this.isValidId(), this.isValidPassword())
 
     return (
       <div className="Login">
@@ -74,34 +81,31 @@ class LoginEunjinlee extends React.Component {
             <div className="login-form">
               <img alt="Instagram" src="images/eunjinlee/instagram-logo.png" />
               <form>
-                <div className={idError ? '' : 'error'}>
+                <div className={this.isValidId() ? 'input-frame' : 'input-frame error'}>
                   <input
                     className="id"
                     type="text" 
+                    name="id"
                     placeholder="Phone number, username, or email"
-                    onChange={this.handleIdChange}
-                  />
-                  {/*<span className={id ? "floating-label focus" : "floating-label"}
-    >Phone number, username, or email</span>*/}
+                    onChange={this.handleSubmitChange}
+                    onBlur={() => this.isValidId}/>
                 </div>
-                <div className={passwordError ? '' : 'error'}>
+                <div className={this.isValidPassword() ? 'input-frame' : 'input-frame error'}>
                   <input 
                     className="password"
-                    type={isPwHidden ? 'password' : 'text'}
+                    type={isPasswordHidden ? 'password' : 'text'}
+                    name="password"
                     placeholder="Password"
-                    onChange={this.handlePasswordChange}
-                  />
-                  {/*<span 
-                  className={password ? "floating-label focus" : "floating-label"}
-                  >Password</span>*/}
+                    onChange={this.handleSubmitChange}
+                    onBlur={() => this.isValidPassword}/>
                   <span onClick={this.togglePassword}>
-                  {isPwHidden ? "show" : "hide"}
+                  {isPasswordHidden ? "show" : "hide"}
                   </span>
                 </div>
-                <button 
-                  className={activateBtn ? "active" : ""}
-                  type="submit" 
-                  onClick={this.handleSubmitBtn}
+                <button
+                  className={this.isValidId() && this.isValidPassword() ? "submit-btn active" : "submit-btn "}
+                  type="submit"
+                  onClick={this.handleFormSubmit}
                 >Log In</button>
               </form>
               <div className="facebook-signup">
@@ -111,7 +115,7 @@ class LoginEunjinlee extends React.Component {
                   <span></span>
                 </div>
                 <div className="social-login">
-                  <img alt="facebook" src="/images/eunjinlee/facebook-logo.png"/>
+                  <img alt="Facebook" src="/images/eunjinlee/facebook-logo.png"/>
                   <p>Log in with Facebook</p>
                 </div>
               </div>
@@ -124,15 +128,17 @@ class LoginEunjinlee extends React.Component {
             <div className="app-download-container">
               <p>Get the app.</p>
               <div>
-                <img alt="" src="/images/eunjinlee/app-store.png"/>
-                <img alt="" src="/images/eunjinlee/google-play-store.png"/>
+                <img alt="App store" src="/images/eunjinlee/app-store.png"/>
+                <img alt="Google play store" src="/images/eunjinlee/google-play-store.png"/>
               </div>
             </div>
           </section>
         </main>
         <footer>
-          About&nbsp;&nbsp;&nbsp;Blog&nbsp;&nbsp;&nbsp;Jobs&nbsp;&nbsp;&nbsp;Help&nbsp;&nbsp;&nbsp;API&nbsp;&nbsp;&nbsp;Privacy&nbsp;&nbsp;&nbsp;Terms&nbsp;&nbsp;&nbsp;Top Accounts&nbsp;&nbsp;&nbsp;Hashtags&nbsp;&nbsp;&nbsp;Locations<br />Beauty&nbsp;&nbsp;&nbsp;Dance & Performance&nbsp;&nbsp;&nbsp;Fitness&nbsp;&nbsp;&nbsp;Food & Drink&nbsp;&nbsp;&nbsp;Home & Garden&nbsp;&nbsp;&nbsp;Music&nbsp;&nbsp;&nbsp;Visual Arts
-          <br /><br />
+          About&nbsp;&nbsp;&nbsp;Blog&nbsp;&nbsp;&nbsp;Jobs&nbsp;&nbsp;&nbsp;Help&nbsp;&nbsp;&nbsp;API&nbsp;&nbsp;&nbsp;Privacy&nbsp;&nbsp;&nbsp;Terms&nbsp;&nbsp;&nbsp;Top Accounts&nbsp;&nbsp;&nbsp;Hashtags&nbsp;&nbsp;&nbsp;Locations
+          <br/>
+          Beauty&nbsp;&nbsp;&nbsp;Dance & Performance&nbsp;&nbsp;&nbsp;Fitness&nbsp;&nbsp;&nbsp;Food & Drink&nbsp;&nbsp;&nbsp;Home & Garden&nbsp;&nbsp;&nbsp;Music&nbsp;&nbsp;&nbsp;Visual Arts
+          <br/>
           © 2020 Instagram from Facebook
         </footer>
       </div>

@@ -42,7 +42,7 @@
           @include flex-column-start;
           width: 100%;
   
-          div {
+          .input-frame {
             @include flex-column-start;
             width: 100%;
             margin-bottom: 10px;
@@ -50,6 +50,10 @@
   
             &.error input {
               border: 2px solid $error-color;
+            }
+
+            &.success input {
+              border: 2px solid $success-color;
             }
 
             input {
@@ -105,12 +109,12 @@
               position: absolute;
               top: 0;
               right: 0;
-              transform: translate(-14px, 70%);
+              transform: translate(-14px, 100%);
               cursor: pointer;
             }
           }
   
-          button {
+          .submit-btn {
             width: 100%;
             height: 32px;
             background: #d0e9fe;

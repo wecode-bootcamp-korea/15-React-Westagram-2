@@ -19,8 +19,8 @@ class Feeds extends React.Component {
           <header className='feed__header'>
             <div className='feed__user-info-box'>
               <img
-                src='https://images.unsplash.com/photo-1516876711927-904e13c2a8d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80'
                 alt='Account'
+                src='https://images.unsplash.com/photo-1516876711927-904e13c2a8d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80'
                 className='feed__user-profile'/>
               <div className='feed__user-status-box'>
                 <span>eunjinlog</span>
@@ -55,10 +55,8 @@ class Feeds extends React.Component {
                 alt='Profile'
                 src='https://images.unsplash.com/photo-1605553042899-7334093d937d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'/>
               <div>
-                Liked by{' '}
-                <span>workoutbutlazy</span>{' '}
-                and{' '}
-                <span>26 others</span>{' '}
+                Liked by{' '}<span>workoutbutlazy</span>{' '}
+                and{' '}<span>26 others</span>{' '}
               </div>
             </div>
             <article className='feed__article-container'>

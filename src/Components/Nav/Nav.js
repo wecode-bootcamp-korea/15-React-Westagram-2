@@ -1,6 +1,6 @@
 import React from 'react'
-import './Nav.scss'
 import Search from './Search/Search'
+import './Nav.scss'
 
 class Nav extends React.Component {
 

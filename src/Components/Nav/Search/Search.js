@@ -1,6 +1,6 @@
 import React from 'react'
-import './Search.scss'
 import UserInfos from '../../../Pages/eunjinlee/Main/UserInfos'
+import './Search.scss'
 
 
 class Search extends React.Component {
