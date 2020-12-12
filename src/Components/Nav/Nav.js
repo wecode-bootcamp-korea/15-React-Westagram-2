@@ -1,6 +1,7 @@
 import React from 'react'
+import { withRouter } from 'react-router-dom';
 import Search from './Search/Search'
-import './Nav.scss'
+import './Nav.scss' 
 
 class Nav extends React.Component {
 
@@ -11,7 +12,7 @@ class Nav extends React.Component {
     }
   }
 
-  openMenuBtn = () => {
+  toggleMenuBtn = () => {
     this.setState({
       isMenuOpen: !this.state.isMenuOpen
     })
@@ -23,12 +24,14 @@ class Nav extends React.Component {
 
   render() {
     const { isMenuOpen } = this.state
+    const { toggleMenuBtn, logOut } = this
+
     return (
-      <header className='Nav'>
-        <div className='nav'>
-          <img alt='westagram-logo' src='/images/eunjinlee/instagram-logo.png'/>
+      <nav className='Nav'>
+        <div className='navContainer'>
+          <img alt='Instagram logo' src='/images/eunjinlee/instagram-logo.png'/>
           <Search />
-          <div className='nav__menu-container'>
+          <div className='navIcons'>
             <img alt='Home' src='/images/eunjinlee/home.png'/>
             <img alt='Direct Message' src='/images/eunjinlee/message.png'/>
             <img alt='Trend' src='/images/eunjinlee/trend.png'/>
@@ -36,10 +39,10 @@ class Nav extends React.Component {
             <img
               alt='My page'
               src='https://images.unsplash.com/photo-1588007375181-2f890dc38ec3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80'
-              onClick={this.openMenuBtn}/>
+              onClick={toggleMenuBtn}/>
             <div
-              className={isMenuOpen ? 'profile-menu-container open' : 'profile-menu-container'}
-              onClick={this.openMenuBtn}>
+              className={isMenuOpen ? 'navMenu open' : 'navMenu'}
+              onClick={toggleMenuBtn}>
               <ul>
                 <li>
                   <img alt='Profile icon' src='/images/eunjinlee/profile.png'/>Profile
@@ -50,14 +53,14 @@ class Nav extends React.Component {
                 <li>
                   <img alt='Settings icon' src='/images/eunjinlee/settings.png'/>Settings
                 </li>
-                <li onClick={this.logOut}>Log out</li>
+                <li onClick={logOut}>Log out</li>
               </ul>
             </div>
           </div>
         </div>
-      </header>
+      </nav>
     )
   }
 }
 
-export default Nav
+export default withRouter(Nav)

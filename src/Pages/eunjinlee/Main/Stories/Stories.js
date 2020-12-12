@@ -1,6 +1,6 @@
 import React from 'react'
-import './Stories.scss'
 import Story from './Story/Story'
+import './Stories.scss'
 
 class Stories extends React.Component {
   constructor() {
@@ -34,9 +34,10 @@ class Stories extends React.Component {
   }
 
   render() {
+    const { users } = this.state
     return (
-      <div className='Stories' id='stories-container'>
-        {this.state.users.map((user) => {
+      <div className='Stories'>
+        {users.map((user) => {
           return (
             <Story 
               key={user.userId}

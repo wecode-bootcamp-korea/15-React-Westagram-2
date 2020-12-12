@@ -15,42 +15,38 @@ class Feeds extends React.Component {
     const { isArticleOpen } = this.state
     return (
       <div className='Feeds'>
-        <article className='feed-container'>
-          <header className='feed__header'>
-            <div className='feed__user-info-box'>
+        <article className='feedContainer'>
+          <header>
+            <div>
               <img
                 alt='Account'
-                src='https://images.unsplash.com/photo-1516876711927-904e13c2a8d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80'
-                className='feed__user-profile'/>
-              <div className='feed__user-status-box'>
+                src='https://images.unsplash.com/photo-1516876711927-904e13c2a8d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2167&q=80'/>
+              <div>
                 <span>eunjinlog</span>
                 <p>Seoul, Korea</p>
               </div>
             </div>
-            <img
-              alt='more-menu'
-              src='/images/eunjinlee/more.png'
-              className='feed__more-button'/>
+            <img alt='more-menu' src='/images/eunjinlee/more.png'/>
           </header>
           <img
             alt='Feed'
             src='/images/eunjinlee/myfeed.JPG'
-            className='feed__posts'/>
-          <section className='feed-content'>
-            <div className='feed__icons-container'>
-              <div className='feed__icon-box-left'>
+            className='feedPosts'/>
+          <section className='feedContent'>
+            <div className='icons'>
+              <div>
                 <img alt='Heart' src='/images/eunjinlee/heart.png'/>
                 <img alt='Reply' src='/images/eunjinlee/bubble.png'/>
                 <img alt='Message' src='/images/eunjinlee/message.png'/>
               </div>
-              <div className='feed__icon-box-right'>
+              <div>
                 <img
                   alt='Bookmark'
                   src='/images/eunjinlee/bookmark.png'
                   className='feed__icon-bookmark'/>
               </div>
             </div>
-            <div className='feed__likes-container'>
+            <div className='likesContainer'>
               <img
                 alt='Profile'
                 src='https://images.unsplash.com/photo-1605553042899-7334093d937d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80'/>
@@ -59,7 +55,7 @@ class Feeds extends React.Component {
                 and{' '}<span>26 others</span>{' '}
               </div>
             </div>
-            <article className='feed__article-container'>
+            <article className='articleContainer'>
               <span>
                 <a className={isArticleOpen ? 'open' : ''}> eunjinlog </a>
                 <p className={isArticleOpen ? 'open' : ''}>

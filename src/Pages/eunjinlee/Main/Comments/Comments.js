@@ -1,6 +1,6 @@
 import React from 'react'
-import './Comments.scss'
 import Comment from './Comment/Comment'
+import './Comments.scss'
 
 class Comments extends React.Component {
 
@@ -68,17 +68,18 @@ class Comments extends React.Component {
 
   render() {
     const { commentList, openComments } = this.state
-    const isActiveBtn = this.state.value
+    const { viewComments, removeComment, likeComment, addComment, getInputValue } = this
+    const isActiveBtn = this.state.commentValue
 
     return (
       <div className='Comments'>
-        <div className='comments-container'>
+        <div className='commentsContainer'>
           <p 
-            className='comment__view-all'
-            onClick={this.viewComments}>
+            className='viewAll'
+            onClick={viewComments}>
             {openComments ? "Hide comments" : `View ${commentList.length === 1 ? '' : 'all'} ${commentList.length} comment${commentList.length === 1 ? '' : 's'}`}
           </p>
-          <ul className={openComments ? 'comment__list view' : 'comment__list'}>
+          <ul className={openComments ? 'view' : ''}>
             {commentList.map((comment, index) => {
               return (  
                 <Comment 
@@ -87,25 +88,22 @@ class Comments extends React.Component {
                   userId={comment.userId}
                   text={comment.text}
                   like={comment.like}
-                  removeComment={this.removeComment}
-                  likeComment={this.likeComment}/>              
+                  removeComment={removeComment}
+                  likeComment={likeComment}/>              
               )
             })}
           </ul>
         </div>
-        <p className='feed__created-at'>9 HOURS AGO</p>
-        <form 
-          className='comment-form-container'
-          onSubmit={this.addComment}>
+        <p className='createdAt'>9 HOURS AGO</p>
+        <form onSubmit={addComment}>
           <input
             type='text'
             placeholder='Add a comment...'
-            onChange={this.getInputValue}/>
+            onChange={getInputValue}/>
           <button className={isActiveBtn ? 'active' : ''}>Post</button>
         </form>
       </div>
     )
-    
   }
 }
 

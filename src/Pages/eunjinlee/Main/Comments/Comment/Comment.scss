@@ -7,11 +7,12 @@
   align-items: center;
   font-size: var(--font-size-regular);
   margin: 2px 0;
+  &:nth-last-of-type(1),
+  &:nth-last-of-type(2) {display: flex;}
 
   div {
     display: flex;
     align-items: flex-start;
-
     &:hover > i {visibility: visible;}
 
     span {
@@ -41,18 +42,12 @@
     font-size: $font-size-small;
     margin-top: 3px;
     cursor: pointer;
-
     &.fas {
       color: #c6152f;
       font-size: $font-size-small;
       margin-top: 3px;
       cursor: pointer;
     }
-  }
-
-  &:nth-last-of-type(1),
-  &:nth-last-of-type(2) {
-    display: flex;
   }
 }
 

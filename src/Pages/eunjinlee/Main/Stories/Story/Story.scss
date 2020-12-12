@@ -7,7 +7,7 @@
   margin: 0 7px;
   flex-direction: column;
 
-  .story__view-button {
+  .userImg {
     @include flex-center;
     width: 64px;
     height: 64px;
@@ -23,7 +23,7 @@
     }
   }
 
-  .story__user-id {
+  .userId {
     max-width: 66px;
     font-size: $font-size-extrasmall;
     font-weight: $font-weight-medium;

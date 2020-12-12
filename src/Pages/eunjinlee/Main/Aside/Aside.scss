@@ -7,19 +7,19 @@
   top: 0;
   right: 0;
 
-  .aside-inner {
+  .asideInner {
     width: 100%;
     max-width: 293px;
     position: fixed;
 
-    .my-account-container {
+    .myAccount {
       width: 100%;
       padding: 20px 0;
       display: flex;
       justify-content: space-between;
       align-items: center;
 
-      .my-profile-container {
+      .myProfile {
         @include flex-center;
         width: 64px;
         height: 64px;
@@ -34,7 +34,7 @@
         }
       }
 
-      .my-profile-info-box {
+      .myInfo {
         margin-right: 56px;
 
         span {
@@ -59,12 +59,12 @@
     }
 
     /* ========= */
-    .suggestions-container {
+    .suggestionsContainer {
       display: flex;
       flex-direction: column;
       margin-bottom: 24px;
 
-      .suggestions-title {
+      .suggestionsTitle {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -101,7 +101,5 @@
 }
 
 @media (max-width: 1000px) {
-  .Aside {
-    display: none;
-  }
+  .Aside {display: none;}
 }

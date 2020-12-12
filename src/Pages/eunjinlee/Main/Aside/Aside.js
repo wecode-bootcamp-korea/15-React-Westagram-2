@@ -1,6 +1,6 @@
 import React from 'react'
-import './Aside.scss'
 import Recommend from './Suggestion/Suggestion'
+import './Aside.scss'
 
 class Aside extends React.Component {
   constructor() {
@@ -46,19 +46,19 @@ class Aside extends React.Component {
   render() {
     return (
       <div className='Aside'>
-        <div className='aside-inner'>
-          <div className='my-account-container'>
-            <div className='my-profile-container'>
+        <div className='asideInner'>
+          <div className='myAccount'>
+            <div className='myProfile'>
               <img alt='My profile' src='images/eunjinlee/myprofile.JPG' />
             </div>
-            <div className='my-profile-info-box'>
+            <div className='myInfo'>
               <span>workoutbutlazy</span>
               <p>이은진 Eunjin Lee</p>
             </div>
             <button>Switch</button>
           </div>
-          <div className='suggestions-container'>
-            <div className='suggestions-title'>
+          <div className='suggestionsContainer'>
+            <div className='suggestionsTitle'>
               <p>Suggestions For You</p>
               <button>See All</button>
             </div>

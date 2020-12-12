@@ -1,31 +1,37 @@
 import React from 'react'
-import UserInfos from '../../../Pages/eunjinlee/Main/UserInfos'
 import './Search.scss'
-
 
 class Search extends React.Component {
 
   constructor() {
-    super()
-    this.state = {
-      searchList: [],
-      value: '',
-    }
-  }
+     super()
+     this.state = {
+       searchList: [],
+       searchValue: '',
+     }
+   }
 
   getInputValue = (e) => {
     this.setState({
-      value: e.target.value
+      searchValue: e.target.value,
     })
   }
 
+  componentDidMount = () => {
+    fetch('http://localhost:3000/data/userInfos-eunjinlee.json') 
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          searchList: data.userInfos
+        })
+      })
+  }
+
   render() {
-    const isOpenContainer = this.state.value
-    const isActiveInput = this.state.value
-    const searchText = this.state.value
-    const filteredList = UserInfos.filter((userInfo) => {
-      if (userInfo.userId.toLowerCase().includes(searchText.toLowerCase())
-        || userInfo.name.toLowerCase().includes(searchText.toLowerCase())) {
+    const { searchList, searchValue } = this.state
+    const filteredList = searchList.filter((userInfo) => {
+      if (userInfo.userId.toLowerCase().includes(searchValue.toLowerCase())
+        || userInfo.name.toLowerCase().includes(searchValue.toLowerCase())) {
         return userInfo
       }
     })
@@ -34,22 +40,22 @@ class Search extends React.Component {
       <div className='Search'>
         <input
           type='text'
-          className={isActiveInput ? 'active' : ''}
+          className={searchValue ? 'active' : ''}
           placeholder='Search'
           onChange={this.getInputValue}/>
         <i className='fas fa-search'/>
         <ul
-          className={!isOpenContainer || filteredList.length === 0 ? 'search-list-container' : 'search-list-container open' }>
+          className={!searchValue || searchList.length === 0 ? 'searchListContainer' : 'searchListContainer open'}>
           {
             filteredList.map((userInfo, index) => {
               return (
                 <li key={index}>
-                  <div className="image-container">
+                  <div className="image">
                     <img
                       alt="User profile"
                       src={userInfo.profile}/>
                   </div>
-                  <div className="info-container">
+                  <div className="info">
                     <span>{userInfo.userId}</span>
                     <p>{userInfo.name}</p>
                   </div>
@@ -57,7 +63,6 @@ class Search extends React.Component {
               )
             })
           }
-          
         </ul>
       </div>
     )

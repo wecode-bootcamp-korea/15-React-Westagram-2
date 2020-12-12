@@ -4,14 +4,14 @@
   width: 614px;
 
   /* indivisual feed */
-  .feed-container {
+  .feedContainer {
     width: 614px;
     background: white;
     border: 1px solid $border-line-gray;
     border-radius: 4px;
     margin-bottom: 70px;
 
-    .feed__header {
+    header {
       height: 60px;
       background: white;
       display: flex;
@@ -19,10 +19,10 @@
       align-items: center;
       padding: 0 16px;
 
-      .feed__user-info-box {
+      div {
         @include flex-center;
 
-        .feed__user-profile {
+        img {
           width: 32px;
           height: 32px;
           background: #000;
@@ -30,7 +30,7 @@
           margin-right: 16px;
         }
 
-        .feed__user-status-box {
+        div {
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -52,7 +52,7 @@
         }
       }
 
-      .feed__more-button {
+      img {
         width: 14px;
         height: 14px;
       }
@@ -60,14 +60,14 @@
   }
 
   /* Feed Posts */
-  .feed__posts {
+  .feedPosts {
     width: 100%;
     height: 614px;
     background: #f3f3f3;
   }
 
-  .feed-content {
-    .feed__icons-container {
+  .feedContent{
+    .icons {
       width: 100%;
       height: 40px;
       padding: 0 16px;
@@ -75,19 +75,18 @@
       justify-content: space-between;
       align-items: center;
 
-      .feed__icon-box-left img {
+      div img {
         width: 24px;
         height: 24px;
         margin-right: 12px;
       }
 
-      .feed__icon-bookmark {
-        width: 24px;
-        height: 24px;
+      div:last-of-type img {
+        margin-right: 0;
       }
     }
 
-    .feed__likes-container {
+    .likesContainer {
       display: flex;
       padding: 0 16px;
       align-items: center;
@@ -107,7 +106,7 @@
     }
 
     /* feed article */
-    .feed__article-container {
+    .articleContainer {
       font-size: $font-size-regular;
       font-weight: $font-weight-medium;
       line-height: 22px;
@@ -120,7 +119,6 @@
         margin-right: 3px;
         position: relative;
         top: -7px;
-
         &.open {top: -1px;}
       }
 
@@ -130,7 +128,6 @@
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
-
         &.open {
           display: inline;
           text-overflow: '';
@@ -139,7 +136,7 @@
         }
       }
 
-      button  {
+      button {
         display: inline;
         cursor: pointer;
         color: #999;
@@ -148,7 +145,6 @@
         margin-left: 5px;
         position: relative;
         top: -7px;
-
         &.open {
           margin-left: 7px;
           top: 0px;

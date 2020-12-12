@@ -16,8 +16,7 @@
   overflow-y: hidden;
   -ms-overflow-style: none;
   scrollbar-width: none;
-
-  .stories-container::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera*/
   }
 }

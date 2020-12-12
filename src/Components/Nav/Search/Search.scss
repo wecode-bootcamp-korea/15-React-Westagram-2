@@ -17,14 +17,12 @@
     font-size: 15px;
     font-weight: 300;
     text-align: center;
-
     &:focus,
     &.active {
       outline: none;
       text-align: left;
       padding-left: 26px;
     }
-
     &:focus + i,
     &.active + i {
       left: 10px;
@@ -41,7 +39,7 @@
     transform: translateY(-50%);
   }
 
-  .search-list-container {
+  .searchListContainer {
     @include list-style-reset;
     width: 250px;
     max-height: 450px;
@@ -59,14 +57,8 @@
     overflow-x: hidden;
     -ms-overflow-style: none;
     scrollbar-width: none;
-
-    &::-webkit-scrollbar {
-      display: none; /* Chrome, Safari, Opera*/
-    }
-
-    &.open {
-      display: flex;
-    }
+    &::-webkit-scrollbar {display: none;}
+    &.open {display: flex;}
 
     li {
       @include list-style-reset;
@@ -79,12 +71,9 @@
       align-items: center;
       padding: 0 16px;
       cursor: pointer;
+      &:hover {background: #f7f7f9;}
 
-      &:hover {
-        background: #f7f7f9;
-      }
-
-      .image-container {
+      .image {
         @include flex-center;
         width: 40px;
         height: 40px;
@@ -100,7 +89,7 @@
         }
       }
 
-      .info-container {
+      .info {
         max-width: 160px;
 
         span {

@@ -10,13 +10,13 @@ class MainEunjinlee extends React.Component {
     return (
       <div className='Main'>
         <Nav />
-        <main className='main'>
-          <div className='main-left-right-container'>
-            <div className='main-left-container'>
+        <main>
+          <div className='leftRightContainer'>
+            <div className='leftContainer'>
               <Stories />
               <Feeds />
             </div>
-              <Aside />
+            <Aside />
           </div>
         </main>
       </div>

@@ -1,5 +1,4 @@
-@import './Styles/Common.scss';
-@import './Styles/Reset.scss';
+@import '../../../styles/Common.scss';
 
 .Login {
   @include flex-center;
@@ -8,11 +7,21 @@
   background: #f7f8f9;
   flex-direction: column;
 
-  .login-main {
+  main {
     @include flex-center;
-    // font-family: 'Roboto', sans-serif;
+
+    .visualContainer {
+      position: relative;
+
+      img:last-of-type {
+        position: absolute;
+        top: 100px;
+        left: 151px;
+        transform: scale(1.035);
+      }
+    }
   
-    .login-container {
+    .loginContainer {
       min-width: 350px;
       height: 620px;
       display: flex;
@@ -20,7 +29,7 @@
       justify-content: center;
       align-items: center;
   
-      .login-form {
+      .loginForm {
         width: 100%;
         height: 430px;
         background: white;
@@ -47,7 +56,6 @@
             width: 100%;
             margin-bottom: 10px;
             position: relative;
-  
             &.error input {border: 2px solid $error-color;}
 
             input {
@@ -60,7 +68,6 @@
               font-size: $font-size-extrasmall;
               font-weight: $font-weight-medium;
               padding: 0 10px;
-
               &:focus {outline: none;}
             }
 
@@ -76,7 +83,7 @@
             }
           }
   
-          .login-btn {
+          .loginBtn {
             width: 100%;
             height: 32px;
             background: #d0e9fe;
@@ -86,7 +93,6 @@
             border: none;
             border-radius: 5px;
             margin-bottom: 6px;
-  
             &.active {
               background: #1e93f2;
               cursor: pointer;
@@ -99,7 +105,7 @@
             }
           }
 
-          .signup-btn {
+          .signupBtn {
             width: 100%;
             height: 32px;
             color: #1e93f2;
@@ -117,7 +123,7 @@
           }
         }
   
-        .facebook-signup {
+        .facebookSignup {
           width: 100%;
           height: 100px;
           display: flex;
@@ -145,7 +151,7 @@
             }
           }
   
-          .social-login {
+          .socialLogin {
             width: 100%;
             display: flex;
             justify-content: center;
@@ -157,7 +163,8 @@
               margin: 0 3px;
             }
   
-            p {
+            a {
+              @include a-decoration-reset;
               font-weight: $font-weight-bold;
               font-size: $font-size-regular;
               color: #064a81;
@@ -165,43 +172,9 @@
             }
           }
         }
-  
-        .forgot {
-          color: #064a81;
-          font-size: $font-size-extrasmall;
-          font-weight: $font-weight-medium;
-          letter-spacing: 0.3px;
-          cursor: pointer;
-        }
       }
-  
-      .signup-container {
-        width: 100%;
-        background: white;
-        border: 1px solid $border-line-gray;
-        border-radius: 4px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-bottom: 8px;
-  
-        span {
-          height: 63px;
-          font-size: $font-size-small;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-  
-        span:last-of-type {
-          color: #1e93f2;
-          font-weight: $font-weight-bold;
-          margin-left: 4px;
-          cursor: pointer;
-        }
-      }
-  
-      .app-download-container {
+
+      .appDownload {
         width: 100%;
         height: 100px;
         display: flex;
@@ -209,7 +182,7 @@
         flex-direction: column;
         align-items: center;
   
-        p {
+        span {
           font-size: $font-size-small;
           font-weight: $font-weight-medium;
         }
@@ -243,7 +216,7 @@
 }
 
 @media (max-width: 900px) {
-  .visual-container {
+  .visualContainer {
     display: none;
   }
 }

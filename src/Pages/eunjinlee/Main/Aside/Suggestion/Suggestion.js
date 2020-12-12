@@ -1,5 +1,5 @@
 import React from 'react'
-import './Suggestion.scss'
+import './Suggestion.scss' 
 
 class Suggestion extends React.Component {
 
@@ -9,12 +9,10 @@ class Suggestion extends React.Component {
     return (
       <li className='Suggestion' id={userId}>
         <div
-          className={newStory
-            ? 'suggestion-user-container'
-            : 'suggestion-user-container new-story-false'}>
+          className={newStory ? 'users' : 'users newStoryFalse'}>
           <img alt='User profile' src={profile} />
         </div>
-        <div className='suggestion-user-info'>
+        <div className='userInfos'>
           <span>{userId}</span>
           <p>{status}</p>
         </div>

@@ -1,10 +1,6 @@
 import React from 'react'
-import './Styles/Common.scss'
-import './Login.scss'
 import { withRouter } from 'react-router-dom';
-// import { Link } from 'react-router-dom'
-
-// const API = "http://10.168.2.67:8000"
+import './Login.scss'
 
 class LoginEunjinlee extends React.Component {
   constructor() {
@@ -18,6 +14,7 @@ class LoginEunjinlee extends React.Component {
     }
   }
 
+  //get input value
   handleSubmitChange = (e) => {
     const { name, value } = e.target
     this.setState({
@@ -25,7 +22,7 @@ class LoginEunjinlee extends React.Component {
     })
   }
 
-  //validate only after first onBlur
+  //check validation id only after first onBlur
   handleIdOnBlur = () => {
     const { id } = this.state
     if (id.includes('@')) {
@@ -39,6 +36,7 @@ class LoginEunjinlee extends React.Component {
     }
   }
 
+  //check validation pw only after first onBlur
   handlePasswordOnBlur = () => {
     const { password } = this.state
     if (password.length >= 5) {
@@ -52,13 +50,13 @@ class LoginEunjinlee extends React.Component {
     }
   }
 
-  //fetch API when submitted
+  //login
   logIn = (e) => {
     e.preventDefault()
     const { id, password, isIdError, isPasswordError } = this.state
     if (!isIdError && !isPasswordError) {
-    // fetch('http://10.168.2.67:8000/users/sign_in', { //주형님 api
-    fetch('http://10.168.2.91:8000/user/signin', { //현주님 api
+    fetch('http://10.168.2.67:8000/users/sign_in', { //주형님 api
+    // fetch('http://10.168.2.91:8000/user/signin', { //현주님 api
       method: 'POST',
       body: JSON.stringify({
         email: id,
@@ -73,16 +71,17 @@ class LoginEunjinlee extends React.Component {
         } else {
           alert("Login failed")
         }
-      })
+      }).catch(err => alert(err))
     }
   }
 
+  //signup
   signUp = (e) => {
     e.preventDefault()
     const { id, password, isIdError, isPasswordError } = this.state
     if (!isIdError && !isPasswordError) {
-    // fetch('http://10.168.2.67:8000/users/sign_up', { //주형님 api
-    fetch('http://10.168.2.91:8000/user/signup', { //현주님 api
+    fetch('http://10.168.2.67:8000/users/sign_up', { //주형님 api
+    // fetch('http://10.168.2.91:8000/user/signup', { //현주님 api
       method: 'POST',
       body: JSON.stringify({
         email: id,
@@ -96,29 +95,32 @@ class LoginEunjinlee extends React.Component {
         } else {
           alert("Sign up failed. Retry.")
         }
-      })
+      }).catch(err => alert(err))
     }
   }
 
+  goToMain = () => {
+    this.props.history.push("/main-eunjinlee")
+  }
+
   render() {
-    const {
-      id,
-      password,
-      isPasswordHidden,
-      isIdError,
-      isPasswordError,
-    } = this.state
+    const { id, password, isPasswordHidden, isIdError, isPasswordError } = this.state
+    const { goToMain, handleSubmitChange, handleIdOnBlur, handlePasswordOnBlur, logIn, signUp} = this
     const isButtonActive = id.includes('@') && password.length >= 5
 
     return (
       <div className='Login'>
-        <main className='login-main'>
-          <aside className='visual-container'>
+        <main>
+          <aside className='visualContainer'>
             <img alt='phone' src='/images/eunjinlee/phone.png' />
+            <img alt='insta feed' src='/images/eunjinlee/phone-5.jpg' />
           </aside>
-          <section className='login-container'>
-            <div className='login-form'>
-              <img alt='Instagram' src='images/eunjinlee/instagram-logo.png' />
+          <section className='loginContainer'>
+            <div className='loginForm'>
+              <img 
+                alt='Instagram' 
+                src='images/eunjinlee/instagram-logo.png' 
+                onClick={goToMain}/>
               <form>
                 <div className={isIdError ? 'error' : ''}>
                   <input
@@ -126,9 +128,8 @@ class LoginEunjinlee extends React.Component {
                     type='text'
                     name='id'
                     placeholder='Phone number, username, or email'
-                    onChange={this.handleSubmitChange}
-                    onBlur={this.handleIdOnBlur}
-                  />
+                    onChange={handleSubmitChange}
+                    onBlur={handleIdOnBlur}/>
                 </div>
                 <div className={isPasswordError ? 'error' : ''}>
                   <input
@@ -136,54 +137,45 @@ class LoginEunjinlee extends React.Component {
                     type={isPasswordHidden ? 'password' : 'text'}
                     name='password'
                     placeholder='Password'
-                    onChange={this.handleSubmitChange}
-                    onBlur={this.handlePasswordOnBlur}
-                  />
+                    onChange={handleSubmitChange}
+                    onBlur={handlePasswordOnBlur}/>
                   <span
-                    onClick={() =>
-                      this.setState({
-                        isPasswordHidden: !this.state.isPasswordHidden,
-                      })
-                    }
-                  >
+                    onClick={() => this.setState({isPasswordHidden: !this.state.isPasswordHidden})}>
                     {isPasswordHidden ? 'show' : 'hide'}
                   </span>
                 </div>
                 <button
-                  className={isButtonActive ? 'login-btn active' : 'login-btn '}
+                  className={isButtonActive ? 'loginBtn active' : 'loginBtn '}
                   type='submit'
-                  onClick={this.logIn}>
+                  onClick={logIn}>
                   Log In
                 </button>
                 <button
-                  className={isButtonActive ? 'signup-btn active' : 'signup-btn '}
+                  className='signupBtn'
                   type='submit'
-                  onClick={this.signUp}>
+                  onClick={signUp}>
                   Sign Up
                 </button>
               </form>
-              <div className='facebook-signup'>
+              <div className='facebookSignup'>
                 <div className='border'>
                   <span />
                   <p>OR</p>
                   <span />
                 </div>
-                <div className='social-login'>
-                  <img
-                    alt='Facebook'
-                    src='/images/eunjinlee/facebook-logo.png'/>
-                  <p>Log in with Facebook</p>
+                <div className='socialLogin'>
+                  <img alt='Facebook' src='/images/eunjinlee/facebook-logo.png'/>
+                  <a href="https://www.facebook.com">Log in with Facebook</a>
                 </div>
               </div>
             </div>
-            <div className='app-download-container'>
-              <p>Get the app.</p>
+            <div className='appDownload'>
+              <span>Get the app.</span>
               <div>
                 <img alt='App store' src='/images/eunjinlee/app-store.png' />
                 <img
                   alt='Google play store'
-                  src='/images/eunjinlee/google-play-store.png'
-                />
+                  src='/images/eunjinlee/google-play-store.png'/>
               </div>
             </div>
           </section>
@@ -203,4 +195,4 @@ class LoginEunjinlee extends React.Component {
   }
 }
 
-export default LoginEunjinlee
+export default withRouter(LoginEunjinlee)

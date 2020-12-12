@@ -7,14 +7,13 @@
   align-items: center;
   margin: 6px 0;
 
-  .suggestion-user-container {
+  .users {
     @include flex-center;
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    border: 2px solid #dc4166; 
-
-    &.new-story-false {border: 1px solid #ccc;}
+    border: 2px solid #dc4166;
+    &.newStoryFalse {border: 1px solid #ccc;}
 
     img {
       width: 32px;
@@ -25,7 +24,7 @@
     }
   }
 
-  .suggestion-user-info {
+  .userInfos {
     position: absolute;
     left: 50px;
 
@@ -48,7 +47,6 @@
     font-size: $font-size-extrasmall;
     font-weight: $font-weight-bold;
     cursor: pointer;
-
     &.following {color: $font-color-gray;}
   }
 }
