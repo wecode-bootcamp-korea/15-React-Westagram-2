@@ -17,6 +17,10 @@ class Nav extends React.Component {
     })
   }
 
+  logOut = () => {
+    this.props.history.push("/login-eunjinlee")
+  }
+
   render() {
     const { isMenuOpen } = this.state
     return (
@@ -46,7 +50,7 @@ class Nav extends React.Component {
                 <li>
                   <img alt='Settings icon' src='/images/eunjinlee/settings.png'/>Settings
                 </li>
-                <li>Log out</li>
+                <li onClick={this.logOut}>Log out</li>
               </ul>
             </div>
           </div>
