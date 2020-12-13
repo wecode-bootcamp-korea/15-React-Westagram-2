@@ -14,7 +14,7 @@ class Comments extends React.Component {
   }
   
   componentDidMount = () => {
-    fetch('http://localhost:3000/data/data-eunjinlee.json')
+    fetch('http://localhost:3000/data/commentsData.json')
       .then(response => response.json())
       .then(data => {
         this.setState({
@@ -67,9 +67,8 @@ class Comments extends React.Component {
   }
 
   render() {
-    const { commentList, openComments } = this.state
+    const { commentList, openComments, commentValue } = this.state
     const { viewComments, removeComment, likeComment, addComment, getInputValue } = this
-    const isActiveBtn = this.state.commentValue
 
     return (
       <div className='Comments'>
@@ -100,7 +99,7 @@ class Comments extends React.Component {
             type='text'
             placeholder='Add a comment...'
             onChange={getInputValue}/>
-          <button className={isActiveBtn ? 'active' : ''}>Post</button>
+          <button className={commentValue ? 'active' : ''}>Post</button>
         </form>
       </div>
     )

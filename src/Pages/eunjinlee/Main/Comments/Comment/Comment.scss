@@ -4,7 +4,7 @@
   @include list-style-reset;
   display: none;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   font-size: var(--font-size-regular);
   margin: 2px 0;
   &:nth-last-of-type(1),
@@ -17,10 +17,11 @@
 
     span {
       max-width: 540px;
-      margin-top: 3px;
+      margin-top: 2px;
       font-size: $font-size-regular;
+      font-weight: $font-weight-regular;
       color: $font-color-lighterblack;
-      line-height: 17px;
+      line-height: 20px;
 
       span {
         @include user-link;
@@ -40,7 +41,7 @@
   .fa-heart {
     color: #777;
     font-size: $font-size-small;
-    margin-top: 3px;
+    margin-top: 5px;
     cursor: pointer;
     &.fas {
       color: #c6152f;

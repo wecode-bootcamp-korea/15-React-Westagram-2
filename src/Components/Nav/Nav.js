@@ -38,7 +38,7 @@ class Nav extends React.Component {
             <img alt='Heart' src='/images/eunjinlee/heart.png'/>
             <img
               alt='My page'
-              src='https://images.unsplash.com/photo-1588007375181-2f890dc38ec3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80'
+              src='/images/eunjinlee/myprofile.jpg'
               onClick={toggleMenuBtn}/>
             <div
               className={isMenuOpen ? 'navMenu open' : 'navMenu'}
