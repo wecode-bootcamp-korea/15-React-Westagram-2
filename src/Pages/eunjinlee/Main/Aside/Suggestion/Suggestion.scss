@@ -1,0 +1,52 @@
+@import '../../../../../styles/Common.scss';
+
+.Suggestion {
+  @include list-style-reset;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 6px 0;
+
+  .users {
+    @include flex-center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid #dc4166;
+    &.newStoryFalse {border: 1px solid #ccc;}
+
+    img {
+      width: 32px;
+      height: 32px;
+      background: #000;
+      border-radius: 50%;
+      position: relative;
+    }
+  }
+
+  .userInfos {
+    position: absolute;
+    left: 50px;
+
+    span {
+      @include user-link;
+      margin-bottom: 4px;
+    }
+
+    p {
+      max-width: 190px;
+      font-size: $font-size-extrasmall;
+      color: $font-color-gray;
+      line-height: 14px;
+    }
+  }
+
+  button {
+    @include a-decoration-reset;
+    color: $font-color-blue;
+    font-size: $font-size-extrasmall;
+    font-weight: $font-weight-bold;
+    cursor: pointer;
+    &.following {color: $font-color-gray;}
+  }
+}

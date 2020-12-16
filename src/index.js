@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Nav from './Components/Nav/Nav'
+import Routes from './Routes'
+import './styles/Reset.scss'
 
 ReactDOM.render(
-    <Nav />,
+    <Routes />,
   document.getElementById('root')
 );
-

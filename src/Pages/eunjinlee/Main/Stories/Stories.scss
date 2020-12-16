@@ -1,0 +1,22 @@
+@import '../../../../styles/Common.scss';
+
+.Stories{
+  width: 614px;
+  height: 118px;
+  background: white;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  border: 1px solid $border-line-gray;
+  border-radius: 4px;
+  margin-bottom: 35px;
+  padding: 0 8px;
+  position: relative;
+  overflow: scroll;
+  overflow-y: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+}
